@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Quyết định thôi việc</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/src/main/resources/style.css" />
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <a class="navbar-brand brand" href="/src/main/resources/templates/index.html">HRM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-content">
+            <ul class="navbar-nav mr-auto">
+                <!-- Nhân viên -->
+                <li class="nav-item nav-title">
+                    <a class="nav-link" href="/src/main/resources/templates/employee/employee.html"
+                        style="color: black;"><b>Nhân viên</b></a>
+                </li>
+                <!-- Hợp đồng -->
+                <li class="nav-item dropdown nav-title">
+                    <a class="nav-link dropdown-toggle" href="#" id="contract-bar" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="color: black">
+                        <b>Hợp đồng</b>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">#</a>
+                        <a class="dropdown-item" href="#">#</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">#</a>
+                    </div>
+                </li>
+                <!-- Quyết định bổ nhiệm -->
+                <li class="nav-item dropdown nav-title">
+                    <a class="nav-link dropdown-toggle" href="#" id="hr-decision" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="color: black">
+                        <b>Tuyển dụng</b>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/src/main/resources/templates/recruitment/appoint.html">Quyết
+                            định bổ nhiệm</a>
+                        <a class="dropdown-item" href="/src/main/resources/templates/recruitment/lay-off.html">Quyết
+                            định thôi việc</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- Contact us -->
+            <div class="form-inline my-2 my-lg-0 contact">
+                <!-- <p><i class="fas fa-map-marked fa-fw"></i> 10 Nguyen Trai, Ha Dong, Ha Noi</p> -->
+                <p><i class="fa fa-phone fa-fw"></i> Contact us: 0123 456 789</p>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header">
+        Quyết định thôi việc
+    </header>
+
+    <div class="container-fluid" style="margin-left: 30px;">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- searchbar -->
+                <div class="container searchbar">
+                    <form action="#" method="GET" class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Nhập tên nhân viên"
+                            aria-label="search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                    </form>
+                </div>
+                <div>
+                    <table class="table table-hover table-info" style="max-height: 800px;">
+                        <thead class="head-table">
+                            <th>Mã NV</th>
+                            <th>Tên</th>
+                            <th>Địa chỉ</th>
+                            <th>SĐT</th>
+                            <th>Ghi chú</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#</td>
+                                <td>#</td>
+                                <td>#</td>
+                                <td>#</td>
+                                <td>#</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group" style="margin-top: 5px;">
+                    <label for="title-staff" style="font-size: 20px;">Lý do thôi việc </label>
+                    <div>
+                        <textarea class="form-control" rows="5" id="comment" style="max-width: 400px;"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <form action="#" method="GET">
+                        <button class="btn btn-success" onclick="document.getElementById('notify').style.display='block'" 
+                        style="position: relative;">Submit</button>
+                    </form>
+
+                    <!-- Modal thông báo -->
+                    <div class="modal" id="notify" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered animate">
+                            <div class="modal-content">
+                            
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Thông báo</h5>
+                                    <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close"
+                                    onclick="document.getElementById('notify').style.display='none'">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                
+                                <div class="modal-body">
+                                    Đã lưu thay đổi!
+                                </div>
+                                
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"
+                                    onclick="document.getElementById('notify').style.display='none'">Đóng</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script type="text/javascript">
+        $('#notify').click(function () {
+            window.setTimeout(function () {
+                $('#close').click();
+            }, 3000)
+        });
+    </script> -->
+
+</body>
+
+</html>

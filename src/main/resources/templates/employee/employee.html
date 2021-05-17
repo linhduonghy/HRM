@@ -1,10 +1,267 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Danh sách nhân viên</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/src/main/resources/style.css" />
 </head>
+
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <a class="navbar-brand brand" href="/src/main/resources/templates/index.html">HRM</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-content">
+            <ul class="navbar-nav mr-auto">
+                <!-- Nhân viên -->
+                <li class="nav-item nav-title">
+                    <a class="nav-link" href="/src/main/resources/templates/employee/employee.html"
+                    style="color: black;"><b>Nhân viên</b></a>
+                </li>   
+                <!-- Hợp đồng -->
+                <li class="nav-item dropdown nav-title">
+                    <a class="nav-link dropdown-toggle" href="#" id="contract-bar" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="color: black;">
+                        <b>Hợp đồng</b>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">#</a>
+                        <a class="dropdown-item" href="#">#</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">#</a>
+                    </div>
+                </li>
+                <!-- Quyết định bổ nhiệm -->
+                <li class="nav-item dropdown nav-title">
+                    <a class="nav-link dropdown-toggle" href="#" id="hr-decision" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="color: black;">
+                        <b>Tuyển dụng</b>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/src/main/resources/templates/recruitment/appoint.html">Quyết định bổ nhiệm</a>
+                        <a class="dropdown-item" href="/src/main/resources/templates/recruitment/lay-off.html">Quyết định thôi việc</a>
+                    </div>
+                </li>
+            </ul>
+            <!-- Contact us -->
+            <div class="form-inline my-2 my-lg-0 contact">
+                <!-- <p><i class="fas fa-map-marked fa-fw"></i> 10 Nguyen Trai, Ha Dong, Ha Noi</p> -->
+                <!-- <p><i class="fa fa-phone fa-fw"></i> Contact us: 0123 456 789</p> -->
+            </div>
+            <!-- Thông tin người dùng -->
+            <div class="form-group" style="margin-right: 20px; margin-top: 20px;">
+                <div class="row">
+                    <div class="col">
+                        <img class="avatar-icon" src="/src/main/resources/images/avatar_icon.png" alt="avatar">
+                        <strong style="color: cornsilk;"> Thu Uyên</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header">Danh sách nhân viên công ty</header>
+    <!-- Searchbar -->
+    <div class="container searchbar">
+        <form action="#" method="GET" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Nhập tên nhân viên" aria-label="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <table class="table table-info table-hover">
+            <thead class="head-table">
+                <th>Mã NV</th>
+                <th>Tên</th>
+                <th>Phòng ban</th>
+                <th>Ghi chú</th>
+                <th>#</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#</td>
+                    <td>#</td>
+                    <td>#</td>
+                    <td>#</td>
+                    <td>
+                        <button class="btn btn-success"
+                            onclick="document.getElementById('detail').style.display='block'">Chi tiết</button>
+                        <button class="btn btn-success"
+                            onclick="document.getElementById('edit').style.display='block'">Chỉnh sửa</a></button>
+                        <button class="btn btn-danger"
+                            onclick="document.getElementById('delete').style.display='block'">Xóa</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Modal chi tiết -->
+        <div id="detail" class="modall modall-content animate">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('detail').style.display='none'" class="close"
+                    title="Close">&times;</span>
+                <img src="/src/main/resources/images/Xoan-Tho-Moc.jpg" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="row table-detail">
+                <div class="col" style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
+                    <table class="table">
+                        <tr class="info-detail">
+                            <td>ID Card</td>
+                            <td>#</td>
+                        </tr>
+                        <tr class="info-detail">
+                            <td>Họ tên</td>
+                            <td>#</td>
+                        </tr>
+                        <tr class="info-detail">
+                            <td>Ngày sinh</td>
+                            <td>#</td>
+                        </tr>
+                        <tr class="info-detail">
+                            <td>Giới tính</td>
+                            <td>#</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="col" style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
+                    <table class="table">
+                        <tr class="info-detail">
+                            <td>Địa chỉ</td>
+                            <td>#</td>
+                        </tr>
+                        <tr class="info-detail">
+                            <td>Số điện thoại</td>
+                            <td>#</td>
+                        </tr>
+                        <tr class="info-detail">
+                            <td>Email</td>
+                            <td>#</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('detail').style.display='none'"
+                    class="btn btn-danger cancelbtn">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Modal chỉnh sửa -->
+        <div id="edit" class="modall modall-content animate">
+            <div class="imgcontainer">
+                <span onclick="document.getElementById('edit').style.display='none'" class="close"
+                    title="Close">&times;</span>
+                <img src="/src/main/resources/images/linh_xoan.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="row table-detail">
+                <div class="col" style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
+                    <table class="table">
+                        <tr class="info-detail">
+                            <td>ID Card</td>
+                            <td><input type="text" name='idcard' value="#"></td>
+                        </tr>
+                        <tr class="info-detail">
+                            <td>Họ tên</td>
+                            <td><input type="text" name='name' value="#"></td>
+                        </tr>
+                        <tr class="info-detail">
+                            <td>Ngày sinh</td>
+                            <td><input type="text" name='dob' value="#"></td>
+                        </tr>
+                        <tr class="info-detail">
+                            <td>Giới tính</td>
+                            <td><input type="text" name='sex' value="#"></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="col" style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
+                    <table class="table">
+                        <tr class="info-detail">
+                            <td>Địa chỉ</td>
+                            <td><input type="text" name='address' value="#"></td>
+                        </tr>
+                        <tr class="info-detail">
+                            <td>Số điện thoại</td>
+                            <td><input type="text" name='phone' value="#"></td>
+                        </tr>
+                        <tr class="info-detail">
+                            <td>Email</td>
+                            <td><input type="text" name='email' value="#"></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('edit').style.display='none'"
+                    class="btn btn-danger cancelbtn">Cancel</button>
+
+                <form action="#" method="POST">
+                    <button type="button" class="btn btn-success"
+                        style="margin-right: 5px; margin-top: 5px; float: right;">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal xóa -->
+        <div class="modal" id="delete" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered animate">
+                <div class="modal-content">
+                
+                    <div class="modal-header">
+                        <h5 class="modal-title">Xóa nhân viên</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                        onclick="document.getElementById('delete').style.display='none'">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    
+                    <div class="modal-body">
+                        Bạn có chắc muốn xóa nhân viên # ?
+                    </div>
+                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                        onclick="document.getElementById('delete').style.display='none'">Đóng</button>
+                        <form action="#" method="GET">
+                            <button type="button" class="btn btn-danger" 
+                            data-toggle="modal" data-target="#dialog1">Xóa</button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var modal1 = document.getElementById('detail');
+        window.onclick = function (event) {
+            if (event.target == modal1) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
+
 </html>

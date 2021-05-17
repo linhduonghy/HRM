@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>Term recruitment</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+    <style>
+        .labels {
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .rc-control {
+            border: none;
+            font-size: 13px;
+        }
+
+        .rc-control:focus {
+            outline: none !important;
+            border: none;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" style="padding-top: 50px;">
+        <div class="row">
+            <div class="col border-right">
+                <p>Thông tin tuyển dụng đợt 1 năm 2021 </p>
+                <div class="row form-group">
+                    <div class="col">
+                        <label class="labels">Trạng thái</label>
+
+                    </div>
+                    <div class="col">
+                        <input type="text" class="rc-control" readonly value="Đang tiến hành">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col">
+                        <label class="labels">Tên đợt tuyển dụng:</label>
+
+                    </div>
+                    <div class="col">
+                        <input type="text" class="rc-control" readonly value="Đợt 1 năm 2021">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <label class="labels">Ngày bắt đầu:</label>
+
+                    </div>
+                    <div class="col">
+                        <input type="date" class="rc-control" readonly value="2021-05-17">
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col">
+                        <label class="labels">Ngày kết thúc:</label>
+
+                    </div>
+                    <div class="col">
+                        <input type="date" class="rc-control" readonly value="2021-06-17">
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col">
+                        <label class="labels">Mô tả:</label>
+
+                    </div>
+                    <div class="col">
+                        <textarea class="rc-control" rows="5"
+                            readonly>Tuyển 12 nhân viên: Tuyển 5 thằng ab, 4 thằng bc, 3 thằng dbs</textarea>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col p-3">
+                <b><p>DANH SÁCH VỊ TRÍ</p></b>
+                <table class="table table-bordered ">
+                    <thead>
+                        <tr>
+                            <th>Phòng Ban</th>
+                            <th>Vị trí</th>
+                            <th>Số lượng</th>
+                            <th>Đã duyệt</th>
+                            <th>Ghi chú</th>
+                            <th>#</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        <tr>
+                            <td>Bảo vệ</td>
+                            <td>Tổ trưởng</td>
+                            <td>1</td>
+                            <td>0</td>
+                            <th></th>
+                            <td><button class="btn btn-success"> Duyệt</button></td>
+                        </tr>
+                        <tr>
+                            <td>Bảo vệ</td>
+                            <td>Nhân viên</td>
+                            <td>5</td>
+                            <td>2</td>
+                            <td></td>
+                            <td><button class="btn btn-success"> Duyệt</button></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

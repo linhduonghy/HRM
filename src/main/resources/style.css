@@ -1,0 +1,215 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.header {
+  text-align: center;
+  font-size: 48px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: slategrey;
+}
+
+.head-table {
+  font-size: 20px;
+}
+
+.table-content {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #dedede;
+}
+
+.cancelbtn {
+  float: right;
+  margin-top: 5px;
+}
+
+.searchbar {
+  margin-bottom: 10px;
+}
+
+.brand {
+  font-family: fantasy;
+  font-size: 38px;
+  color: slateblue;
+  background-color: aqua;
+  border-radius: 10%;
+  width: 100px;
+  text-align: center;
+}
+
+.contact {
+  float: right;
+  margin-right: 20px;
+  padding-top: 13px;
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.nav-title {
+  font-size: 20px;
+}
+
+.image-content {
+  position: relative;
+  margin-bottom: 50px;
+  width: 40%;
+  height: 50%;
+  border: 1px solid rgb(105, 105, 212);
+  border-radius: 50%;
+}
+
+.table-detail {
+  background-color: azure;
+  margin: 5px 5px 5px 30px;
+  border-radius: 5px;
+}
+
+.info-detail {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.team {
+  background-image: url(/src/main/resources/images/lap_notebook.jpg);
+  background-size: cover;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  text-align: center; 
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 0 0 12px 0;
+  position: relative;
+}
+
+.title-team {
+  color: #0099e5 !important;
+  font-size: 35px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 12px;
+  padding-top: 15px;
+}
+
+.title-des {
+  color: burlywood;
+  font-size: 18px;
+}
+
+.name-member {
+  font-size: 18px;
+  color: #0099e5;
+}
+
+img.avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 1px solid rgb(105, 105, 212);
+  margin-bottom: 20px;
+}
+
+.avatar-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid steelblue;
+}
+
+.image-index {
+  width: 100%;
+  height: 620px;
+}
+
+.avatar-team {
+  width: 200px;
+  height: 300px;
+  margin-bottom: 50px;
+  border: none;
+  border-radius: 5px;
+}
+
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+.modall {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 90%; /* Full width */
+  height: 80%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  padding-top: 30px;
+}
+
+/* Modal Content/Box */
+.modall-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% 10%; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal-notify {
+  width: 400px;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+@-webkit-keyframes animatezoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@media screen and (max-width: 300px) {
+  span.psw {
+    display: block;
+    float: none;
+  }
+  .cancelbtn {
+    width: 100%;
+  }
+}
+
+.footer-copyrights {
+  background-color: rgb(39, 34, 34);
+  color:#f9c56a;
+  font-size:18px;
+  text-align:center;
+  padding-top: 15px;
+}
