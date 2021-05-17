@@ -1,10 +1,85 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/src/main/resources/style.css" />
 </head>
+
 <body>
 
+    <button class="btn btn-success" onclick="document.getElementById('edit').style.display='block'">Chỉnh
+        sửa</a></button>
+
+
+    <!-- Modal chỉnh sửa -->
+    <div id="edit" class="modall modall-content animate">
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('edit').style.display='none'" class="close"
+                title="Close">&times;</span>
+            <img src="/src/main/resources/images/linh_xoan.png" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="row table-detail">
+            <div class="col" style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
+                <table class="table">
+                    <tr class="info-detail">
+                        <td>ID Card</td>
+                        <td><input type="text" name='idcard' value="#"></td>
+                    </tr>
+                    <tr class="info-detail">
+                        <td>Họ tên</td>
+                        <td><input type="text" name='name' value="#"></td>
+                    </tr>
+                    <tr class="info-detail">
+                        <td>Ngày sinh</td>
+                        <td><input type="text" name='dob' value="#"></td>
+                    </tr>
+                    <tr class="info-detail">
+                        <td>Giới tính</td>
+                        <td><input type="text" name='sex' value="#"></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="col" style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
+                <table class="table">
+                    <tr class="info-detail">
+                        <td>Địa chỉ</td>
+                        <td><input type="text" name='address' value="#"></td>
+                    </tr>
+                    <tr class="info-detail">
+                        <td>Số điện thoại</td>
+                        <td><input type="text" name='phone' value="#"></td>
+                    </tr>
+                    <tr class="info-detail">
+                        <td>Email</td>
+                        <td><input type="text" name='email' value="#"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('edit').style.display='none'"
+                class="btn btn-danger cancelbtn">Cancel</button>
+
+            <form action="#" method="POST">
+                <button type="button" class="btn btn-success"
+                    style="margin-right: 5px; margin-top: 5px; float: right;">Submit</button>
+            </form>
+        </div>
+    </div>
+
 </body>
+
 </html>
