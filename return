@@ -1,0 +1,358 @@
+[33mcommit 52e860accd87c5d9614e410956e1b3988c5020e4[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 14:51:49 2021 +0700
+
+    account manage
+
+[33mcommit b51fd11100138f1abb1ff127befd294922246f41[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 14:28:49 2021 +0700
+
+    edit Contract
+
+[33mcommit a2f95082920bd24f4ef754c6cbcd6207595f0956[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 14:24:42 2021 +0700
+
+    Update profile.html
+
+[33mcommit e1deaffa8f0677e5350b903f28ab6a4332ddd7f7[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 14:24:39 2021 +0700
+
+    Update changePassword.html
+
+[33mcommit cb5717fa327a5d11def42aa34e54b4c08749ac77[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:35:32 2021 +0700
+
+    Update changePassword.html
+
+[33mcommit c481fc506cdfe6e8e5150ca4b53a4638683ed32d[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:27:50 2021 +0700
+
+    Create b.html
+
+[33mcommit fd7a96493483c670df9cadff3450031d0fc362f4[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:27:47 2021 +0700
+
+    Create a.html
+
+[33mcommit 4f7d4fe8709c4a6992e1c502954b6a6ef377aac8[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:26:17 2021 +0700
+
+    Create a.html
+
+[33mcommit d3b9a4726ca322890e9447a35274e3b33ff7a5e6[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:24:04 2021 +0700
+
+    Create salary.html
+
+[33mcommit 23d3ee29256696451884e6280aced78f29826b79[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:23:59 2021 +0700
+
+    Create employee.html
+
+[33mcommit b69c222265d2d88341170ebfc2574744a2030966[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:23:55 2021 +0700
+
+    Create insert.html
+
+[33mcommit 3d9da09a391116c829aa936fe8b87f023b705542[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:23:52 2021 +0700
+
+    Create edit.html
+
+[33mcommit dc70852f48574a7c4d1b3fd35e0921e68c2c3782[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:23:31 2021 +0700
+
+    Create contract.html
+
+[33mcommit fd5da687008c4b05fd5d458d37e97d23d5d2fa9e[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:20:27 2021 +0700
+
+    Create insert.html
+
+[33mcommit adcd2cce0fdd0972489baf801846a632d1755282[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:20:20 2021 +0700
+
+    Create edit.html
+
+[33mcommit 13feb350c9d8c561e80e6005c08bccc65c5ec238[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:18:37 2021 +0700
+
+    Create insert.html
+
+[33mcommit ff7c7fefb5b3ac08ddeb226feb1f7519441f3569[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:18:34 2021 +0700
+
+    Create edit.html
+
+[33mcommit 99245449e8fa4be183c65834b75bbdd2284fc208[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:16:34 2021 +0700
+
+    Create editRole.html
+
+[33mcommit e568bca314873d7ef61158bc1cd1851fd3ef6926[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:14:55 2021 +0700
+
+    Create profile.html
+
+[33mcommit 16ffaf41cd762ab9d60460e749e80fc9dacc8e8e[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:13:32 2021 +0700
+
+    Delete login.html
+
+[33mcommit 5746d5b709db09c24535b47fad8ca7b5dbaee9ea[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:13:28 2021 +0700
+
+    Create login.html
+
+[33mcommit 171cfc2893f5bb0ac9ae3dc36fdf041bb0c91e9a[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 13:13:18 2021 +0700
+
+    Create changePassword.html
+
+[33mcommit e706029b150d80fb0881c03f2707e98a733b04da[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:50:57 2021 +0700
+
+    Update index.html
+
+[33mcommit 281775157d779533c4c7075ff736939588e19fb0[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:50:53 2021 +0700
+
+    Update login.html
+
+[33mcommit 8fc53bda99b187f5c18f21aec09586e1090e1050[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:37:04 2021 +0700
+
+    Update application.properties
+
+[33mcommit 529f39f3842b6cb247314d17ada4d8110ee0d8f0[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:37:00 2021 +0700
+
+    Update login.html
+
+[33mcommit 6a04566f11622e20db97cafd6ee43b28be02b027[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:30:34 2021 +0700
+
+    Delete pom.xml
+
+[33mcommit bd1d46a0db685498237fac4705522271380ae232[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:30:30 2021 +0700
+
+    Delete mvnw.cmd
+
+[33mcommit bb141375cf09d59b144808d3825ce5ad8fe37765[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:30:27 2021 +0700
+
+    Delete mvnw
+
+[33mcommit a13eb3487bf136995739d36c39c45294f7eb38a0[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:30:23 2021 +0700
+
+    Delete MavenWrapperDownloader.class
+
+[33mcommit ee0c502ef84f91286ace4a59dbb8bebab7dad0ba[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:30:20 2021 +0700
+
+    Delete maven-wrapper.properties
+
+[33mcommit ba41dae0b8ea1f2b806fa7ded5a562676a90bcdf[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:30:16 2021 +0700
+
+    Delete maven-wrapper.jar
+
+[33mcommit 17f1ff8a2cc2d0b14ecef1f72bacb0d93a157a29[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:30:13 2021 +0700
+
+    Delete .gitignore
+
+[33mcommit b338ac5bc589b84094186ed45fa9cec9dfc44c9f[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:30:09 2021 +0700
+
+    Delete HumanResourceManagementApplication.class
+
+[33mcommit 9d16224d04edb6f9d98387a26098e19812ba3bda[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:30:04 2021 +0700
+
+    Delete application.properties
+
+[33mcommit e46a158666b8b0859ad05bfe15d0d7d02ca5627f[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:30:00 2021 +0700
+
+    Delete login.html
+
+[33mcommit 086db124e83ebcca27e7084fcf67ae3deea20f7e[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:29:57 2021 +0700
+
+    Delete HumanResourceManagementApplicationTests.class
+
+[33mcommit 7fdf1980a2c0ba20b1cdd481995ebb7d08257b5e[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:26:37 2021 +0700
+
+    Create application.properties
+
+[33mcommit f189854beade97f868d777a24ceb5633262e097b[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:26:34 2021 +0700
+
+    Create HumanResourceManagementApplication.class
+
+[33mcommit d5f79cef612f6d05e907e3ad6629e71aff372052[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:26:30 2021 +0700
+
+    Create mvnw.cmd
+
+[33mcommit f337346fd3450e96128a19887fbe8559d37257fd[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:26:26 2021 +0700
+
+    Create mvnw
+
+[33mcommit 068c67c27ef84b5dbb06207d1666fec7059f373d[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:26:22 2021 +0700
+
+    Create MavenWrapperDownloader.class
+
+[33mcommit 05fe3c2332eaf2d3c551b4ff6f1dc6a8f985679f[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:26:19 2021 +0700
+
+    Create maven-wrapper.properties
+
+[33mcommit 98c403d74850d0954f85751d77b59d3df053a11e[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:26:15 2021 +0700
+
+    Create maven-wrapper.jar
+
+[33mcommit 656babb95232a2dc6fa0f623d178e0b683f24eb2[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:25:57 2021 +0700
+
+    Create pom.xml
+
+[33mcommit 1485e0e516c320ea06256698452b657b698080a6[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:25:53 2021 +0700
+
+    Create .gitignore
+
+[33mcommit cb6ad6754b8f1761670942de213618e710ddd86b[m
+Merge: 602f8d7 520dd23
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:25:28 2021 +0700
+
+    Merge branch 'master' of https://github.com/linhduonghy/Human-Resource-Management
+
+[33mcommit 602f8d7440cbd5363ca017fe17c525d203b5127c[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:24:00 2021 +0700
+
+    Create login.html
+
+[33mcommit 13cf9f6156ca79aaf27962330b45bffc865038f1[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:23:57 2021 +0700
+
+    Create HumanResourceManagementApplicationTests.class
+
+[33mcommit 73244c20a3c24b90e76c79f714ac043310d41825[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:23:53 2021 +0700
+
+    Update index.html
+
+[33mcommit 7b022a2eab7c0e2dbc4236bbb991ee069e24af9c[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 10:23:49 2021 +0700
+
+    Create login.html
+    
+    sua index, them login
+
+[33mcommit 520dd2304eeaa37f97bd6349139fa6d6bffa2da6[m
+Author: linhduonghy <linhduonghy@gmail.com>
+Date:   Thu May 13 10:18:59 2021 +0700
+
+    modify index.html
+
+[33mcommit 41a29391ea1eff381d6b9861e398d9dd74a0a8aa[m
+Author: linhduonghy <linhduonghy@gmail.com>
+Date:   Thu May 13 10:17:27 2021 +0700
+
+    modify index.html
+
+[33mcommit 4b7e4211a297d3610dae207b3bccc89a4986cda5[m
+Author: linhduonghy <linhduonghy@gmail.com>
+Date:   Thu May 13 10:11:32 2021 +0700
+
+    addd
+
+[33mcommit 6f71c83851d698b8382aec94562d9c6892e7f32d[m
+Author: linhduonghy <linhduonghy@gmail.com>
+Date:   Thu May 13 10:10:29 2021 +0700
+
+    add
+
+[33mcommit 94aa2e49c8110ec38ec82355e93e930ce6acf495[m
+Author: linhduonghy <linhduonghy@gmail.com>
+Date:   Thu May 13 10:08:22 2021 +0700
+
+    mod index
+
+[33mcommit 22bc04ca0afd9df0806d367e8aa91e3112b878ab[m
+Author: linhduonghy <linhduonghy@gmail.com>
+Date:   Thu May 13 09:59:00 2021 +0700
+
+    modify index
+
+[33mcommit ff87b20c39575fa692eb3bf8d642cc7dddc15cde[m
+Author: unknown <linhhahoang1999@gmail.com>
+Date:   Thu May 13 09:54:43 2021 +0700
+
+    Update index.html
+    
+    update index
+
+[33mcommit 51844da0f9eb062ac24299326fda14d9f83d9c75[m
+Author: linhduonghy <linhduonghy@gmail.com>
+Date:   Thu May 13 09:50:03 2021 +0700
+
+    add project

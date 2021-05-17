@@ -14,96 +14,145 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
     <style>
-       
-
-        .nv-control {
-            position: absolute;
-            left: 300px;
-            width: 400px;
-            height: 40px;
-
-        }
-
-        .labels {
-            font-weight: 50;
-        }
-        .mg{
+        body {
             background-color: #f3f3f3;
         }
 
+        .insert-contract {
+            padding: 10px 50px;
+        }
+
+        .contract-info {
+            padding: 10px 10px;
+            background-color: #fff;
+        }
+
+        .contract-info-title {
+            margin: 20px 0;
+            background-color: #fff;
+        }
     </style>
 </head>
 
 <body>
-<div class="row">
-    <div class="col-2 mg"></div>
-    <div class="container col-8" >
-        <h3>THÊM HỢP ĐỒNG </h3>
-        <form action="#" method="POST">
-            <div class="container-md p-3 py-5 border-bottom">
-                <b>
-                    <p>Thông tin về nhân viên</p><br>
-                </b>
-                <div class="p-2">
-                    <label class="labels"> Nhân viên </label>
-                    <select name="" id="" class="nv-control">
-                        <option value="">001-Dương Văn Linh</option>
-                    </select>
-                </div>
-                <div class="p-2">
-                    <label class="labels">Ngày sinh</label>
-                    <input type="date" class="nv-control">
-                </div>
-                <div class="p-2">
-                    <label class="labels">Nguyên quán</label>
-                    <input type="text" class="nv-control">
-                </div>
-                <div class="p-2">
-                    <label class="labels">Địa chỉ thường trú</label>
-                    <input type="text" class="nv-control">
-                </div>
+    <div class="container">
+        <div class="insert-contract">
+            <div class="contract-info">
+                <h3> THÊM HỢP ĐỒNG </h3>
             </div>
+            <div>
+                <form action="#" method="POST">
+                    <div class="contract-info">
+                        <div class="contract-info-title">
+                            <b>Thông tin về nhân viên</b>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-3">
+                                <label for="employee"> Nhân viên </label>
+                            </div>
+                            <div class="col-9">
+                                <select name="employee" id="employee" class="form-control">
+                                    <option value="">001-Dương Văn Linh</option>
+                                    <option value="">001-Dương Văn Linh</option>
+                                    <option value="">001-Dương Văn Linh</option>
+                                    <option value="">001-Dương Văn Linh</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-3">
+                                <label class="labels">Ngày sinh</label>
 
-            <div class="container" style="height: 50px;"></div>
+                            </div>
+                            <div class="col-9">
+                                <input type="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-3">
+                                <label class="labels">Nguyên quán</label>
+                            </div>
+                            <div class="col-9">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-3">
+                                <label class="labels">Địa chỉ thường trú</label>
+                            </div>
+                            <div class="col-9">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="container-md p-3 py-5 ">
-                <b>
-                    <p>Thông tin chi tiết về hợp đồng
-                    <p>
-                </b>
-                <div class="p-2">
-                    <label class="labels"> Loại Hợp đồng </label>
-                    <select name="" id="" class="nv-control">
-                        <option value="">C-Hợp đồng thử việc</option>
-                    </select>
-                </div>
-                <div class="p-2">
-                    <label class="labels">Mã hợp đồng</label>
-                    <input type="text" class="nv-control">
-                </div>
-                <div class="p-2">
-                    <label class="labels">Mã nhân viên</label>
-                    <input type="text" class="nv-control">
-                </div>
-                <div class="p-2"><label class="labels">Ghi chú</label>
-                    <input type="text" class="nv-control">
-                </div>
-                <div class="pt-5 pl-2"><label class="labels"> Ngày ký hợp đồng </label>
-                    <input type="checkbox" class="form-check-inline" style="margin-left: 58px;">
-                    <input type="date" class="nv-control">
-                </div>
-                <div class="p-2 pt-3"><label class="labels"> Ngày chấm dứt hợp đồng </label>
-                    <input type="checkbox" class="form-check-inline" style="margin-left: 10px;">
-                    <input type="date" class="nv-control">
-                </div>
-                <button type="submit" class="btn btn-info" style="margin-left: 150px;"> Xác nhận</button>
+
+                    <div class="contract-info mt-3">
+
+                        <div class="contract-info-title">
+                            <b>Thông tin chi tiết về hợp đồng</b>
+                        </div>
+                        
+
+                        <div class="row form-group">
+                            <div class="col-3">
+                                <label id="contractType"> Loại Hợp đồng </label>
+                            </div>
+                            <div class="col-9">
+                                <select name="contractType" id="contractType" class="form-control">
+                                    <option value="">C-Hợp đồng thử việc</option>
+                                    <option value="">C-Hợp đồng thử việc</option>
+                                    <option value="">C-Hợp đồng thử việc</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-3">
+                                <label class="labels">Mã hợp đồng</label>
+                            </div>
+                            <div class="col-9">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-3">
+                                <label class="labels">Mã nhân viên</label>
+                            </div>
+                            <div class="col-9">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-3">
+                                <label class="labels">Ghi chú</label>
+                            </div>
+                            <div class="col-9">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="row form-group mt-5">
+                            <div class="col-3">
+                                <label class="labels"> Ngày ký hợp đồng </label>
+                            </div>
+                            <div class="col-9">
+                                <input type="date" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col-3">
+                                <label> Ngày chấm dứt hợp đồng </label>
+                            </div>
+                            <div class="col-9">
+                                <input type="date" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-info" style="margin-left: 150px;"> Xác nhận</button>
             </div>
-        </form>
+            </form>
+        </div>
     </div>
-    <div class="col-2 mg"></div>
-</div>
-
-
 </body>
 
 </html>
