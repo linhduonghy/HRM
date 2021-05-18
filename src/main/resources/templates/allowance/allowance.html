@@ -21,6 +21,21 @@
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+
+<th:block th:if="${msg} == 1 ">
+
+	<script type="text/javascript">
+		$(window).on('load', function() {
+			$('#myModal').modal('show');
+		});
+	</script>
+
+</th:block>
+
+
+
+
+
 </head>
 
 <body>
@@ -46,16 +61,20 @@
 								<th scope="row" th:text="${al.id}"></th>
 								<td th:text="${al.typeAllowance}"></td>
 								<td class="text-right" th:text="${al.levelOfAllowance}"></td>
-								<td>
-									<button class="btn">
-										<i class="fa fa-edit" style="font-size: 20px;"></i>
-									</button>
-									<button class="btn">
-										<i class="fa fa-times" style="font-size: 20px;"></i>
-									</button>
-								</td>
+								<td><a
+									th:href="@{/salary/allowance/edit/{id}(id=${al.id})}"
+									style="margin-left: 5px;"><i class="fa fa-edit"
+										style="font-size: 20px;"></i></a> <a
+									th:href="@{/salary/allowance/delete/{id}(id=${al.id})}"
+									onclick="return confirm('Bạn có chắc chắn xóa mức lương này?');"
+									style="margin-left: 5px;"><i class="fa fa-times"
+										style="font-size: 20px;"></i></a></td>
 
 							</tr>
+
+
+
+
 						</th:block>
 					</tbody>
 				</table>
@@ -68,7 +87,7 @@
 
 
 					<div class="pb-5 pr-5 pl-2">
-						<h4>Thêm Lương Năng suất</h4>
+						<h4 style="color: green;">THÊM MỨC LƯƠNG NĂNG XUẤT</h4>
 
 						<div class="row mt-3">
 
@@ -94,6 +113,33 @@
 
 		</div>
 	</div>
+
+
+	<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle">Thông báo</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">Đã lưu thay đổi</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Đóng</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
 </body>
 
 </html>
