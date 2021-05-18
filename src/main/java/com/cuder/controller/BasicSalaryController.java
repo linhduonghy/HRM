@@ -25,18 +25,29 @@ public class BasicSalaryController {
 	RestTemplate template = new RestTemplate();
 	
 	
-	@GetMapping("/insert")
-	public String showContractForm(Model model) {
+	@GetMapping("")
+	public String showBasicSalary(Model model) {
 		
 		
 		// get all Basic Salary
 		List<BasicSalary> basicSalaries = template.getForObject("http://localhost:8081/basicSalary", List.class);
 		model.addAttribute("basicSalaries", basicSalaries);
 		
-		// add new contract to form
-		model.addAttribute("contract", new Contract());
+
 		
-		return "/contract/insert.html";
+		return "/basic_Salary/basic_Salary.html";
+	}
+	
+	@GetMapping("insert")
+	public String showInsertForm(Model model) {
+		
+	
+		
+		model.addAttribute("bs",  new BasicSalary());
+		
+
+		
+		return "/basic_Salary/insert.html";
 	}
 	
 	@PostMapping("/insert")
