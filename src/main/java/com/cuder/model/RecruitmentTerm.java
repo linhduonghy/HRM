@@ -22,7 +22,7 @@ public class RecruitmentTerm implements Serializable {
 
 	private String description;
 
-	private Boolean status;
+	private String status;
 
 	private Date start_date;
 
