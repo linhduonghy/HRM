@@ -99,8 +99,9 @@ public class SalaryController {
 		return "redirect:../";
 	}
 	
+	
 	@GetMapping("/allowance/edit/{id}")
-	public String editAllowance(@PathVariable("id") int id, Model model,HttpSession session) {
+	public String editAllowance(@PathVariable("id") int id, Model model ) {
 		List<Allowance> allowances = template.getForObject("http://localhost:8081/allowance", List.class);
 		model.addAttribute("allowances", allowances);
 		
@@ -109,15 +110,15 @@ public class SalaryController {
 	}
 	
 	@PostMapping("/allowance/edit")
-	public String editAllownace(@ModelAttribute Allowance allo, @RequestParam Map<String, String> requestParams) {
+	public String editAllownace(@ModelAttribute Allowance allo, @RequestParam Map<String, String> requestParams, HttpSession session) {
 
 		System.out.println(allo);
 
 		template.put("http://localhost:8081/allowance/{id}",Allowance.class,allo.getId());
 
 		System.out.println(allo);
-		session.setAttribute("msg","1");
-		return "redirect:../allowance/";
+		session.setAttribute("msg","1");		
+		return "redirect:../";
 	}
 
 }
