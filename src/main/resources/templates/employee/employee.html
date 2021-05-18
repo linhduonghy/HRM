@@ -72,10 +72,11 @@
             </div>
         </div>
     </nav>
+    <div class="container">
 
-    <header class="header">Danh sách nhân viên công ty</header>
+    <h2 class="p-2">Danh sách nhân viên công ty</h2>
     <!-- Searchbar -->
-    <div class="container searchbar">
+    <div class="container searchbar pb-3">
         <form action="#" method="GET" class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Nhập tên nhân viên" aria-label="search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
@@ -88,180 +89,24 @@
                 <th>Mã NV</th>
                 <th>Tên</th>
                 <th>Phòng ban</th>
-                <th>Ghi chú</th>
                 <th>#</th>
             </thead>
             <tbody>
-                <tr>
-                    <td>#</td>
-                    <td>#</td>
-                    <td>#</td>
-                    <td>#</td>
-                    <td>
-                        <button class="btn btn-success"
-                            onclick="document.getElementById('detail').style.display='block'">Chi tiết</button>
-                        <button class="btn btn-success"
-                            onclick="document.getElementById('edit').style.display='block'">Chỉnh sửa</a></button>
-                        <button class="btn btn-danger"
-                            onclick="document.getElementById('delete').style.display='block'">Xóa</button>
-                    </td>
-                </tr>
+            <th:block th:each="staff : ${staffs}">
+							<tr>
+								<th scope="row" th:text="${staff.id}"></th>
+								<td th:text="${staff.member.name}"></td>
+								<td class="text-right" th:text="${staff.member.departmant.department_name}"></td>
+							
+								<td></td>
+							</tr>
+						</th:block>
+            
             </tbody>
         </table>
 
-        <!-- Modal chi tiết -->
-        <div id="detail" class="modall modall-content animate">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('detail').style.display='none'" class="close"
-                    title="Close">&times;</span>
-                <img src="/src/main/resources/images/Xoan-Tho-Moc.jpg" alt="Avatar" class="avatar">
-            </div>
-
-            <div class="row table-detail">
-                <div class="col" style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
-                    <table class="table">
-                        <tr class="info-detail">
-                            <td>ID Card</td>
-                            <td>#</td>
-                        </tr>
-                        <tr class="info-detail">
-                            <td>Họ tên</td>
-                            <td>#</td>
-                        </tr>
-                        <tr class="info-detail">
-                            <td>Ngày sinh</td>
-                            <td>#</td>
-                        </tr>
-                        <tr class="info-detail">
-                            <td>Giới tính</td>
-                            <td>#</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="col" style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
-                    <table class="table">
-                        <tr class="info-detail">
-                            <td>Địa chỉ</td>
-                            <td>#</td>
-                        </tr>
-                        <tr class="info-detail">
-                            <td>Số điện thoại</td>
-                            <td>#</td>
-                        </tr>
-                        <tr class="info-detail">
-                            <td>Email</td>
-                            <td>#</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('detail').style.display='none'"
-                    class="btn btn-danger cancelbtn">Cancel</button>
-            </div>
-        </div>
-
-        <!-- Modal chỉnh sửa -->
-        <div id="edit" class="modall modall-content animate">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('edit').style.display='none'" class="close"
-                    title="Close">&times;</span>
-                <img src="/src/main/resources/images/linh_xoan.png" alt="Avatar" class="avatar">
-            </div>
-
-            <div class="row table-detail">
-                <div class="col" style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
-                    <table class="table">
-                        <tr class="info-detail">
-                            <td>ID Card</td>
-                            <td><input type="text" name='idcard' value="#"></td>
-                        </tr>
-                        <tr class="info-detail">
-                            <td>Họ tên</td>
-                            <td><input type="text" name='name' value="#"></td>
-                        </tr>
-                        <tr class="info-detail">
-                            <td>Ngày sinh</td>
-                            <td><input type="text" name='dob' value="#"></td>
-                        </tr>
-                        <tr class="info-detail">
-                            <td>Giới tính</td>
-                            <td><input type="text" name='sex' value="#"></td>
-                        </tr>
-                    </table>
-                </div>
-
-                <div class="col" style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
-                    <table class="table">
-                        <tr class="info-detail">
-                            <td>Địa chỉ</td>
-                            <td><input type="text" name='address' value="#"></td>
-                        </tr>
-                        <tr class="info-detail">
-                            <td>Số điện thoại</td>
-                            <td><input type="text" name='phone' value="#"></td>
-                        </tr>
-                        <tr class="info-detail">
-                            <td>Email</td>
-                            <td><input type="text" name='email' value="#"></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('edit').style.display='none'"
-                    class="btn btn-danger cancelbtn">Cancel</button>
-
-                <form action="#" method="POST">
-                    <button type="button" class="btn btn-success"
-                        style="margin-right: 5px; margin-top: 5px; float: right;">Submit</button>
-                </form>
-            </div>
-        </div>
-
-        <!-- Modal xóa -->
-        <div class="modal" id="delete" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered animate">
-                <div class="modal-content">
-                
-                    <div class="modal-header">
-                        <h5 class="modal-title">Xóa nhân viên</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                        onclick="document.getElementById('delete').style.display='none'">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    
-                    <div class="modal-body">
-                        Bạn có chắc muốn xóa nhân viên # ?
-                    </div>
-                    
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
-                        onclick="document.getElementById('delete').style.display='none'">Đóng</button>
-                        <form action="#" method="GET">
-                            <button type="button" class="btn btn-danger" 
-                            data-toggle="modal" data-target="#dialog1">Xóa</button>
-                        </form>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        var modal1 = document.getElementById('detail');
-        window.onclick = function (event) {
-            if (event.target == modal1) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
-
+       
+</div>
 </body>
 
 </html>

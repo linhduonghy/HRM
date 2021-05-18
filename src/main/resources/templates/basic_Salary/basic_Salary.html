@@ -25,50 +25,132 @@
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 
+<th:block th:if="${msg} == 1 ">
+
+	<script type="text/javascript">
+		$(window).on('load', function() {
+			$('#myModal').modal('show');
+		});
+	</script>
+
+</th:block>
+<style type="text/css">
+
+.labels{
+font-weight: bold;
+}
+</style>
 </head>
 
 <body>
-	<div class="container" style="padding-bottom: 100px !important">
+	<div class="container p-2" style="padding-bottom: 100px !important">
+		<div class="row ">
+			<div class="col border-right border-dark">
+			<h2 class="p-2">Danh sách mức lương cơ bản</h2>
+				<table
+					class="table table-striped table-responsive-md table-hover table-bordered ">
+					
+					<thead
+						style="background-color: rgb(98, 232, 250); align-items: center;">
+						<tr>
+							<th>#</th>
+							<th>Mã lương cơ bản</th>
+							<th>Mức lương cơ bản (VNĐ)</th>
+							<th>Ngày có hiệu lực</th>
+
+						</tr>
+					</thead>
+					<tbody>
+						<th:block th:each="basicSalary : ${basicSalaries}">
+
+							<tr>
+								<th scope="row" th:text="${basicSalary.id}"></th>
+								<td th:text="${basicSalary.name}"></td>
+								<td class="text-right" th:text="${basicSalary.basic_salary}"></td>
+								<td class="text-right" th:text="${basicSalary.createDate}"></td>
+							</tr>
+						</th:block>
+
+
+
+					</tbody>
+
+				</table>
+
+			</div>
+			<div class="col-5">
+				<form th:action="@{/salary/basic/insert}" method="POST"
+					th:object="${bs}">
+
+
+
+					<div class="p-3 py-5">
+						<b><h3>Thêm mức lương mới</h3></b>
+
+						<div class="row mt-3">
+							<div class="col-md-12">
+								<label class="labels">Mã mức lương cơ bản</label> <input
+									type="text" class="form-control" th:field="*{name}">
+							</div>
+							<div class="col-md-12">
+								<label class="labels">Mức lương cơ bản</label> <input
+									type="text" class="form-control" th:field="*{basic_salary}">
+							</div>
+							<div class="col-md-12">
+								<label class="labels">Ngày có hiệu lực</label> <input
+									type="date" class="form-control" th:field="*{createDate}" required="required">
+							</div>
 
 
 
 
-		<table
-			class="table table-striped table-responsive-md table-hover table-bordered " style="width: 650px">
-			<h3>
-				Mức lương cơ bản <a th:href="@{basic/insert}"><button
-						class="btn btn-info" style="margin-left: 250px;">Thêm mức
-						lương cơ bản</button></a>
+						</div>
 
-			</h3>
-			<thead
-				style="background-color: rgb(98, 232, 250); align-items: center;">
-				<tr>
-					<th>#</th>
-					<th style="width: 200px" >Mã lương cơ bản</th>
-					<th >Mức lương cơ bản (VNĐ)</th>
-					<th>Ngày có hiệu lực</th>
-
-				</tr>
-			</thead>
-			<tbody>
-				<th:block th:each="basicSalary : ${basicSalaries}">
-
-					<tr>
-						<th scope="row" th:text="${basicSalary.id}"></th>
-						<td th:text="${basicSalary.name}"></td>
-						<td class="text-right" th:text="${basicSalary.basic_salary}"></td>
-						<td class="text-right" th:text="${basicSalary.createDate}"></td>
-					</tr>
-				</th:block>
+					</div>
 
 
 
-			</tbody>
+					<div class="w3-right">
 
-		</table>
 
+						<button type="submit" class="btn btn-info"
+							style="margin-left: 10px;">Thêm mức lương mới</button>
+					</div>
+
+
+				</form>
+
+
+
+
+			</div>
+		</div>
 	</div>
+
+
+
+
+	<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalCenterTitle">Thông báo</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">Thêm mức lương thành công</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-dismiss="modal">Đóng</button>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
 
 </body>
 
