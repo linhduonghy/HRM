@@ -17,7 +17,7 @@ public class RecruitmentPosition implements Serializable {
 
 	private int id;
 
-	private int number_of_recruiment;
+	private int number_of_recruitment;
 
 	private RecruitmentTerm recruitmentTerm;
 

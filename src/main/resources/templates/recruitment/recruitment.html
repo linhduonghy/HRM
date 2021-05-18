@@ -21,27 +21,27 @@
 	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
 	crossorigin="anonymous" />
-<link rel="stylesheet" href="/src/main/resources/style.css" />
+<link rel="stylesheet" th:href="@{/css/style.css}">
 <style>
 </style>
 </head>
 
 <body>
 	<div class="container">
-		<div class="row mb-3" style="padding-top: 50px; ">
+		<div class="row mb-3" style="padding-top: 50px;">
 			<div class="col-6">
 				<h1>KẾ HOẠCH TUYỂN DỤNG</h1>
 			</div>
 			<div class="col">
 				<a th:href="@{/recruitment/insert-recruitment-position}">
-					<button class=" btn btn-success" >
+					<button class=" btn btn-success">
 						<i class="fa fa-plus small"></i> Thêm vị trí tuyển dụng
 					</button>
 				</a>
 			</div>
 			<div class="col">
 				<a th:href="@{/recruitment/insert-term}">
-					<button class=" btn btn-info" >
+					<button class=" btn btn-info">
 						<i class="fa fa-plus small"></i> Thêm đợt tuyển dụng mới
 					</button>
 				</a>
@@ -63,6 +63,7 @@
 						<th style="width: 200px;">Mô tả</th>
 						<th>Ngày bắt đầu</th>
 						<th>Ngày kết thúc</th>
+						<th>#</th>
 					</thead>
 					<th:block th:each="term,iterStat : ${terms}">
 						<tr>
@@ -74,6 +75,8 @@
 								thằng ab, 4 thằng bc, 3 thằng db</td>
 							<td th:text="${term.start_date}">17/05/2021</td>
 							<td th:text="${term.end_date}">17/06/2021</td>
+							<td><a class="btn btn-success"
+								th:href="@{recruitment/term/{id}(id=${term.id})}">Duyệt</a></td>
 						</tr>
 					</th:block>
 				</table>
