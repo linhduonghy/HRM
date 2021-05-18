@@ -191,9 +191,11 @@ $(document).ready(function(){
 							<div class="col"
 								style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
 								<table class="table table-borderless">
-									<tr class="info-detail">
-									<td><input type="text" class="form-control"  th:field=*{id} hidden="hidden"></td>
-									</tr>
+									
+									<input type="text" class="form-control"  th:field=*{id} hidden="hidden">
+									
+									<input type="text" class="form-control"  th:field=*{member.id} hidden="hidden">
+									
 									
 									<tr class="info-detail">
 										<td>Họ tên</td>

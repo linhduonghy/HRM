@@ -38,7 +38,6 @@ public class EmployeeController {
 		List<Title> titles = new ArrayList<Title>();
 
 		for (int i = 0; i < staffs.length; i++) {
-
 			List<Appointment> appoint = staffs[i].getAppointments();
 			titles.add(appoint.get(appoint.size() - 1).getTitle());
 		}
@@ -55,22 +54,22 @@ public class EmployeeController {
 		String title = appoint.get(appoint.size() - 1).getTitle().getTitle_name();
 		model.addAttribute("staff", staff);
 		model.addAttribute("title", title);
-
+		System.err.println(staff);
 		return "employee/edit.html";
 	}
 
 	@PostMapping("/edit")
-	public String editEmployee(@ModelAttribute Staff staff, @RequestParam Map<String, String> requestParams,
+	public String editEmployee(@ModelAttribute("staff") Staff staff, @RequestParam Map<String, String> requestParams,
 			HttpSession session,HttpServletRequest request) {
 
-		System.out.println(staff);
-		Member member = staff.getMember();
-		System.out.println(member);
-
-        rest.put("http://localhost:8081/staff/{id}", Staff.class, staff.getId());
-
-		System.out.println(staff);
-		session.setAttribute("msg", "1");
+		Staff newStaff = rest.getForObject("http://localhost:8081/staff/{id}", Staff.class, staff.getId());
+		staff.getMember().setDepartmant(newStaff.getMember().getDepartmant());
+		
+		
+        rest.put("http://localhost:8081/staff/{id}", staff, staff.getId());
+//
+        System.err.println(staff);
+//		session.setAttribute("msg", "1");
 	    String referer = request.getHeader("Referer");
 	    return "redirect:"+ referer;
 	}

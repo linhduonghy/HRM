@@ -23,7 +23,6 @@ import com.cuder.model.Title;
 @RequestMapping("/recruitment")
 public class RecruitmentController {
 
-	
 	private String apiUrl = "http://localhost:8081/";
 
 	RestTemplate template = new RestTemplate();
