@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Term recruitment</title>
+    <title>Term recruitment Detail</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -13,8 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/src/main/resources/style.css" />
-
+    <link rel="stylesheet" th:href="@{/css/style.css}">
     <style>
         .labels {
             font-size: 13px;
@@ -37,14 +36,14 @@
     <div class="container" style="padding-top: 50px;">
         <div class="row">
             <div class="col border-right">
-                <h3>Thông tin tuyển dụng đợt 1 năm 2021 <button class="btn"><i class=" fa fa-edit"></i></button></h3>
+                <h3>Thông tin tuyển dụng: <span th:text="${term.name}"></span><button class="btn"><i class=" fa fa-edit"></i></button></h3>
                 <div class="row form-group">
                     <div class="col">
-                        <label class="labels">Trạng thái</label>
+                        <label class="labels" for="status">Trạng thái</label>
 
                     </div>
                     <div class="col">
-                        <input type="text" class="rc-control" readonly value="Đang tiến hành">
+                        <input type="text" class="rc-control" readonly value="Đang tiến hành" th:value="${term.status}">
                     </div>
                 </div>
 
@@ -54,7 +53,7 @@
 
                     </div>
                     <div class="col">
-                        <input type="text" class="rc-control" readonly value="Đợt 1 năm 2021">
+                        <input type="text" class="rc-control" readonly value="Đợt 1 năm 2021" th:value="${term.name}">
                     </div>
                 </div>
                 <div class="row form-group">
@@ -63,7 +62,7 @@
 
                     </div>
                     <div class="col">
-                        <input type="date" class="rc-control" readonly value="2021-05-17">
+                        <input type="date" class="rc-control" readonly value="2021-05-17" th:value="${term.start_date}">
                     </div>
                 </div>
                 <div class="row form-group">
@@ -72,7 +71,7 @@
 
                     </div>
                     <div class="col">
-                        <input type="date" class="rc-control" readonly value="2021-06-17">
+                        <input type="date" class="rc-control" readonly value="2021-06-17" th:value="${term.end_date}">
                     </div>
                 </div>
 
@@ -83,17 +82,17 @@
                     </div>
                     <div class="col">
                         <textarea class="rc-control" rows="5"
-                            readonly> Tuyển 12 nhân viên: Tuyển 5 thằng ab, 4 thằng bc, 3 thằng dbs</textarea>
+                            readonly th:text="${term.description}"> Tuyển 12 nhân viên: Tuyển 5 thằng ab, 4 thằng bc, 3 thằng dbs</textarea>
                     </div>
                 </div>
 
             </div>
             <div class="col p-3">
-                <p>Danh sách vị trí <button class="btn "><i class="fa fa-plus"></i></button></p>
+                <p>Danh sách vị trí <a class="btn" th:href="@{/recruitment/insert-recruitment-position}"><i class="fa fa-plus"></i></a></p>
                 <table class="table ">
                     <thead>
                         <tr>
-                            <th>Phòng Ban</th>
+                            <!-- <th>Phòng Ban</th> -->
                             <th>Vị trí</th>
                             <th>Số lượng</th>
                             <th>Đã duyệt</th>
@@ -102,21 +101,13 @@
                     </thead>
                     <tbody>
                        
-                        <tr>
-                            <td>Bảo vệ</td>
-                            <td>Tổ trưởng</td>
-                            <td>1</td>
+                        <tr th:each="position : ${term.recruitmentPositions}">
+                            <!-- <td>Bảo vệ</td> -->
+                            <td th:text="${position.title.title_name}">Tổ trưởng</td>
+                            <td th:text="${position.number_of_recruitment}">1</td>
                             <td>0</td>
                             <td><a href="candidate.html"><button class="btn btn-success"> Duyệt</button></td></a>
                         </tr>
-                        <tr>
-                            <td>Bảo vệ</td>
-                            <td>Nhân viên</td>
-                            <td>5</td>
-                            <td>2</td>
-                            <td><a href="candidate.html"><button class="btn btn-success"> Duyệt</button></td></a>
-                        </tr>
-
                     </tbody>
                 </table>
 

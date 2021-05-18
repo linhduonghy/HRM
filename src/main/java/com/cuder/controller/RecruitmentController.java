@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
@@ -63,6 +64,16 @@ public class RecruitmentController {
 		recruitmentPosition = template.postForObject(apiUrl+"/recruitment-position", recruitmentPosition, RecruitmentPosition.class);
 //		System.out.println(recruitmentPosition);
 		return "redirect:/recruitment";
+	}
+	
+	// show recruitment term detail
+	@GetMapping("/term/{id}")
+	public String showTermDetail(Model model, @PathVariable Integer id) {
+
+		RecruitmentTerm term = template.getForObject(apiUrl+"/recruitment-term/{id}", RecruitmentTerm.class, id);
+
+		model.addAttribute("term", term);
+		return "/recruitment/recruitment_term_detail.html";
 	}
 	
 }
