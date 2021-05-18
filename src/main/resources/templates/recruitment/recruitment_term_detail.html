@@ -106,7 +106,7 @@
                             <td th:text="${position.title.title_name}">Tổ trưởng</td>
                             <td th:text="${position.number_of_recruitment}">1</td>
                             <td>0</td>
-                            <td><a href="candidate.html"><button class="btn btn-success"> Duyệt</button></td></a>
+                            <td><a th:href="@{/recruitment/term/{term_id}/position/{position_id}(term_id=${term.id}, position_id=${position.id})}"><button class="btn btn-success"> Duyệt</button></td></a>
                         </tr>
                     </tbody>
                 </table>
