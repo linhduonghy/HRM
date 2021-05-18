@@ -45,7 +45,10 @@ public class EmployeeController {
 	public String showFrofile(Model model,@PathVariable("id") int id	) {
 		// add model staff
 		Staff staff = rest.getForObject("http://localhost:8081/staff/{id}", Staff.class,id);
+		List<Appointment> appoint = staff.getAppointments();
+		String title = appoint.get(appoint.size()-1).getTitle().getTitle_name();
 		model.addAttribute("staff",staff);
+		model.addAttribute("title",title);
 		
 		return "employee/edit.html";
 	}

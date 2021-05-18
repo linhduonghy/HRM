@@ -21,7 +21,7 @@
 	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
 	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
 	crossorigin="anonymous" />
-<link rel="stylesheet" href="/src/main/resources/style.css" />
+<link rel="stylesheet" th:href="@{/css/style.css}">
 
 
 <style>
@@ -100,36 +100,32 @@
 					</div>
 					<div class="row mt-2">
 						<div class="col-md-6">
-							<label class="labels">Họ và Tên </label>
-							<br> <label th:text=${staff.member.name} ></label>
+							<label class="labels">Họ và Tên </label> <br> <label
+								th:text=${staff.member.name}></label>
 						</div>
 
 					</div>
 					<div class="row mt-3">
 						<div class="col-md-12">
-							<label class="labels">Ngày sinh</label> 
-							<br> <label th:text="${staff.member.dob}" ></label>
+							<label class="labels">Ngày sinh</label> <br> <label
+								th:text="${staff.member.dob}"></label>
 						</div>
 						<div class="col-md-12">
-							<label class="labels">CMND/CCCD</label>
-							 <br> <label th:text="${staff.member.dob}" ></label>
+							<label class="labels">CMND/CCCD</label> <br> <label
+								th:text="${staff.member.idcard}"></label>
+						</div>
+
+						<div class="col-md-12">
+							<label class="labels">Địa chỉ</label> <br> <label
+								th:text="${staff.member.address}"></label>
 						</div>
 						<div class="col-md-12">
-							<label class="labels">Quê quán</label> <br> <input
-								type="text" class="profile-value" value="Việt Nam" readonly>
+							<label class="labels">Số điện thoại</label> <br> <label
+								th:text="${staff.member.phone}"></label>
 						</div>
 						<div class="col-md-12">
-							<label class="labels">Địa chỉ</label> <br> <input
-								type="text" class="profile-value" value="Việt Nam" readonly>
-						</div>
-						<div class="col-md-12">
-							<label class="labels">Số điện thoại</label> <br> <input
-								type="text" class="profile-value" value="0123456789" readonly>
-						</div>
-						<div class="col-md-12">
-							<label class="labels">Email ID</label> <br> <input
-								type="text" class="profile-value" value="tranvana@gmail.com"
-								readonly>
+							<label class="labels">Email </label> <br> <label
+								th:text="${staff.member.email}"></label>
 						</div>
 
 
@@ -142,13 +138,12 @@
 				<label class="labels" style="font-size: large;">CHỨC VỤ</label>
 
 				<div class="col-md-12">
-					<label class="labels">Phòng Ban</label> <br> <input
-						type="text" class="profile-value" value="Phát triển phần mềm"
-						readonly>
+					<br> <label
+						th:text="${staff.member.departmant.department_name}"></label>
 				</div>
 				<div class="col-md-12">
-					<label class="labels">Ví trị</label> <br> <input type="text"
-						class="profile-value" value="Nhân viên" readonly>
+					<label class="labels">Ví trị</label> <br> <label
+						th:text="${title}"></label>
 				</div>
 				<br>
 				<div>
