@@ -14,9 +14,7 @@ public class Allowance implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private int id;
-
 	private float levelOfAllowance;
-
 	private String typeAllowance;
 
 	// bi-directional one-to-one association to Salary
