@@ -2,119 +2,142 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <title>Term recruitment Detail</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-    <style>
-        .labels {
-            font-size: 13px;
-        }
+<title>Term recruitment Detail</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous" />
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<style>
+.labels {
+	font-size: 13px;
+}
 
-        .rc-control {
-            border: none;
-            font-size: 13px;
-        }
+.rc-control {
+	border: none;
+	font-size: 13px;
+}
 
-        .rc-control:focus {
-            outline: none !important;
-            border: none;
-            font-size: 13px;
-        }
-    </style>
+.rc-control:focus {
+	outline: none !important;
+	border: none;
+	font-size: 13px;
+}
+</style>
 </head>
 
 <body>
-    <div class="container" style="padding-top: 50px;">
-        <div class="row">
-            <div class="col border-right">
-                <h3>Thông tin tuyển dụng: <span th:text="${term.name}"></span><button class="btn"><i class=" fa fa-edit"></i></button></h3>
-                <div class="row form-group">
-                    <div class="col">
-                        <label class="labels" for="status">Trạng thái</label>
+	<div class="container" style="padding-top: 50px;">
+		<div class="row">
+			<div class="col border-right">
+				<h3>
+					Thông tin tuyển dụng: <span th:text="${term.name}"></span>
+					<button class="btn">
+						<i class=" fa fa-edit"></i>
+					</button>
+				</h3>
+				<div class="row form-group">
+					<div class="col">
+						<label class="labels" for="status">Trạng thái</label>
 
-                    </div>
-                    <div class="col">
-                        <input type="text" class="rc-control" readonly value="Đang tiến hành" th:value="${term.status}">
-                    </div>
-                </div>
+					</div>
+					<div class="col">
+						<input type="text" class="rc-control" readonly
+							value="Đang tiến hành" th:value="${term.status}">
+					</div>
+				</div>
 
-                <div class="row form-group">
-                    <div class="col">
-                        <label class="labels">Tên đợt tuyển dụng:</label>
+				<div class="row form-group">
+					<div class="col">
+						<label class="labels">Tên đợt tuyển dụng:</label>
 
-                    </div>
-                    <div class="col">
-                        <input type="text" class="rc-control" readonly value="Đợt 1 năm 2021" th:value="${term.name}">
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col">
-                        <label class="labels">Ngày bắt đầu:</label>
+					</div>
+					<div class="col">
+						<input type="text" class="rc-control" readonly
+							value="Đợt 1 năm 2021" th:value="${term.name}">
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col">
+						<label class="labels">Ngày bắt đầu:</label>
 
-                    </div>
-                    <div class="col">
-                        <input type="date" class="rc-control" readonly value="2021-05-17" th:value="${term.start_date}">
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col">
-                        <label class="labels">Ngày kết thúc:</label>
+					</div>
+					<div class="col">
+						<input type="date" class="rc-control" readonly value="2021-05-17"
+							th:value="${term.start_date}">
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col">
+						<label class="labels">Ngày kết thúc:</label>
 
-                    </div>
-                    <div class="col">
-                        <input type="date" class="rc-control" readonly value="2021-06-17" th:value="${term.end_date}">
-                    </div>
-                </div>
+					</div>
+					<div class="col">
+						<input type="date" class="rc-control" readonly value="2021-06-17"
+							th:value="${term.end_date}">
+					</div>
+				</div>
 
-                <div class="row form-group">
-                    <div class="col">
-                        <label class="labels">Mô tả:</label>
+				<div class="row form-group">
+					<div class="col">
+						<label class="labels">Mô tả:</label>
 
-                    </div>
-                    <div class="col">
-                        <textarea class="rc-control" rows="5"
-                            readonly th:text="${term.description}"> Tuyển 12 nhân viên: Tuyển 5 thằng ab, 4 thằng bc, 3 thằng dbs</textarea>
-                    </div>
-                </div>
+					</div>
+					<div class="col">
+						<textarea class="rc-control" rows="5" readonly
+							th:text="${term.description}"> Tuyển 12 nhân viên: Tuyển 5 thằng ab, 4 thằng bc, 3 thằng dbs</textarea>
+					</div>
+				</div>
+			</div>
+			<div class="col p-3">
+				<p>
+					Danh sách vị trí tuyển dụng <a class="btn"
+						th:href="@{/recruitment/insert-recruitment-position}"><i
+						class="fa fa-plus"></i></a>
+				</p>
+				<table class="table ">
+					<thead>
+						<tr>
+							<!-- <th>Phòng Ban</th> -->
+							<th>Vị trí</th>
+							<th>Số lượng</th>
+							<th>Đã duyệt</th>
+							<th>#</th>
+						</tr>
+					</thead>
+					<tbody>
 
-            </div>
-            <div class="col p-3">
-                <p>Danh sách vị trí <a class="btn" th:href="@{/recruitment/insert-recruitment-position}"><i class="fa fa-plus"></i></a></p>
-                <table class="table ">
-                    <thead>
-                        <tr>
-                            <!-- <th>Phòng Ban</th> -->
-                            <th>Vị trí</th>
-                            <th>Số lượng</th>
-                            <th>Đã duyệt</th>
-                            <th>#</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                       
-                        <tr th:each="position : ${term.recruitmentPositions}">
-                            <!-- <td>Bảo vệ</td> -->
-                            <td th:text="${position.title.title_name}">Tổ trưởng</td>
-                            <td th:text="${position.number_of_recruitment}">1</td>
-                            <td>0</td>
-                            <td><a th:href="@{/recruitment/term/{term_id}/position/{position_id}(term_id=${term.id}, position_id=${position.id})}"><button class="btn btn-success"> Duyệt</button></td></a>
-                        </tr>
-                    </tbody>
-                </table>
+						<tr th:each="position,stat : ${term.recruitmentPositions}">
+							<!-- <td>Bảo vệ</td> -->
+							<td th:text="${position.title.title_name}">Tổ trưởng</td>
+							<td th:text="${position.number_of_recruitment}">1</td>
+							<td th:text="${number_acc[stat.index]}"></td>
+							<td><a
+								th:href="@{/recruitment/term/{term_id}/position/{position_id}(term_id=${term.id}, position_id=${position.id})}"><button
+										class="btn btn-success">Duyệt</button></td>
+							</a>
+						</tr>
+					</tbody>
+				</table>
 
-            </div>
+			</div>
 
-        </div>
-    </div>
+		</div>
+	</div>
 </body>
 
 </html>

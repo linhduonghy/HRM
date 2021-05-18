@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>Candidate</title>
+    <title>Position Detail</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -49,16 +49,16 @@
                         <label class="labels">Phòng ban</label>
                     </div>
                     <div class="col">
-                        <label>Bảo vệ</label>
+                        <label></label>
                         <button class="btn btn-secondary" style="margin-left: 50px">Xem điều kiện sơ tuyển <i class="fas fa-file"></i></button>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-3">
-                        <label class="labels">Vị trí</label>
+                        <label class="labels" >Vị trí</label>
                     </div>
                     <div class="col">
-                        <label>Nhân viên</label>
+                        <label th:text="${position.title.title_name}">Nhân viên</label>
                     </div>
                 </div>
                 <div class="row">
@@ -66,15 +66,15 @@
                         <label class="labels">Số lượng</label>
                     </div>
                     <div class="col">
-                        <label>10</label>
+                        <label th:text="${position.number_of_recruitment}">10</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-3">
-                        <label class="labels">Đã qua</label>
+                        <label class="labels">Đã chấp nhận</label>
                     </div>
                     <div class="col">
-                        <label>5</label>
+                        <label th:text="${#lists.size(accepted_cadidates)}">_</label>
                     </div>
                 </div>
             </div>
@@ -96,14 +96,14 @@
                         <th>Ghi chú</th>
                         <th>Duyệt</th>
                     </thead>
-                    <tr>
-                        <td>1</td>
-                        <td>Dương Văn Uyên</td>
-                        <td>012021</td>
-                        <td>Đợt 1 năm 2021</td>
-                        <td>Long Biên, Hà Nội</td>
-                        <td>17/05/2021</td>
-                        <td>17/06/2021</td>
+                    <tr th:each="processing_cadidate,stat: ${processing_cadidates}">
+                        <td th:text="${stat.index}">1</td>
+                        <td th:text="${processing_cadidate.name}">Dương Văn Uyên</td>
+                        <td th:text="${processing_cadidate.dob}">012021</td>
+                        <td th:text="${processing_cadidate.sex}"></td>
+                        <td th:text="${processing_cadidate.address}">Long Biên, Hà Nội</td>
+                        <td th:text="${processing_cadidate.phone}"></td>
+                        <td th:text="${processing_cadidate.email}">17/06/2021</td>
                         <td></td>
                         <td><button type="submit" class="btn btn-success">Chấp nhận</button></td>
                     </tr>
@@ -125,17 +125,17 @@
                     <th>Email</th>
                     <th>Ghi chú</th>
                 </thead>
-                <tr>
-                    <td>1</td>
-                    <td>Dương Văn Uyên</td>
-                    <td>012021</td>
-                    <td>Đợt 1 năm 2021</td>
-                    <td>Long Biên, Hà Nội</td>
-                    <td>17/05/2021</td>
-                    <td>17/06/2021</td>
-                    <td></td>
-
-                </tr>
+                <tr th:each="accepted_cadidate,stat: ${processing_cadidates}">
+                        <td th:text="${stat.index}">1</td>
+                        <td th:text="${accepted_cadidate.name}">Dương Văn Uyên</td>
+                        <td th:text="${accepted_cadidate.dob}">012021</td>
+                        <td th:text="${accepted_cadidate.sex}"></td>
+                        <td th:text="${accepted_cadidate.address}">Long Biên, Hà Nội</td>
+                        <td th:text="${accepted_cadidate.phone}"></td>
+                        <td th:text="${accepted_cadidate.email}">17/06/2021</td>
+                        <td></td>
+                        <td><button type="submit" class="btn btn-success">Chấp nhận</button></td>
+                    </tr>
 
 
             </table>
