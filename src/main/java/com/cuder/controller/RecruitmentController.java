@@ -76,4 +76,6 @@ public class RecruitmentController {
 		return "/recruitment/recruitment_term_detail.html";
 	}
 	
+	// show 
+	
 }

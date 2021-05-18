@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
     <link rel="stylesheet" href="/src/main/resources/style.css" />
@@ -29,7 +29,7 @@
                 <!-- Nhân viên -->
                 <li class="nav-item nav-title">
                     <a class="nav-link" href="/src/main/resources/templates/employee/employee.html"
-                    style="color: black;"><b>Nhân viên</b></a>
+                        style="color: black;"><b>Nhân viên</b></a>
                 </li>
                 <!-- Hợp đồng -->
                 <li class="nav-item dropdown nav-title">
@@ -69,71 +69,41 @@
     <header class="header">
         Quyết định bổ nhiệm
     </header>
-    <div class="container-fluid" style="margin-left: 30px;">
-        <div class="row">
-            <div class="col-lg-8">
-                <!-- searchbar -->
-                <div class="container searchbar">
-                    <form action="#" method="GET" class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Nhập tên nhân viên" aria-label="search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
-                    </form>
-                </div>
-                <div>
-                    <table class="table table-hover table-info" style="max-height: 800px;">
-                        <thead class="head-table">
-                            <th>Mã NV</th>
-                            <th>Tên</th>
-                            <th>Địa chỉ</th>
-                            <th>SĐT</th>
-                            <th>Ghi chú</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
-                                <td>#</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+    <div class="container">
+        <div class="col">
+            <!-- searchbar -->
+            <div class="container searchbar">
+                <form action="#" method="GET" class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập tên nhân viên"
+                        aria-label="search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                </form>
             </div>
 
-            <div class="col form-group">
-
-                <div>
-                    <form action="#" method="GET">
-                        <button class="btn btn-success" onclick="document.getElementById('notify').style.display='block'" 
-                        style="position: fixed; margin-top: 15px;">Submit</button>
-                    </form>
-                    
-                    <!-- Modal thông báo -->
-                    <div class="modal" id="notify" role="dialog" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered animate">
-                            <div class="modal-content">
-                            
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Thông báo</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
-                                    onclick="document.getElementById('notify').style.display='none'">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                
-                                <div class="modal-body">
-                                    Đã bổ nhiệm thành công!
-                                </div>
-                                
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal"
-                                    onclick="document.getElementById('notify').style.display='none'">Đóng</button>
-                                </div>                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Danh sách nhân viên -->
+            <div>
+                <table class="table table-hover table-info" style="max-height: 800px;">
+                    <thead class="head-table">
+                        <th>Mã NV</th>
+                        <th>Tên</th>
+                        <th>Địa chỉ</th>
+                        <th>SĐT</th>
+                        <th>#</th>
+                    </thead>
+                    <tbody>
+                        <tr th:each="staff : ${staffs}">
+                            <td th:text="${staff.id}"></td>
+                            <td th:text="${staff.member.name}"></td>
+                            <td th:text="${staff.member.address}"></td>
+                            <td th:text="${staff.member.phone}"></td>
+                            <td>
+                                <button class="btn btn-success">
+                                <a th:href="@{/bussiness/appoint-staff/{id}(id=${staff.id})}" style="text-decoration: none; color: white;">
+                                Bổ nhiệm</a></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
