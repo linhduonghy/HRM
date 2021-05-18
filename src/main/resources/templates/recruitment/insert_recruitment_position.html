@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>Recruitment insert</title>
+<title>Insert Recruitment Position</title>
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 <link rel="stylesheet"
@@ -29,67 +29,57 @@ body {
 <body>
 	<div class="container">
 		<div class="container-bg-white">
-			<h3>THÊM ĐỢT TUYỂN DỤNG</h3>
+			<h3>THÊM VỊ TRÍ TUYỂN DỤNG</h3>
 			<div>
-				<form th:action="@{/recruitment/insert-term}" method="POST"
-					th:object="${recruitmentTerm}">
+				<form th:action="@{/recruitment/insert-recruitment-position}"
+					method="POST" th:object="${recruitmentPosition}">
 					<div>
-						<h5 style="margin: 20px 0 30px 0;">Thông tin đợt tuyển tuyển
+						<h5 style="margin: 20px 0 30px 0;">Thông tin vị trí tuyển
 							dụng</h5>
 
 						<div class="row form-group">
 							<div class="col-3">
-								<label for="term_name"> Tên đợt tuyển dụng </label>
+								<label for="term_id"> Đợt tuyển dụng </label>
 							</div>
 							<div class="col-9">
-								<input th:field="*{name}" id="term_name" type="text"
+								<select id="term_id" th:field="*{recruitmentTerm.id}"
 									class="form-control">
+									<th:block th:each="term : ${terms}">
+										<option th:value="${term.id}" th:text="${term.name}">Đợt
+											1 - 2021</option>
+									</th:block>
+								</select>
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-3">
-								<label for="term_code"> Mã đợt tuyển dụng </label>
+								<label for="title_id"> Số lượng tuyển dụng </label>
 							</div>
 							<div class="col-9">
-								<input th:field="*{id}" id="term_code" type="text"
+								<select id="title_id" th:field="*{title.id}"
 									class="form-control">
+									<th:block th:each="t : ${titles}">
+										<option th:value="${t.id}" th:text="${t.title_name}">FullStack
+											Dev</option>
+									</th:block>
+								</select>
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-3">
-								<label for="term_description"> Mô tả </label>
+								<label for="number_"> Vị trí tuyển dụng </label>
 							</div>
 							<div class="col-9">
-								<input th:field="*{description}" id="term_description"
-									type="text" class="form-control">
-							</div>
-						</div>
-						<div class="row form-group">
-							<div class="col-3">
-								<label for="term_start_date"> Ngày bắt đầu </label>
-
-							</div>
-							<div class="col-9">
-								<input th:field="*{start_date}" id="term_start_date" type="date"
-									class="form-control">
-							</div>
-						</div>
-						<div class="row form-group">
-							<div class="col-3">
-								<label for="term_end_date"> Ngày kết thúc </label>
-
-							</div>
-							<div class="col-9">
-								<input th:field="*{end_date}" id="term_end_date" type="date"
-									class="form-control">
+								<input type="text" id="number_"
+									th:field="*{number_of_recruiment}" class="form-control"
+									placeholder="Số lượng tuyển dụng">
 							</div>
 						</div>
 					</div>
 
 					<div class="container-bg-white"
 						style="display: flex; justify-content: flex-end;">
-						<button type="submit" class="btn btn-info">Xác
-							nhận</button>
+						<button type="submit" class="btn btn-info">Xác nhận</button>
 					</div>
 
 				</form>

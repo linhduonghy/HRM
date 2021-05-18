@@ -2,128 +2,85 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <title>Term recruitment</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/src/main/resources/style.css" />
-
-    <style>
-        .labels {
-            font-size: 13px;
-        }
-
-        .rc-control {
-            border: none;
-            font-size: 13px;
-        }
-
-        .rc-control:focus {
-            outline: none !important;
-            border: none;
-            font-size: 13px;
-        }
-    </style>
+<title>Recruitment</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous" />
+<link rel="stylesheet" href="/src/main/resources/style.css" />
+<style>
+</style>
 </head>
 
 <body>
-    <div class="container" style="padding-top: 50px;">
-        <div class="row">
-            <div class="col border-right">
-                <h3>Thông tin tuyển dụng đợt 1 năm 2021 <button class="btn"><i class=" fa fa-edit"></i></button></h3>
-                <div class="row form-group">
-                    <div class="col">
-                        <label class="labels">Trạng thái</label>
+	<div class="container">
+		<div class="row mb-3" style="padding-top: 50px; ">
+			<div class="col-6">
+				<h1>KẾ HOẠCH TUYỂN DỤNG</h1>
+			</div>
+			<div class="col">
+				<a th:href="@{/recruitment/insert-recruitment-position}">
+					<button class=" btn btn-success" >
+						<i class="fa fa-plus small"></i> Thêm vị trí tuyển dụng
+					</button>
+				</a>
+			</div>
+			<div class="col">
+				<a th:href="@{/recruitment/insert-term}">
+					<button class=" btn btn-info" >
+						<i class="fa fa-plus small"></i> Thêm đợt tuyển dụng mới
+					</button>
+				</a>
+			</div>
+		</div>
 
-                    </div>
-                    <div class="col">
-                        <input type="text" class="rc-control" readonly value="Đang tiến hành">
-                    </div>
-                </div>
-
-                <div class="row form-group">
-                    <div class="col">
-                        <label class="labels">Tên đợt tuyển dụng:</label>
-
-                    </div>
-                    <div class="col">
-                        <input type="text" class="rc-control" readonly value="Đợt 1 năm 2021">
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col">
-                        <label class="labels">Ngày bắt đầu:</label>
-
-                    </div>
-                    <div class="col">
-                        <input type="date" class="rc-control" readonly value="2021-05-17">
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col">
-                        <label class="labels">Ngày kết thúc:</label>
-
-                    </div>
-                    <div class="col">
-                        <input type="date" class="rc-control" readonly value="2021-06-17">
-                    </div>
-                </div>
-
-                <div class="row form-group">
-                    <div class="col">
-                        <label class="labels">Mô tả:</label>
-
-                    </div>
-                    <div class="col">
-                        <textarea class="rc-control" rows="5"
-                            readonly> Tuyển 12 nhân viên: Tuyển 5 thằng ab, 4 thằng bc, 3 thằng dbs</textarea>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col p-3">
-                <p>Danh sách vị trí <button class="btn "><i class="fa fa-plus"></i></button></p>
-                <table class="table ">
-                    <thead>
-                        <tr>
-                            <th>Phòng Ban</th>
-                            <th>Vị trí</th>
-                            <th>Số lượng</th>
-                            <th>Đã duyệt</th>
-                            <th>#</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                       
-                        <tr>
-                            <td>Bảo vệ</td>
-                            <td>Tổ trưởng</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td><a href="candidate.html"><button class="btn btn-success"> Duyệt</button></td></a>
-                        </tr>
-                        <tr>
-                            <td>Bảo vệ</td>
-                            <td>Nhân viên</td>
-                            <td>5</td>
-                            <td>2</td>
-                            <td><a href="candidate.html"><button class="btn btn-success"> Duyệt</button></td></a>
-                        </tr>
-
-                    </tbody>
-                </table>
-
-            </div>
-
-        </div>
-    </div>
+	</div>
+	<div>
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col">
+				<table class="table table-bordered table-hover"
+					style="padding: 20px;">
+					<thead>
+						<th>#</th>
+						<th>Trạng thái</th>
+						<th>Mã đợt tuyển dụng</th>
+						<th>Tên đợt tuyển dụng</th>
+						<th style="width: 200px;">Mô tả</th>
+						<th>Ngày bắt đầu</th>
+						<th>Ngày kết thúc</th>
+					</thead>
+					<th:block th:each="term,iterStat : ${terms}">
+						<tr>
+							<td th:text="${iterStat.index}">1</td>
+							<td th:text="${term.status}">Đang thực hiện</td>
+							<td th:text="${term.id}">012021</td>
+							<td th:text="${term.name}">Đợt 1 năm 2021</td>
+							<td th:text="${term.description}">Tuyển 12 nhân viên:Tuyển 5
+								thằng ab, 4 thằng bc, 3 thằng db</td>
+							<td th:text="${term.start_date}">17/05/2021</td>
+							<td th:text="${term.end_date}">17/06/2021</td>
+						</tr>
+					</th:block>
+				</table>
+			</div>
+			<div class="col-1"></div>
+		</div>
+	</div>
 </body>
 
 </html>
