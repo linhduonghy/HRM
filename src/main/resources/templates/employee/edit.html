@@ -2,204 +2,232 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Employee</title>
+<meta charset="UTF-8">
+<title>Employee</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/src/main/resources/style.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous" />
+<link rel="stylesheet" href="/src/main/resources/style.css" />
 
 
-    <style>
-        .body {
-            font-family: 'Times New Roman', Times, serif;
-        }
+<style>
+.body {
+	font-family: 'Times New Roman', Times, serif;
+}
 
-        .profile-value {
-            font-size: large;
-            width: 400px;
-            height: 45px;
-            border: none;
-        }
+.profile-value {
+	font-size: large;
+	width: 400px;
+	height: 45px;
+	border: none;
+}
 
-        .profile-button {
-            background: rgb(99, 39, 120);
-            box-shadow: none;
-            border: none
-        }
+.profile-button {
+	background: rgb(99, 39, 120);
+	box-shadow: none;
+	border: none
+}
 
-        .profile-button:hover {
-            background: #682773
-        }
+.profile-button:hover {
+	background: #682773
+}
 
-        .profile-button:focus {
-            background: #682773;
-            box-shadow: none
-        }
+.profile-button:focus {
+	background: #682773;
+	box-shadow: none
+}
 
-        .profile-button:active {
-            background: #682773;
-            box-shadow: none
-        }
+.profile-button:active {
+	background: #682773;
+	box-shadow: none
+}
 
-        .back:hover {
-            color: #682773;
-            cursor: pointer
-        }
+.back:hover {
+	color: #682773;
+	cursor: pointer
+}
 
-        .labels {
-            font-size: 15px;
-            font-weight: bold;
-        }
+.labels {
+	font-size: 15px;
+	font-weight: bold;
+}
 
-        .add-experience:hover {
-            background: #BA68C8;
-            color: #fff;
-            cursor: pointer;
-            border: solid 1px #BA68C8
-        }
-    </style>
+.add-experience:hover {
+	background: #BA68C8;
+	color: #fff;
+	cursor: pointer;
+	border: solid 1px #BA68C8
+}
+</style>
 </head>
 
 <body>
 
-    <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-                        width="150px"
-                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
-                        class="font-weight-bold">Trần Văn A</span><span> </span></div>
-            </div>
-            <div class="col-md-5 border-right">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">THÔNG TIN NHÂN VIÊN
-                            <button class="btn" onclick="document.getElementById('edit').style.display='block'">
-                                <i class=" fa-2x fa fa-edit"></i></button>
-                        </h4>
-                    </div>
-                    <div class="row mt-2">
-                        <div class="col-md-6"><label class="labels">Họ và Tên </label><input type="text"
-                                style=" height: 45px ; font-size: large; border: none;" value="Trần Văn A" readonly></div>
+	<div class="container rounded bg-white mt-5 mb-5">
+		<div class="row">
+			<div class="col-md-3 border-right">
+				<div
+					class="d-flex flex-column align-items-center text-center p-3 py-5">
+					<img class="rounded-circle mt-5" width="150px"
+						src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+						class="font-weight-bold">Trần Văn A</span><span> </span>
+				</div>
+			</div>
+			<div class="col-md-5 border-right">
+				<div class="p-3 py-5">
+					<div class="d-flex justify-content-between align-items-center mb-3">
+						<h4 class="text-right">
+							THÔNG TIN NHÂN VIÊN
+							<button class="btn"
+								onclick="document.getElementById('edit').style.display='block'">
+								<i class=" fa-2x fa fa-edit"></i>
+							</button>
+						</h4>
+					</div>
+					<div class="row mt-2">
+						<div class="col-md-6">
+							<label class="labels">Họ và Tên </label>
+							<br> <label th:text=${staff.member.name} ></label>
+						</div>
 
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-12"><label class="labels">Ngày sinh</label>
-                            <br> <input type="text" class="profile-value" value="01/01/1999" readonly>
-                        </div>
-                        <div class="col-md-12"><label class="labels">CMND/CCCD</label>
-                            <br> <input type="text" class="profile-value" value="123456123456" readonly>
-                        </div>
-                        <div class="col-md-12"><label class="labels">Quê quán</label>
-                            <br> <input type="text" class="profile-value" value="Việt Nam" readonly>
-                        </div>
-                        <div class="col-md-12"><label class="labels">Địa chỉ</label>
-                            <br><input type="text" class="profile-value" value="Việt Nam" readonly>
-                        </div>
-                        <div class="col-md-12"><label class="labels">Số điện thoại</label>
-                            <br> <input type="text" class="profile-value" value="0123456789" readonly>
-                        </div>
-                        <div class="col-md-12"><label class="labels">Email ID</label>
-                            <br><input type="text" class="profile-value" value="tranvana@gmail.com" readonly>
-                        </div>
-
-
-
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-md-4 p-5"><label class="labels" style="font-size: large;">CHỨC VỤ</label>
-
-                <div class="col-md-12"><label class="labels">Phòng Ban</label>
-                    <br> <input type="text" class="profile-value" value="Phát triển phần mềm" readonly>
-                </div>
-                <div class="col-md-12"><label class="labels">Ví trị</label>
-                    <br><input type="text" class="profile-value" value="Nhân viên" readonly>
-                </div>
-                <br>
-                <div>
-                    <label class="labels" style="font-size: large;">TRÌNH ĐỘ CHUYÊN MÔN
-                        <button class="btn-sm btn" style="color: gainsboro; border: solid;"><i
-                                class=" fa small fa-plus"></i></button>
-                    </label>
-                    <p>
-                        Ngành ..... Trường
-                    </p>
-                    <p>
-                        Ngành ..... Trường
-                    </p>
-                </div>
-            </div>
-            <button class="btn btn-info"> Quay lại </button>
-        </div>
-    </div>
+					</div>
+					<div class="row mt-3">
+						<div class="col-md-12">
+							<label class="labels">Ngày sinh</label> 
+							<br> <label th:text="${staff.member.dob}" ></label>
+						</div>
+						<div class="col-md-12">
+							<label class="labels">CMND/CCCD</label>
+							 <br> <label th:text="${staff.member.dob}" ></label>
+						</div>
+						<div class="col-md-12">
+							<label class="labels">Quê quán</label> <br> <input
+								type="text" class="profile-value" value="Việt Nam" readonly>
+						</div>
+						<div class="col-md-12">
+							<label class="labels">Địa chỉ</label> <br> <input
+								type="text" class="profile-value" value="Việt Nam" readonly>
+						</div>
+						<div class="col-md-12">
+							<label class="labels">Số điện thoại</label> <br> <input
+								type="text" class="profile-value" value="0123456789" readonly>
+						</div>
+						<div class="col-md-12">
+							<label class="labels">Email ID</label> <br> <input
+								type="text" class="profile-value" value="tranvana@gmail.com"
+								readonly>
+						</div>
 
 
-    <!-- Modal chỉnh sửa -->
-    <div id="edit" class="modall modall-content animate">
-        <div class="imgcontainer" style="padding-bottom: 40px;">
-            <span onclick="document.getElementById('edit').style.display='none'" class="close"
-                title="Close">&times;</span>
-        </div>
 
-        <div class="row table-detail">
-            <div class="col" style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
-                <table class="table">
-                    <tr class="info-detail">
-                        <td>ID Card</td>
-                        <td><input type="text" name='idcard' value="#"></td>
-                    </tr>
-                    <tr class="info-detail">
-                        <td>Họ tên</td>
-                        <td><input type="text" name='name' value="#"></td>
-                    </tr>
-                    <tr class="info-detail">
-                        <td>Ngày sinh</td>
-                        <td><input type="text" name='dob' value="#"></td>
-                    </tr>
-                    <tr class="info-detail">
-                        <td>Giới tính</td>
-                        <td><input type="text" name='sex' value="#"></td>
-                    </tr>
-                </table>
-            </div>
+					</div>
 
-            <div class="col" style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
-                <table class="table">
-                    <tr class="info-detail">
-                        <td>Địa chỉ</td>
-                        <td><input type="text" name='address' value="#"></td>
-                    </tr>
-                    <tr class="info-detail">
-                        <td>Số điện thoại</td>
-                        <td><input type="text" name='phone' value="#"></td>
-                    </tr>
-                    <tr class="info-detail">
-                        <td>Email</td>
-                        <td><input type="text" name='email' value="#"></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
+				</div>
+			</div>
+			<div class="col-md-4 p-5">
+				<label class="labels" style="font-size: large;">CHỨC VỤ</label>
 
-        <div class="container" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('edit').style.display='none'"
-                class="btn btn-danger cancelbtn">Cancel</button>
+				<div class="col-md-12">
+					<label class="labels">Phòng Ban</label> <br> <input
+						type="text" class="profile-value" value="Phát triển phần mềm"
+						readonly>
+				</div>
+				<div class="col-md-12">
+					<label class="labels">Ví trị</label> <br> <input type="text"
+						class="profile-value" value="Nhân viên" readonly>
+				</div>
+				<br>
+				<div>
+					<label class="labels" style="font-size: large;">TRÌNH ĐỘ
+						CHUYÊN MÔN
+						<button class="btn-sm btn"
+							style="color: gainsboro; border: solid;">
+							<i class=" fa small fa-plus"></i>
+						</button>
+					</label>
+					<p>Ngành ..... Trường</p>
+					<p>Ngành ..... Trường</p>
+				</div>
+			</div>
+			<button class="btn btn-info">Quay lại</button>
+		</div>
+	</div>
 
-            <form action="#" method="POST">
-                <button type="button" class="btn btn-success"
-                    style="margin-right: 5px; margin-top: 5px; float: right;">Submit</button>
-            </form>
-        </div>
-    </div>
+
+	<!-- Modal chỉnh sửa -->
+	<div id="edit" class="modall modall-content animate">
+		<div class="imgcontainer" style="padding-bottom: 40px;">
+			<span onclick="document.getElementById('edit').style.display='none'"
+				class="close" title="Close">&times;</span>
+		</div>
+
+		<div class="row table-detail">
+			<div class="col"
+				style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
+				<table class="table">
+					<tr class="info-detail">
+						<td>ID Card</td>
+						<td><input type="text" name='idcard' value="#"></td>
+					</tr>
+					<tr class="info-detail">
+						<td>Họ tên</td>
+						<td><input type="text" name='name' value="#"></td>
+					</tr>
+					<tr class="info-detail">
+						<td>Ngày sinh</td>
+						<td><input type="text" name='dob' value="#"></td>
+					</tr>
+					<tr class="info-detail">
+						<td>Giới tính</td>
+						<td><input type="text" name='sex' value="#"></td>
+					</tr>
+				</table>
+			</div>
+
+			<div class="col"
+				style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
+				<table class="table">
+					<tr class="info-detail">
+						<td>Địa chỉ</td>
+						<td><input type="text" name='address' value="#"></td>
+					</tr>
+					<tr class="info-detail">
+						<td>Số điện thoại</td>
+						<td><input type="text" name='phone' value="#"></td>
+					</tr>
+					<tr class="info-detail">
+						<td>Email</td>
+						<td><input type="text" name='email' value="#"></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+		<div class="container" style="background-color: #f1f1f1">
+			<button type="button"
+				onclick="document.getElementById('edit').style.display='none'"
+				class="btn btn-danger cancelbtn">Cancel</button>
+
+			<form action="#" method="POST">
+				<button type="button" class="btn btn-success"
+					style="margin-right: 5px; margin-top: 5px; float: right;">Submit</button>
+			</form>
+		</div>
+	</div>
 
 
 </body>
