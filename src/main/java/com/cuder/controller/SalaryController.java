@@ -30,25 +30,24 @@ public class SalaryController {
 	RestTemplate template = new RestTemplate();
 
 	@GetMapping("basic")
-	public String showBasicSalary(Model model) {
+	public String showBasicSalary(Model model,HttpSession session) {
 
 		// get all Basic Salary
 		List<BasicSalary> basicSalaries = template.getForObject("http://localhost:8081/basicSalary", List.class);
 		model.addAttribute("basicSalaries", basicSalaries);
-
+		model.addAttribute("bs", new BasicSalary());
+		if(session.getAttribute("msg")!=null) {
+			model.addAttribute("msg",session.getAttribute("msg"));
+			session.removeAttribute("msg");
+			}
+		
 		return "/basic_Salary/basic_Salary.html";
 	}
 
-	@GetMapping("/basic/insert")
-	public String showInsertForm(Model model) {
-
-		model.addAttribute("bs", new BasicSalary());
-
-		return "/basic_Salary/insert.html";
-	}
+	
 
 	@PostMapping("/basic/insert")
-	public String addBasic(@ModelAttribute BasicSalary bs, @RequestParam Map<String, String> requestParams) {
+	public String addBasic(@ModelAttribute BasicSalary bs, @RequestParam Map<String, String> requestParams, HttpSession session) {
 
 		System.out.println(bs);
 
@@ -56,7 +55,7 @@ public class SalaryController {
 //		bs.setCreateDate(new java.sql.Date(date.getTime()));
 
 		bs = template.postForObject("http://localhost:8081/basicSalary", bs, BasicSalary.class);
-
+		session.setAttribute("msg","1");	
 		System.out.println(bs);
 		return "redirect:../basic/";
 
