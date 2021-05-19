@@ -106,7 +106,7 @@
 								<td th:text="${staff.member.name}"></td>
 								<td class="text-right" th:text="${staff.member.departmant.department_name}"></td>
 								<td th:text="${titles[stat.index].title_name}" > </td>							
-								<td class="text-center"><a th:href="@{/employee/profile/{id}(id=${contracts[stat.index].id})}" ><button class="btn" ><i class="fas fa-file"></i> </button></a>  </td>
+								<td class="text-center"><a th:href="@{/employee/profile/{id}(id=${staff.id})}" ><button class="btn" ><i class="fas fa-file"></i> </button></a>  </td>
 							</tr>
 						</th:block>
             

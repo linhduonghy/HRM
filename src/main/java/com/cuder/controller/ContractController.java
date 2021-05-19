@@ -32,8 +32,6 @@ public class ContractController {
 		Staff[] staffs = template.getForObject("http://localhost:8081/staff", Staff[].class);
 		model.addAttribute("staffs", staffs);
 
-		List<Contract> staffContracts = new ArrayList<Contract>();
-
 		List<Title> titles = new ArrayList<Title>();
 
 		for (int i = 0; i < staffs.length; i++) {
@@ -41,6 +39,7 @@ public class ContractController {
 			titles.add(appoint.get(appoint.size() - 1).getTitle());
 		}
 		model.addAttribute("titles", titles);
+<<<<<<< HEAD
 		
 		Contract[] con = template.getForObject("http://localhost:8081/contract", Contract[].class);
 		
@@ -51,6 +50,9 @@ public class ContractController {
 		}
 		model.addAttribute("contracts", staffContracts);
 	
+=======
+
+>>>>>>> 822a34282ee96841e4dd5b051ec4a24f5cbbbd5a
 		return "contract/contract.html";
 	}
 	
