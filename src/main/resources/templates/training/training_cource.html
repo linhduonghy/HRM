@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+
+<title>Recruitment</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous" />
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<style>
+</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="row mb-3" style="padding-top: 50px;">
+			<div class="col-6">
+				<h3>Quản lý huấn luyện, đào tạo</h3>
+			</div>
+			<div class="col-4">
+				<a th:href="@{/training/insert_cource}">
+					<button class=" btn btn-info">
+						<i class="fa fa-plus small"></i> Thêm khóa huấn luyện, đào tạo
+					</button>
+				</a>
+			</div>
+			
+			<div class="col-2">
+				<a>
+					<button class=" btn btn-info">
+						<i class="fa fa-plus small"></i> Thêm thành viên
+					</button>
+				</a>
+			</div>
+		</div>
+
+	</div>
+	<div>
+		<div class="row">
+			<div class="col-1"></div>
+			<div class="col">
+				<table class="table table-bordered table-hover"
+					style="padding: 20px;">
+					<thead>
+						<th>#</th>
+						<th>Tên khóa đào tạo</th>
+						<th>Nội dung</th>
+						<th>Thời gian đào tạo</th>
+						<th>Số lượng thành viên đào tạo</th>
+						<th>#</th>
+					</thead>
+					<th:block th:each="cource : ${cources}">
+						<tr>
+							<td th:text="${cource.id}"></td>
+							<td th:text="${cource.training_cource_name}"></td>
+							<td th:text="${cource.content}"></td>
+							<td th:text="${cource.duration} +' tháng'"></td>
+							<td th:text="${cource.number_of_attendance}"></td>
+							<td><a th:href="@{/training_cource/training_cource_detail/{cource_id}(cource_id=${cource.id}) }" class="btn btn-success">Thông tin</a></td>
+						</tr>
+					</th:block>
+				</table>
+			</div>
+			<div class="col-1"></div>
+		</div>
+	</div>
+</body>
+
+</html>

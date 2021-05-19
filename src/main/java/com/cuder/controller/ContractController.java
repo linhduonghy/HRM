@@ -1,6 +1,8 @@
 package com.cuder.controller;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,30 +32,24 @@ public class ContractController {
 	@GetMapping("")
 	public String showlistStaff(Model model) {
 		// add model staff
-		Staff[] staffs = template.getForObject("http://localhost:8081/staff", Staff[].class);
-		model.addAttribute("staffs", staffs);
-
-		List<Title> titles = new ArrayList<Title>();
-
-		for (int i = 0; i < staffs.length; i++) {
-			List<Appointment> appoint = staffs[i].getAppointments();
-			titles.add(appoint.get(appoint.size() - 1).getTitle());
-		}
-		model.addAttribute("titles", titles);
-<<<<<<< HEAD
 		
-		Contract[] con = template.getForObject("http://localhost:8081/contract", Contract[].class);
+		List<Contract> contracts = template.getForObject("http://localhost:8081/contract", List.class);
+		Collections.reverse(contracts);
 		
-		List<Contract> contracts = new ArrayList<Contract>();
-		for (int i = 0; i < con.length; i++) {
-//			List<Contract> contracts = staffs[i].getContracts();
-			staffContracts.add(contracts.get(contracts.size() - 1));
-		}
-		model.addAttribute("contracts", staffContracts);
-	
-=======
+		model.addAttribute("contracts",contracts);
+		
+		
+//		Staff[] staffs = template.getForObject("http://localhost:8081/staff", Staff[].class);
+//		model.addAttribute("staffs", staffs);
+//
+//		List<Title> titles = new ArrayList<Title>();
+//
+//		for (int i = 0; i < staffs.length; i++) {
+//			List<Appointment> appoint = staffs[i].getAppointments();
+//			titles.add(appoint.get(appoint.size() - 1).getTitle());
+//		}
+//		model.addAttribute("titles", titles);
 
->>>>>>> 822a34282ee96841e4dd5b051ec4a24f5cbbbd5a
 		return "contract/contract.html";
 	}
 	
@@ -87,8 +84,24 @@ public class ContractController {
 		contract = template.postForObject("http://localhost:8081/contract", contract, Contract.class);
 		
 		System.out.println(contract);
-		return "redirect:/contract/insert";
+		return "redirect:/contract";
 		
+	}
+	@GetMapping("/{id}")
+	public String showDetail(@PathVariable("id") int id,Model model) {
+		
+		// add model staffs
+		Contract contract = template.getForObject("http://localhost:8081/contract/{id}",Contract.class, id);
+		model.addAttribute("contract", contract);
+		
+		Staff staff = template.getForObject("http://localhost:8081/staff/{id}",Staff.class, contract.getStaff().getId());
+		
+		// add model contractTypes
+		List<Contract> contracts = staff.getContracts();
+
+		model.addAttribute("contracts", contracts);
+		
+		return "/contract/detail.html";
 	}
 	
 }
