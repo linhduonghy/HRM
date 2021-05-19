@@ -69,18 +69,20 @@ public class TrainingController {
 		
 	}
 	
+	@GetMapping("/remove_training_cource/{cource_id}")
+	public String removeTrainingCource(@PathVariable("cource_id") Integer cource_id) {
+		
+		rest.delete(apiUrl+"/training_cource/{cource_id}", cource_id);
+		
+		return "redirect:/training_cource";
+	}
 	@GetMapping("/insert_member")
 	public String showInsertMember(Model model) {
-		
 		Member[] members = rest.getForObject(apiUrl+"/member", Member[].class);
 		model.addAttribute("members", members);
-		
 		TrainingCource[] cources = rest.getForObject(apiUrl+"/training_cource", TrainingCource[].class);
 		model.addAttribute("trainingCources", cources);
-		
-	
 		model.addAttribute("memberTC", new MemberTrainingCource());
-		
 		return "training/insert_member_training_cource.html";
 	}
 	@PostMapping("/insert_member")
@@ -88,6 +90,5 @@ public class TrainingController {
 		memberTC = rest.postForObject(apiUrl+"/memberTrainingCource", memberTC, MemberTrainingCource.class);
 		System.err.println(memberTC);
 		return "redirect:/training_cource";
-		
 	}
 }

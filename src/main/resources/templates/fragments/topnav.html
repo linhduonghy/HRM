@@ -1,0 +1,94 @@
+
+<div th:fragment="navbar">
+	<th:block th:if="!${session.user}">
+
+		<script type="text/javascript" th:inline="javascript">
+			$(window).on('load', function() {
+				location.replace("/login")
+			});
+		</script>
+
+	</th:block>
+	<nav class="navbar navbar-expand-lg navbar-light bg-info">
+		<a class="navbar-brand brand" th:href="@{/}">HRM</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbar-content">
+
+			<div  th:if="${session.user.staff == null}">
+				<ul class="navbar-nav mr-auto">
+					<!-- NhÃ¢n viÃªn -->
+					<li class="nav-item nav-title"><a class="nav-link"
+						th:href="@{/employee}" style="color: black;"><b>Nhân viên</b></a></li>
+
+					<li class="nav-item nav-title"><a class="nav-link"
+						th:href="@{/contract}" style="color: black;"><b>Hợp đồng</b></a></li>
+
+					<li class="nav-item nav-title"><a class="nav-link"
+						th:href="@{/recruitment}" style="color: black;"><b>Tuyển
+								dụng</b></a></li>
+
+
+					<!-- Ä�Ã o táº¡o -->
+					<li class="nav-item nav-title"><a class="nav-link"
+						th:href="@{/training_cource}" style="color: black;"><b>Đào
+								tạo</b></a></li>
+
+
+					<!-- LÆ°Æ¡ng -->
+					<li class="nav-item dropdown nav-title"><a
+						class="nav-link dropdown-toggle" href="#" id="hr-decision"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false" style="color: black;"> <b>Lương
+								thưởng</b>
+					</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/salary}">Lương nhân viên</a>
+							<a class="dropdown-item" th:href="@{/salary/basic}">Lương cơ
+								bản</a> <a class="dropdown-item" th:href="@{/salary/allowance}">Lương
+								năng suất</a>
+						</div></li>
+
+					<!--Thá»‘ng KÃª-->
+					<li class="nav-item dropdown nav-title"><a
+						class="nav-link dropdown-toggle" href="#" id="hr-decision"
+						role="button" data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false" style="color: black;"> <b>Thống kê</b>
+					</a>
+						<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<a class="dropdown-item" th:href="@{/statis/employee}">Thống
+								kê nhân viên</a> <a class="dropdown-item"
+								th:href="@{/statis/department}">Phân bổ nhân viên</a>
+
+						</div></li>
+
+				</ul>
+			</div>
+			
+
+			<!-- Login button -->
+			<div class="form-group" style="margin-right: 20px; margin-top: 20px;">
+				<div class="row">
+					<div class="col">
+						
+							<th:block th:if="${session.user}">
+								<a class="btn btn-link text-white" th:href="@{profile}"
+									th:text=${session.user.name}></a>
+
+							</th:block>
+							<br> <a th:href="@{/logout}"
+								style="text-decoration: none; color: azure; float: right;">Đăng
+								xuất</a>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+
+</div>

@@ -77,6 +77,7 @@ html, body, #container {
 </head>
 
 <body>
+<div th:replace="fragments/topnav :: navbar"></div>
 	<div class="row pl-5">
 		<div class="col">
 			<div class="container pt-5">
@@ -111,7 +112,7 @@ html, body, #container {
 								<th scope="row" th:text="${staff.id}"></th>
 								<td th:text="${staff.member.name}"></td>
 								<td class="text-right"
-									th:text="${staff.member.departmant.department_name}"></td>
+									th:text="${staff.member.department.department_name}"></td>
 
 
 							</tr>

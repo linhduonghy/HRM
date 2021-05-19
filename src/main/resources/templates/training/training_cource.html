@@ -27,6 +27,7 @@
 </head>
 
 <body>
+<div th:replace="fragments/topnav :: navbar"></div>
 	<div class="container">
 		<div class="row mb-3" style="padding-top: 50px;">
 			<div class="col-6">
@@ -71,7 +72,10 @@
 							<td th:text="${cource.content}"></td>
 							<td th:text="${cource.duration} +' tháng'"></td>
 							<td th:text="${cource.number_of_attendance}"></td>
-							<td><a th:href="@{/training_cource/training_cource_detail/{cource_id}(cource_id=${cource.id}) }" class="btn btn-success">Thông tin</a></td>
+							<td>
+							<a th:href="@{/training_cource/training_cource_detail/{cource_id}(cource_id=${cource.id}) }" class="btn btn-success">Thông tin</a>
+							<a th:href="@{/training_cource/remove_training_cource/{cource_id}(cource_id=${cource.id}) }" class="btn btn-danger">Xóa</a>
+							</td>
 						</tr>
 					</th:block>
 				</table>

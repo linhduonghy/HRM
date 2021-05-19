@@ -60,7 +60,7 @@ public class BussinessController {
 		
 		Department d = rest.getForObject(apiUrl+"/department/{id}", Department.class, department_id);
 		Staff s = rest.getForObject(apiUrl+"/staff/{id}", Staff.class, appointment.getStaff().getId());
-		s.getMember().setDepartmant(d);
+		s.getMember().setDepartment(d);
 		
 		appointment = rest.postForObject(apiUrl+"/appointment", appointment, Appointment.class);
 		System.out.println(appointment);

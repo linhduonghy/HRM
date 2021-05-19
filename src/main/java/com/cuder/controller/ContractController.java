@@ -6,6 +6,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +22,7 @@ import com.cuder.model.Appointment;
 import com.cuder.model.Contract;
 import com.cuder.model.ContractType;
 import com.cuder.model.Manager;
+import com.cuder.model.Member;
 import com.cuder.model.Staff;
 import com.cuder.model.Title;
 
@@ -37,7 +40,6 @@ public class ContractController {
 		Collections.reverse(contracts);
 		
 		model.addAttribute("contracts",contracts);
-		
 		
 //		Staff[] staffs = template.getForObject("http://localhost:8081/staff", Staff[].class);
 //		model.addAttribute("staffs", staffs);
@@ -72,14 +74,14 @@ public class ContractController {
 	}
 	
 	@PostMapping("/insert")
-	public String addContract(@ModelAttribute Contract contract, @RequestParam Map<String, String> requestParams) {
+	public String addContract(@ModelAttribute Contract contract, @RequestParam Map<String, String> requestParams, HttpSession session) {
 		
 		System.out.println(contract);
 
 //		set manager 
-		Manager m = new Manager();
-		m.setId("QL1");
-		contract.setManager(m);
+		Member m = (Member) session.getAttribute("user");
+		
+		contract.setManager(m.getManager());
 		
 		contract = template.postForObject("http://localhost:8081/contract", contract, Contract.class);
 		

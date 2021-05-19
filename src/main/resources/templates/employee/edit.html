@@ -85,7 +85,7 @@
 </head>
 
 <body>
-
+<div th:replace="fragments/topnav :: navbar"></div>
 	<div class="container rounded bg-white mt-5 mb-5">
 		<div class="row">
 			<div class="col-md-3 border-right">
@@ -149,7 +149,7 @@
 			<div class="col-md-4 p-5">
 				<div>
 					<h5>Phòng ban</h5>
-					<i th:text="${staff.member.departmant.department_name}"> </i>
+					<i th:text="${staff.member.department.department_name}"> </i>
 				</div>
 
 				<div style="margin-top: 20px;">
