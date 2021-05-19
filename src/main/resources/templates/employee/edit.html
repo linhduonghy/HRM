@@ -24,14 +24,14 @@
 <link rel="stylesheet" th:href="@{/css/style.css}">
 
 <script>
-$(document).ready(function(){
-    $(".show-modal").click(function(){
-        $("#editModal").modal({
-            backdrop: 'static',
-            keyboard: false
-        });
-    });
-});
+	$(document).ready(function() {
+		$(".show-modal").click(function() {
+			$("#editModal").modal({
+				backdrop : 'static',
+				keyboard : false
+			});
+		});
+	});
 </script>
 <style>
 .body {
@@ -101,7 +101,7 @@ $(document).ready(function(){
 					<div class="d-flex justify-content-between align-items-center mb-3">
 						<h4 class="text-right">
 							THÔNG TIN NHÂN VIÊN
-							<button class="btn show-modal" >
+							<button class="btn show-modal">
 								<i class=" fa-2x fa fa-edit"></i>
 							</button>
 						</h4>
@@ -147,28 +147,16 @@ $(document).ready(function(){
 				</div>
 			</div>
 			<div class="col-md-4 p-5">
-				<label class="labels" style="font-size: large;">CHỨC VỤ</label>
-
-				<div class="col-md-12">
-					<br> <label
-						th:text="${staff.member.departmant.department_name}"></label>
-				</div>
-				<div class="col-md-12">
-					<label class="labels">Ví trị</label> <br> <label
-						th:text="${title}"></label>
-				</div>
-				<br>
 				<div>
-					<label class="labels" style="font-size: large;">TRÌNH ĐỘ
-						CHUYÊN MÔN
-						<button class="btn-sm btn"
-							style="color: gainsboro; border: solid;">
-							<i class=" fa small fa-plus"></i>
-						</button>
-					</label>
-					<p>Ngành ..... Trường</p>
-					<p>Ngành ..... Trường</p>
+					<h5>Phòng ban</h5>
+					<i th:text="${staff.member.departmant.department_name}"> </i>
 				</div>
+
+				<div style="margin-top: 20px;">
+					<h5>Vị trị  </h5> 
+					<i th:text="${title}"></i>
+				</div>
+				
 			</div>
 			<button class="btn btn-info">Quay lại</button>
 		</div>
@@ -185,34 +173,41 @@ $(document).ready(function(){
 						tin nhân viên</h5>
 
 				</div>
-				<form th:action="@{/employee/edit}" method="POST" th:object="${staff}">
+				<form th:action="@{/employee/edit}" method="POST"
+					th:object="${staff}">
 					<div class="modal-body">
 						<div class="row">
 							<div class="col"
 								style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
 								<table class="table table-borderless">
-									
-									<input type="text" class="form-control"  th:field=*{id} hidden="hidden">
-									
-									<input type="text" class="form-control"  th:field=*{member.id} hidden="hidden">
-									
-									
+
+									<input type="text" class="form-control" th:field=*{id}
+										hidden="hidden">
+
+									<input type="text" class="form-control" th:field=*{member.id}
+										hidden="hidden">
+
+
 									<tr class="info-detail">
 										<td>Họ tên</td>
-										<td><input type="text" class="form-control"  th:field=*{member.name}></td>
+										<td><input type="text" class="form-control"
+											th:field=*{member.name}></td>
 									</tr>
 									<tr class="info-detail">
 										<td>Giới tính</td>
-										<td><input type="text" class="form-control"  th:field=*{member.sex}></td>
+										<td><input type="text" class="form-control"
+											th:field=*{member.sex}></td>
 									</tr>
 									<tr class="info-detail">
 										<td>Ngày sinh</td>
-										<td><input type="date"  class="form-control" th:field=*{member.dob}></td>
+										<td><input type="date" class="form-control"
+											th:field=*{member.dob}></td>
 									</tr>
 									<td>ID Card</td>
-									<td><input type="text" class="form-control"  th:field=*{member.idcard}></td>
+									<td><input type="text" class="form-control"
+										th:field=*{member.idcard}></td>
 									</tr>
-									
+
 								</table>
 							</div>
 
@@ -221,15 +216,18 @@ $(document).ready(function(){
 								<table class="table">
 									<tr class="info-detail">
 										<td>Địa chỉ</td>
-										<td><input type="text" class="form-control" th:field=*{member.address}></td>
+										<td><input type="text" class="form-control"
+											th:field=*{member.address}></td>
 									</tr>
 									<tr class="info-detail">
 										<td>Số điện thoại</td>
-										<td><input type="text" class="form-control"  th:field=*{member.phone}></td>
+										<td><input type="text" class="form-control"
+											th:field=*{member.phone}></td>
 									</tr>
 									<tr class="info-detail">
 										<td>Email</td>
-										<td><input type="text" class="form-control"  th:field=*{member.email}></td>
+										<td><input type="text" class="form-control"
+											th:field=*{member.email}></td>
 									</tr>
 								</table>
 							</div>
@@ -238,7 +236,8 @@ $(document).ready(function(){
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary"
 							data-dismiss="modal">Hủy</button>
-						<button type="submit" class="btn btn-primary">lưu thay đổi</button>
+						<button type="submit" class="btn btn-primary">lưu thay
+							đổi</button>
 					</div>
 			</div>
 		</div>

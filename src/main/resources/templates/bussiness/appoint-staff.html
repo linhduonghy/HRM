@@ -2,185 +2,260 @@
 <html>
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Quyết định bổ nhiệm</title>
+<meta charset="UTF-8" />
+<title>Quyết định bổ nhiệm</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/src/main/resources/style.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 
 <style>
-    .body {
-        font-family: 'Times New Roman', Times, serif;
-    }
+.body {
+	font-family: 'Times New Roman', Times, serif;
+}
 
-    .profile-value {
-        font-size: large;
-        width: 400px;
-        height: 45px;
-        border: none;
-    }
+.profile-value {
+	width: 100%;
+	border: none;
+	font-style: italic;
+}
 
-    .profile-button {
-        background: rgb(99, 39, 120);
-        box-shadow: none;
-        border: none
-    }
+.profile-button {
+	background: rgb(99, 39, 120);
+	box-shadow: none;
+	border: none
+}
 
-    .profile-button:hover {
-        background: #682773
-    }
+.profile-button:hover {
+	background: #682773
+}
 
-    .profile-button:focus {
-        background: #682773;
-        box-shadow: none
-    }
+.profile-button:focus {
+	background: #682773;
+	box-shadow: none
+}
 
-    .profile-button:active {
-        background: #682773;
-        box-shadow: none
-    }
+.profile-button:active {
+	background: #682773;
+	box-shadow: none
+}
 
-    .back:hover {
-        color: #682773;
-        cursor: pointer
-    }
+.back:hover {
+	color: #682773;
+	cursor: pointer
+}
 
-    .labels {
-        font-size: 15px;
-        font-weight: bold;
-    }
+.labels {
+	font-size: 15px;
+	font-weight: bold;
+}
 
-    .add-experience:hover {
-        background: #BA68C8;
-        color: #fff;
-        cursor: pointer;
-        border: solid 1px #BA68C8
-    }
+.add-experience:hover {
+	background: #BA68C8;
+	color: #fff;
+	cursor: pointer;
+	border: solid 1px #BA68C8
+}
 </style>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
-        <a class="navbar-brand brand" href="/src/main/resources/templates/index.html">HRM</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+	<nav class="navbar navbar-expand-lg navbar-light bg-info">
+		<a class="navbar-brand brand"
+			href="/src/main/resources/templates/index.html">HRM</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-        <div class="collapse navbar-collapse" id="navbar-content">
-            <ul class="navbar-nav mr-auto">
-                <!-- Nhân viên -->
-                <li class="nav-item nav-title">
-                    <a class="nav-link" href="/src/main/resources/templates/employee/employee.html"
-                        style="color: black;"><b>Nhân viên</b></a>
-                </li>
-                <!-- Hợp đồng -->
-                <li class="nav-item dropdown nav-title">
-                    <a class="nav-link dropdown-toggle" href="#" id="contract-bar" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" style="color: black">
-                        <b>Hợp đồng</b>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">#</a>
-                        <a class="dropdown-item" href="#">#</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">#</a>
-                    </div>
-                </li>
-                <!-- Quyết định bổ nhiệm -->
-                <li class="nav-item dropdown nav-title">
-                    <a class="nav-link dropdown-toggle" href="#" id="hr-decision" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" style="color: black">
-                        <b>Tuyển dụng</b>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/src/main/resources/templates/recruitment/appoint.html">Quyết
-                            định bổ nhiệm</a>
-                        <a class="dropdown-item" href="/src/main/resources/templates/recruitment/lay-off.html">Quyết
-                            định thôi việc</a>
-                    </div>
-                </li>
-            </ul>
-            <!-- Contact us -->
-            <div class="form-inline my-2 my-lg-0 contact">
-                <!-- <p><i class="fas fa-map-marked fa-fw"></i> 10 Nguyen Trai, Ha Dong, Ha Noi</p> -->
-                <p><i class="fa fa-phone fa-fw"></i> Contact us: 0123 456 789</p>
-            </div>
-        </div>
-    </nav>
+		<div class="collapse navbar-collapse" id="navbar-content">
+			<ul class="navbar-nav mr-auto">
+				<!-- Nhân viên -->
+				<li class="nav-item nav-title"><a class="nav-link"
+					href="/src/main/resources/templates/employee/employee.html"
+					style="color: black;"><b>Nhân viên</b></a></li>
+				<!-- Hợp đồng -->
+				<li class="nav-item dropdown nav-title"><a
+					class="nav-link dropdown-toggle" href="#" id="contract-bar"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false" style="color: black"> <b>Hợp đồng</b>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">#</a> <a class="dropdown-item"
+							href="#">#</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">#</a>
+					</div></li>
+				<!-- Quyết định bổ nhiệm -->
+				<li class="nav-item dropdown nav-title"><a
+					class="nav-link dropdown-toggle" href="#" id="hr-decision"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false" style="color: black"> <b>Tuyển dụng</b>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item"
+							href="/src/main/resources/templates/recruitment/appoint.html">Quyết
+							định bổ nhiệm</a> <a class="dropdown-item"
+							href="/src/main/resources/templates/recruitment/lay-off.html">Quyết
+							định thôi việc</a>
+					</div></li>
+			</ul>
+			<!-- Contact us -->
+			<div class="form-inline my-2 my-lg-0 contact">
+				<!-- <p><i class="fas fa-map-marked fa-fw"></i> 10 Nguyen Trai, Ha Dong, Ha Noi</p> -->
+				<p>
+					<i class="fa fa-phone fa-fw"></i> Contact us: 0123 456 789
+				</p>
+			</div>
+		</div>
+	</nav>
 
-    <header class="header">
-        Quyết định bổ nhiệm
-    </header>
+	<header class="header"> Quyết định bổ nhiệm </header>
 
-    <form th:action="@{/bussiness/appoint-staff}" method="POST" th:object="${staff}">
-        <div class="container rounded bg-white mt-5 mb-5">
-            <div class="row">
-                <div class="col-md-3 border-right">
-                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-                            width="150px" src="/src/main/resources/images/avatar_icon.png"></div>
-                </div>
-                <div class="col-md-5 border-right">
-                    <div class="p-3 py-5">
-                        <div class="d-flex justify-content-between align-items-center mb-3">
-                            <h4 class="text-right">THÔNG TIN NHÂN VIÊN
-                                <button class="btn"><i class="fa fa-edit"></i></button>
-                            </h4>
-                        </div>
-                        <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">Họ Tên</label><input type="text"
-                                    style=" height: 45px ; font-size: large; border: none;" th:field="*{member.name}" readonly></div>
-                            <div class="col-md-6"><label class="labels">Tên</label>
-                                <input type="text" style=" height: 45px ; font-size: large; border:none " value="A"
-                                    readonly>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-12"><label class="labels">Ngày sinh</label>
-                                <br> <input type="text" class="profile-value" th:field="*{member.dob}" readonly>
-                            </div>
-                            <div class="col-md-12"><label class="labels">CMND/CCCD</label>
-                                <br> <input type="text" class="profile-value" th:field="*{member.idcard}" readonly>
-                            </div>
-                            <div class="col-md-12"><label class="labels">Địa chỉ</label>
-                                <br><input type="text" class="profile-value" th:field="*{member.address}" readonly>
-                            </div>
-                            <div class="col-md-12"><label class="labels">Số điện thoại</label>
-                                <br> <input type="text" class="profile-value" th:field="*{member.phone}" readonly>
-                            </div>
-                            <div class="col-md-12"><label class="labels">Email ID</label>
-                                <br><input type="text" class="profile-value" th:field="*{member.email}" readonly>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 p-5"><label class="labels" style="font-size: large;">CHỨC VỤ</label>
-    
-                    <div class="col-md-12"><label class="labels">Phòng Ban</label>
-                        <br> <input type="text" class="profile-value" th:field="*{member.departmant.department_name}" readonly="readonly">
-                    </div>
-                    <div class="col-md-12"><label class="labels">Ví trị</label>
-                        <br><input type="text" class="profile-value" required="required">
-                    </div>
-                    <div class="col-md-12"><label class="labels">Ngày bổ nhiệm</label>
-                        <br><input type="date" class="profile-value" required="required">
-                    </div>
-                </div>
-                <div>
-                    <button class="btn btn-info"> Quay lại </button>
-                    <button type="submit" class="btn btn-success">Xác nhận</button>
-                </div>
-            </div>
-        </div>
-    </form>
+	<form th:action="@{/bussiness/appoint-staff}" method="POST"
+		th:object="${appointment}">
+		<div class="container rounded bg-white mt-5 mb-5">
+			<div class="row">
 
+				<div class="col-md-5 border-right">
+
+					<div class="row">
+						<b class="mb-3" for="select_staff">Chọn nhân viên</b> <select
+							id="select_staff" class="form-control" style="width: 80%;" th:field="*{staff.id}">
+							<th:block th:each="staff : ${staffs}">
+								<option th:value="${staff.id}"
+									th:text="${staff.id} + ': ' + ${staff.member.name}"></option>
+							</th:block>
+
+						</select>
+					</div>
+					<div class="p-3">
+						<div class="row">
+							<h5>
+								THÔNG TIN NHÂN VIÊN
+								<button class="btn">
+									<i class="fa fa-edit"></i>
+								</button>
+							</h5>
+						</div>
+						<div class="row mt-3">
+
+							<label class="labels">Họ Tên</label> <input type="text"
+								id="staff_name" class="profile-value"
+								th:value="${staffs[0].member.name}" readonly>
+
+						</div>
+
+						<div class="row mt-3">
+							<label class="labels">Ngày sinh</label> <br> <input
+								type="text" class="profile-value" id="staff_dob"
+								th:value="${staffs[0].member.dob}" readonly>
+						</div>
+						<div class="row mt-3">
+							<label class="labels">CMND/CCCD</label> <br> <input
+								type="text" class="profile-value" id="staff_idcard"
+								th:value="${staffs[0].member.idcard}" readonly>
+						</div>
+						<div class="row mt-3">
+							<label class="labels">Địa chỉ</label> <br> <input
+								type="text" class="profile-value" id="staff_address"
+								th:value="${staffs[0].member.address}" readonly>
+						</div>
+						<div class="row mt-3">
+							<label class="labels">Số điện thoại</label> <br> <input
+								type="text" class="profile-value" id="staff_phone"
+								th:value="${staffs[0].member.phone}" readonly>
+						</div>
+						<div class="row mt-3" >
+							<label class="labels">Email</label> <br>
+							<input type="text"
+								class="profile-value" id="staff_email"
+								th:value="${staffs[0].member.email}"  readonly>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-5 pl-5" >
+					<div class="row">
+						<div class="col-md-12">
+							<label class="labels" style="font-size: large;">CHỨC VỤ</label>
+						</div>
+						<div class="col-md-12 form-group">
+							<label for="department_id" class="labels">Phòng Ban</label> <br>
+							<select id="department_id" name="department_id" class="form-control">
+							<th:block th:each="department : ${departments}">
+								<option th:value="${department.id}" th:text="${department.department_name}"></option>
+							</th:block>
+								
+							</select>
+						</div>
+						<div class="col-md-12 form-group">
+							<label for="title_id" class="labels">Vị trí</label> <br>
+							<select id="title_id" class="form-control" th:field="*{title.id}">
+							<th:block th:each="title : ${titles}">
+								<option th:value="${title.id}" th:text="${title.title_name}"></option>
+							</th:block>
+								
+							</select>
+						</div>
+						<div class="col-md-12 form-group">
+							<label for="appointed_date" class="labels">Ngày bổ nhiệm</label> <br> <input
+								type="date" class="form-control" id="appointed_date" required="required" th:field="*{appointed_date}">
+						</div>
+						<div class="col-md-12 form-group">
+							<label for="description" class="labels">Mô tả</label> <br> <input
+								type="text" class="form-control" id="description" th:field="*{description}">
+						</div>
+						<div class="col-md-12" style="margin-top: 40px;">
+							<div style="display: flex; justify-content: flex-end;">
+								<button type="submit" class="btn btn-success">Xác nhận</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	
 </body>
-
+	<script type="text/javascript">
+	$('#select_staff').on('change', function (e) {
+	    var optionSelected = $("option:selected", this);
+	    var staff_id = this.value;
+	    getStaffInformation(staff_id);
+	});
+	
+	const getStaffInformation = (staff_id) => {
+		console.log(staff_id);
+		$.ajax({
+	        url: `http://localhost:8081/staff/${staff_id}`,
+	        type: 'GET',
+	        dataType: 'json',
+	        success: function(res) {
+	            console.log(res);
+	     		$('#staff_name').val(res.member.name);
+	     		$('#staff_dob').val(res.member.dob);
+	     		$('#staff_idcard').val(res.member.idcard);
+	     		$('#staff_address').val(res.member.address);
+	     		$('#staff_phone').val(res.member.phone);
+	     		$('#staff_email').val(res.member.email);
+	        }
+	    });
+	}
+	</script>
 </html>
