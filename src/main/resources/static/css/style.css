@@ -2,6 +2,19 @@ body {
 	/* font-family: "Times New Roman", Times, serif; */
 }
 
+table,
+thead,
+tr,
+tbody,
+th,
+td {
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+}
+
 .header {
 	text-align: center;
 	font-size: 48px;

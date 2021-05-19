@@ -41,7 +41,8 @@
 </head>
 
 <body>
-	<div class="container" style="padding-top: 50px;">
+<div th:replace="fragments/topnav :: navbar"></div>
+	<div class="container-fluid" style="padding-top: 50px;">
 		<div class="row">
 			<div class="col-5 border-right">
 				<h3>
@@ -96,9 +97,10 @@
 				<h3>
 					Danh sách thành viên đào tạo
 				</h3>
-				<table class="table">
+				<table class="table table-striped">
 					<thead>
 						<tr>
+							<th>#</th>
 							<th>Mã thành viên</th>
 							<th>Tên thành viên</th>
 							<th>Ngày bắt đầu đào tạo</th>
@@ -107,12 +109,12 @@
 					</thead>
 					<tbody>
 						<tr  th:each="memberTC,stat : ${cource.memberTraningCources}">
+							<td th:text="${stat.index + 1}"></td>
 							<td th:text="${memberTC.member.id}"></td>
 							<td th:text="${memberTC.member.name}"></td>
 							<td th:text="${memberTC.training_start_date}"></td>
 							<td th:text="${statuses[stat.index]}"></td>
 						</tr>
-						
 						
 					</tbody>
 				</table>

@@ -2,9 +2,9 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Danh sách nhân viên</title>
-    
+<meta charset="UTF-8">
+<title>Danh sách nhân viên</title>
+
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 <link rel="stylesheet"
@@ -22,97 +22,52 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
-        <a class="navbar-brand brand" href="/src/main/resources/templates/index.html">HRM</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+	<div th:replace="fragments/topnav :: navbar"></div>
 
-        <div class="collapse navbar-collapse" id="navbar-content">
-            <ul class="navbar-nav mr-auto">
-                <!-- Nhân viên -->
-                <li class="nav-item nav-title">
-                    <a class="nav-link" href="/src/main/resources/templates/employee/employee.html"
-                    style="color: black;"><b>Nhân viên</b></a>
-                </li>   
-                <!-- Hợp đồng -->
-                <li class="nav-item dropdown nav-title">
-                    <a class="nav-link dropdown-toggle" href="#" id="contract-bar" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" style="color: black;">
-                        <b>Hợp đồng</b>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">#</a>
-                        <a class="dropdown-item" href="#">#</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">#</a>
-                    </div>
-                </li>
-                <!-- Quyết định bổ nhiệm -->
-                <li class="nav-item dropdown nav-title">
-                    <a class="nav-link dropdown-toggle" href="#" id="hr-decision" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" style="color: black;">
-                        <b>Tuyển dụng</b>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/src/main/resources/templates/recruitment/appoint.html">Quyết định bổ nhiệm</a>
-                        <a class="dropdown-item" href="/src/main/resources/templates/recruitment/lay-off.html">Quyết định thôi việc</a>
-                    </div>
-                </li>
-            </ul>
-            <!-- Contact us -->
-            <div class="form-inline my-2 my-lg-0 contact">
-                <!-- <p><i class="fas fa-map-marked fa-fw"></i> 10 Nguyen Trai, Ha Dong, Ha Noi</p> -->
-                <!-- <p><i class="fa fa-phone fa-fw"></i> Contact us: 0123 456 789</p> -->
-            </div>
-            <!-- Thông tin người dùng -->
-            <div class="form-group" style="margin-right: 20px; margin-top: 20px;">
-                <div class="row">
-                    <div class="col">
-                        <img class="avatar-icon" src="/src/main/resources/images/avatar_icon.png" alt="avatar">
-                        <strong style="color: cornsilk;"> Thu Uyên</strong>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-    <div class="container">
+	<div class="container">
 
-    <h2 class="p-2">Danh sách nhân viên công ty</h2>
-    <!-- Searchbar -->
-    <div class="container searchbar pb-3">
-        <form action="#" method="GET" class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Nhập tên nhân viên" aria-label="search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
-        </form>
-    </div>
+		<h2 class="p-2">Danh sách nhân viên công ty</h2>
+		<!-- Searchbar -->
+		<div class="container searchbar pb-3">
+			<form action="#" method="GET" class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search"
+					placeholder="Nhập tên nhân viên" aria-label="search">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm
+					kiếm</button>
+			</form>
+		</div>
 
-    <div class="container">
-        <table class="table table-stiky  table-striped table-hover table-bordered" style="width: 800px" >
-            <thead class="head-table" style="background-color:#cffaf8;">
-                <th>Mã nhân viên</th>
-                <th>Tên nhân viên</th>
-                <th>Phòng ban</th>
-                <th>Chức năng</th>	
-                <th>Xem</th>
-            </thead>
-            <tbody>
-            <th:block th:each="staff,stat : ${staffs}">
-							<tr>
-								<th scope="row" th:text="${staff.id}"></th>
-								<td th:text="${staff.member.name}"></td>
-								<td class="text-right" th:text="${staff.member.departmant.department_name}"></td>
-								<td th:text="${titles[stat.index].title_name}" > </td>							
-								<td><a th:href="@{/employee/profile/{id}(id=${staff.id})}" ><button class="btn" ><i class="fas fa-file"></i> </button></a>  </td>
-							</tr>
-						</th:block>
-            
-            </tbody>
-        </table>
+		<div class="container">
+			<table
+				class="table table-stiky  table-striped table-hover table-bordered"
+				style="width: 800px">
+				<thead class="head-table" style="background-color: #cffaf8;">
+					<th>Mã nhân viên</th>
+					<th>Tên nhân viên</th>
+					<th>Phòng ban</th>
+					<th>Chức năng</th>
+					<th>Xem</th>
+				</thead>
+				<tbody>
+					<th:block th:each="staff,stat : ${staffs}">
+						<tr>
+							<th scope="row" th:text="${staff.id}"></th>
+							<td th:text="${staff.member.name}"></td>
+							<td class="text-right"
+								th:text="${staff.member.departmant.department_name}"></td>
+							<td th:text="${titles[stat.index].title_name}"></td>
+							<td><a th:href="@{/employee/profile/{id}(id=${staff.id})}"><button
+										class="btn">
+										<i class="fas fa-file"></i>
+									</button></a></td>
+						</tr>
+					</th:block>
 
-       
-</div>
+				</tbody>
+			</table>
+
+
+		</div>
 </body>
 
 </html>

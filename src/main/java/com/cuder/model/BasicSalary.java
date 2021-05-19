@@ -16,8 +16,8 @@ public class BasicSalary implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private String basic_salary_name;
-	private float basic_salary;
-	private Date createDate;
+	private float basic_salary_value;
+	private Date createdDate;
 
 	//bi-directional one-to-one association to Salary
 	@ToString.Exclude

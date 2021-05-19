@@ -63,10 +63,7 @@ public class StatisController {
 
 				Calendar cal = Calendar.getInstance();
 				cal.setTime(contracts[i].getContract_signing_date());
-				int start = cal.get(Calendar.YEAR);
-				cal.setTime(contracts[i].getContract_end_date());
-				int end  = cal.get(Calendar.YEAR);
-				if ((contracts[i].getContractType().getId() == 1) &&  a[j][0] >= start && a[j][0] <= end ) {
+				if ((contracts[i].getContractType().getId() == 1) && (cal.get(Calendar.YEAR) == a[j][0])) {
 					a[j][1]++;
 				}
 			}
@@ -108,10 +105,7 @@ public class StatisController {
 
 				Calendar cal = Calendar.getInstance();
 				cal.setTime(contracts[i].getContract_signing_date());
-				int start = cal.get(Calendar.YEAR);
-				cal.setTime(contracts[i].getContract_end_date());
-				int end  = cal.get(Calendar.YEAR);
-				if ((contracts[i].getContractType().getId() == 1) &&  a[j][0] >= start && a[j][0] <= end ) {
+				if ((contracts[i].getContractType().getId() == 1) && (cal.get(Calendar.YEAR) == a[j][0])) {
 					a[j][1]++;
 				}
 			}
@@ -159,7 +153,7 @@ public class StatisController {
 		for (int i = 0; i < staffs.size(); i++) {
 			for (int j = 0; j < n; j++) {
 				
-				if (staffs.get(i).getMember().getDepartmant().getDepartment_name().equals(dp[j])) {
+				if (staffs.get(i).getMember().getDepartment().getDepartment_name().equals(dp[j])) {
 					
 					number[j]++;
 				}

@@ -37,7 +37,7 @@ body {
 </head>
 
 <body>
-
+<div th:replace="fragments/topnav :: navbar"></div>
 	<div class="container bg-white ">
 
 		<h2 style="padding-top: 50px; margin-left: 80px;">Thêm Ứng viên
@@ -113,7 +113,7 @@ body {
 						<label for="position_id" class="labels">Vị trí</label> <select
 							id="position_id" class="form-control"
 							th:field="*{recruitmentPosition.id}">
-							<th:block th:each="recruitmentPosition : ${positions}">
+							<th:block th:each="recruitmentPosition : ${terms[0].recruitmentPositions}">
 								<option th:value="${recruitmentPosition.id}"
 									th:text="${recruitmentPosition.title.title_name}">012021
 									Đợt 1 năm 2021</option>

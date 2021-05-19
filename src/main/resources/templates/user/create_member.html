@@ -30,66 +30,74 @@ body {
 <div th:replace="fragments/topnav :: navbar"></div>
 	<div class="container">
 		<div class="container-bg-white">
-			<h3 class="text-center">THÊM KHÓA ĐÀO TẠO</h3>
+			<h3>Thêm thành viên</h3>
 			<div>
-				<form th:action="@{/training_cource/insert_cource}" method="POST"
-					th:object="${cource}">
+				<form th:action="@{/create_member}" method="POST"
+					th:object="${member}">
 					<div>
-						<h5 style="margin: 20px 0 30px 0;">Thông tin Khóa đào tạo huấn luyện</h5>
+						<h5 style="margin: 20px 0 30px 0;">Thông tin thành viên</h5>
+						<div class="row form-group">
+							<div class="col-3">
+								<label for="member_id"> Thành viên </label>
+							</div>
+							<div class="col-9">
+								<select id="member_id" th:field="*{id}" class="form-control">
+									<th:block th:each="m : ${members}">
+										<option th:value="${m.id}" th:text="${m.id} + '-' + ${m.name}"></option>
+									</th:block>
+								</select>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-3">
+								<label for="department_id"> Chọn phòng ban </label>
+							</div>
+							<div class="col-9">
+								<select id="department_id" th:field="*{department.id}"
+									class="form-control">
+									<th:block th:each="d : ${departments}">
+										<option th:value="${d.id}"
+											th:text="${d.id} + '-' + ${d.department_name}"></option>
+									</th:block>
+								</select>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-3">
+								<label for="member_permission"> Chọn phòng ban </label>
+							</div>
+							<div class="col-9">
+								<select id="member_permission" name="member_permission"
+									class="form-control">
+									<option value="1">Quản lý</option>
+									<option value="0">Nhân viên</option>
+								</select>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-3">
+								<label for="username"> Username </label>
+							</div>
+							<div class="col-9">
+								<input id="username" th:field="*{username}" type="text"
+									class="form-control">
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-3">
+								<label for="password"> Password </label>
 
-						<div class="row form-group">
-							<div class="col-3">
-								<label for="cource_id"> Mã khóa đào tạo </label>
 							</div>
 							<div class="col-9">
-								<input th:field="*{id}" id="cource_id" type="text"
+								<input id="password" th:field="*{password}" type="password"
 									class="form-control">
-							</div>
-						</div>
-						<div class="row form-group">
-							<div class="col-3">
-								<label for="cource_name"> Tên khóa đào tạo </label>
-							</div>
-							<div class="col-9">
-								<input th:field="*{training_cource_name}" id="cource_name" type="text"
-									class="form-control">
-							</div>
-						</div>
-						<div class="row form-group">
-							<div class="col-3">
-								<label for="content"> Nội dung </label>
-							</div>
-							<div class="col-9">
-								<input th:field="*{content}" id="content"
-									type="text" class="form-control">
-							</div>
-						</div>
-						<div class="row form-group">
-							<div class="col-3">
-								<label for="duration"> Thời gian đào tạo </label>
-							</div>
-							<div class="col-9">
-								<input th:field="*{duration}" id="duration"
-									type="text" class="form-control">
-							</div>
-						</div>
-						<div class="row form-group">
-							<div class="col-3">
-								<label for="number_of_attendance"> Số lượng thành viên </label>
-							</div>
-							<div class="col-9">
-								<input th:field="*{number_of_attendance}" id="number_of_attendance"
-									type="text" class="form-control">
 							</div>
 						</div>
 					</div>
-
 					<div class="container-bg-white"
 						style="display: flex; justify-content: flex-end;">
-						<button type="submit" class="btn btn-info">Xác
-							nhận</button>
+						<button type="submit" class="btn btn-info">Xác nhận</button>
 					</div>
-
 				</form>
 			</div>
 		</div>

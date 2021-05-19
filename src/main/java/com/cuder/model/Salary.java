@@ -19,6 +19,8 @@ public class Salary implements Serializable {
 	private float salary;
 
 	private Date createdDate;
+	
+	private float coefficientBasicSalary;
 	// bi-directional one-to-one association to Allowance
 	private Allowance allowance;
 

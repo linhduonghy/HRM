@@ -34,7 +34,6 @@ public class Member implements Serializable {
 
     private String sex;
 
-
 	private String username;
 
     private String qualification;
@@ -44,8 +43,8 @@ public class Member implements Serializable {
 	@ToString.Exclude
 	private Manager manager;
 
-    // bi-directional many-to-one association to Departmant
-    private Department departmant;
+    // bi-directional many-to-one association to Department
+    private Department department;
 
 
 

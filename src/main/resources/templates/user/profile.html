@@ -16,117 +16,117 @@
 
 
 <style>
-
-.body{
-    font-family: 'Times New Roman', Times, serif;
+.body {
+	font-family: 'Times New Roman', Times, serif;
 }
-.profile-value{
-    font-size: large;
-    width: 400px ;
-    height: 45px;
-    border: none;
+
+.profile-value {
+	font-size: large;
+	width: 400px;
+	height: 45px;
+	border: none;
 }
 
 .profile-button {
-    background: rgb(99, 39, 120);
-    box-shadow: none;
-    border: none
+	background: rgb(99, 39, 120);
+	box-shadow: none;
+	border: none
 }
 
 .profile-button:hover {
-    background: #682773
+	background: #682773
 }
 
 .profile-button:focus {
-    background: #682773;
-    box-shadow: none
+	background: #682773;
+	box-shadow: none
 }
 
 .profile-button:active {
-    background: #682773;
-    box-shadow: none
+	background: #682773;
+	box-shadow: none
 }
 
 .back:hover {
-    color: #682773;
-    cursor: pointer
+	color: #682773;
+	cursor: pointer
 }
 
 .labels {
-    font-size: 15px;
-    font-weight: bold;
+	font-size: 15px;
+	font-weight: bold;
 }
 
 .add-experience:hover {
-    background: #BA68C8;
-    color: #fff;
-    cursor: pointer;
-    border: solid 1px #BA68C8
+	background: #BA68C8;
+	color: #fff;
+	cursor: pointer;
+	border: solid 1px #BA68C8
 }
 </style>
 </head>
 <body>
+	<div th:replace="fragments/topnav :: navbar"></div>
 
-<div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">Trần Văn A</span><span> </span></div>
-        </div>
-        <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">THÔNG TIN NHÂN VIÊN 
-                        <button class="btn"><i class="fa fa-edit"></i></button>
-                    </h4>
-                </div>
-                <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Họ và Tên Đệm</label><input type="text" style=" height: 45px ; font-size: large; border: none;"  value="Tran Van"  readonly  ></div>
-                    <div class="col-md-6"><label class="labels">Tên</label>
-                        <input type="text"style=" height: 45px ; font-size: large; border:none "  value="A"  readonly></div>
-                </div>
-                <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Ngày sinh</label>
-                        <br> <input type="text" class="profile-value" value="01/01/1999" readonly></div>
-                    <div class="col-md-12"><label class="labels">CMND/CCCD</label>
-                        <br> <input type="text" class="profile-value" value="123456123456"  readonly></div>
-                    <div class="col-md-12"><label class="labels">Quê quán</label>
-                        <br> <input type="text" class="profile-value" value="Việt Nam"  readonly></div>
-                    <div class="col-md-12"><label class="labels">Địa chỉ</label>
-                        <br><input type="text"  class="profile-value" value="Việt Nam"  readonly></div>
-                    <div class="col-md-12"><label class="labels">Số điện thoại</label>
-                        <br> <input type="text" class="profile-value"  value="0123456789"  readonly></div>
-                    <div class="col-md-12"><label class="labels">Email ID</label>
-                        <br><input type="text" class="profile-value" value="tranvana@gmail.com"  readonly></div>
-                    
-                    
-                    
-                </div>
-                
-            </div>
-        </div>
-        <div class="col-md-4 p-5"><label class="labels" style="font-size: large;">CHỨC VỤ</label>
-           
-                <div class="col-md-12"><label class="labels">Phòng Ban</label>
-                    <br> <input type="text" class="profile-value"  value="Phát triển phần mềm"  readonly></div>
-                <div class="col-md-12"><label class="labels">Ví trị</label>
-                    <br><input type="text" class="profile-value" value="Nhân viên"   readonly></div>
-            <br>
-            <div><label class="labels" style="font-size: large;">TRÌNH ĐỘ CHUYÊN MÔN</label>
-                <b><p>Chuyên môn 1</p></b>
-                <div class="col-md-12"><label class="labels">Chuyên ngành</label>
-                    <br> <input type="text" class="profile-value"  value="Phát triển phần mềm"  readonly></div>
-                <div class="col-md-12"><label class="labels">Đại học</label>
-                    <br><input type="text" class="profile-value" value="Đại học ABC"   readonly></div>
-           
-                <b><p>Chuyên môn 2</p></b>
-                <div class="col-md-12"><label class="labels">Chuyên ngành</label>
-                    <br> <input type="text" class="profile-value"  value="Phát triển phần mềm"  readonly></div>
-                <div class="col-md-12"><label class="labels">Đại học</label>
-                    <br><input type="text" class="profile-value" value="Đại học ABC"   readonly></div>
-            </div>
-        </div>
-        <button class="btn btn-info" > Quay lại </button>
-    </div>
-</div>
+	<div class="container rounded bg-white mt-5 mb-5">
+		<div class="row">
+			<div class="col-md-3 border-right">
+				<div
+					class="d-flex flex-column align-items-center text-center p-3 py-5">
+					<img class="rounded-circle mt-5" width="150px"
+						src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
+						class="font-weight-bold" th:text=${session.user.name}></span><span>
+					</span>
+				</div>
+			</div>
+			<div class="col-md-5 border-right">
+				<div class="p-3 py-5">
+					<div class="d-flex justify-content-between align-items-center mb-3">
+						<h4 class="text-right">
+							THÔNG TIN NHÂN VIÊN
+			
+						</h4>
+					</div>
+					<div class="row mt-2">
+						<div class="col-md-6">
+							<label class="labels">Họ và Tên </label> <br> <label
+								th:text=${session.user.name}></label>
+						</div>
+						<div class="col-md-6">
+							<label class="labels">Giới tính </label> <br> <label
+								th:text=${session.user.sex}></label>
+						</div>
+
+					</div>
+					<div class="row mt-3">
+						<div class="col-md-12">
+							<label class="labels">Ngày sinh</label> <br> <label
+								th:text="${session.user.dob}"></label>
+						</div>
+						<div class="col-md-12">
+							<label class="labels">CMND/CCCD</label> <br> <label
+								th:text="${session.user.idcard}"></label>
+						</div>
+
+						<div class="col-md-12">
+							<label class="labels">Địa chỉ</label> <br> <label
+								th:text="${session.user.address}"></label>
+						</div>
+						<div class="col-md-12">
+							<label class="labels">Số điện thoại</label> <br> <label
+								th:text="${session.user.phone}"></label>
+						</div>
+						<div class="col-md-12">
+							<label class="labels">Email </label> <br> <label
+								th:text="${session.user.email}"></label>
+						</div>
+
+
+
+					</div>
+
+				</div>
+			</div>
+		</div>
 </body>
 </html>

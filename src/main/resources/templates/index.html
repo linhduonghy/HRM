@@ -2,81 +2,36 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<title>Trang chủ</title>
+<meta charset="UTF-8">
+<title>Trang chủ</title>
 
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-	<link rel="stylesheet" href="/src/main/resources/style.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous" />
+<link rel="stylesheet" href="/src/main/resources/style.css" />
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-info">
-        <a class="navbar-brand brand" href="/src/main/resources/templates/index.html">HRM</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="navbar-content">
-            <ul class="navbar-nav mr-auto">
-                <!-- Nhân viên -->
-                <li class="nav-item nav-title">
-                    <a class="nav-link" href="/src/main/resources/templates/employee/employee.html"
-                    style="color: black;"><b>Nhân viên</b></a>
-                </li>   
-                <!-- Hợp đồng -->
-                <li class="nav-item dropdown nav-title">
-                    <a class="nav-link dropdown-toggle" href="#" id="contract-bar" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" style="color: black;">
-                        <b>Hợp đồng</b>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">#</a>
-                        <a class="dropdown-item" href="#">#</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">#</a>
-                    </div>
-                </li>
-                <!-- Quyết định bổ nhiệm -->
-                <li class="nav-item dropdown nav-title">
-                    <a class="nav-link dropdown-toggle" href="#" id="hr-decision" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" style="color: black;">
-                        <b>Tuyển dụng</b>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/src/main/resources/templates/recruitment/appoint.html">Quyết định bổ nhiệm</a>
-                        <a class="dropdown-item" href="/src/main/resources/templates/recruitment/lay-off.html">Quyết định thôi việc</a>
-                    </div>
-                </li>
-            </ul>
-            <!-- Contact us -->
-            <div class="form-inline my-2 my-lg-0 contact">
-                <!-- <p><i class="fas fa-map-marked fa-fw"></i> 10 Nguyen Trai, Ha Dong, Ha Noi</p> -->
-                <!-- <p><i class="fa fa-phone fa-fw"></i> Contact us: 0123 456 789</p> -->
-            </div>
-
-			<!-- Login button -->
-            <div class="form-group" style="margin-right: 20px; margin-top: 20px;">
-                <div class="row">
-                    <div class="col">
-                        <img class="avatar-icon" src="/src/main/resources/images/avatar_icon.png" alt="avatar">
-                        <strong style="color: cornsilk;"> Thu Uyên</strong><br>
-						<a href="#" style="text-decoration: none; color: azure; float: right;">Đăng xuất</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
+	
+	<div th:replace="fragments/topnav :: navbar"></div>
 	
 	<div>
-		<img class="image-index" src="/src/main/resources/images/hrm.jpg" alt="HumanResourceManagement">
+		<img class="image-index" src="/src/main/resources/images/hrm.jpg"
+			alt="HumanResourceManagement">
 	</div>
 
 	<div class="team">
@@ -86,31 +41,36 @@
 
 			<div class="row">
 				<div class="col">
-					<strong class="name-member">Dương Văn Linh</strong><br>
-					<img class="avatar-team" src="/src/main/resources/images/Xoan-Tho-Moc.jpg" alt="team1">
+					<strong class="name-member">Dương Văn Linh</strong><br> <img
+						class="avatar-team"
+						src="/src/main/resources/images/Xoan-Tho-Moc.jpg" alt="team1">
 				</div>
 
 				<div class="col">
-					<strong class="name-member">Hoàng Hà Linh</strong><br>
-					<img class="avatar-team" src="/src/main/resources/images/Xoan-Tho-Moc.jpg" alt="team1">
+					<strong class="name-member">Hoàng Hà Linh</strong><br> <img
+						class="avatar-team"
+						src="/src/main/resources/images/Xoan-Tho-Moc.jpg" alt="team1">
 				</div>
 
 				<div class="col">
-					<strong class="name-member">Nguyễn Đức Huy</strong><br>
-					<img class="avatar-team" src="/src/main/resources/images/Xoan-Tho-Moc.jpg" alt="team1">
+					<strong class="name-member">Nguyễn Đức Huy</strong><br> <img
+						class="avatar-team"
+						src="/src/main/resources/images/Xoan-Tho-Moc.jpg" alt="team1">
 				</div>
 
 				<div class="col">
-					<strong class="name-member">Nguyễn Thu Trang</strong><br>
-					<img class="avatar-team" src="/src/main/resources/images/Xoan-Tho-Moc.jpg" alt="team1">
+					<strong class="name-member">Nguyễn Thu Trang</strong><br> <img
+						class="avatar-team"
+						src="/src/main/resources/images/Xoan-Tho-Moc.jpg" alt="team1">
 				</div>
 
 				<div class="col">
-					<strong class="name-member">Bùi Thanh Tùng</strong><br>
-					<img class="avatar-team" src="/src/main/resources/images/Xoan-Tho-Moc.jpg" alt="team1">
+					<strong class="name-member">Bùi Thanh Tùng</strong><br> <img
+						class="avatar-team"
+						src="/src/main/resources/images/Xoan-Tho-Moc.jpg" alt="team1">
 				</div>
 			</div>
-			
+
 		</div>
 	</div>
 
@@ -118,7 +78,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<p><i class="fa fa-copyright"></i> 2021. Team. All rights reserved. Designed with from Cuder with love! </p>
+					<p>
+						<i class="fa fa-copyright"></i> 2021. Team. All rights reserved.
+						Designed with from Cuder with love!
+					</p>
 				</div>
 			</div>
 		</div>

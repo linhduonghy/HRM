@@ -74,57 +74,7 @@
 </style>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-info">
-		<a class="navbar-brand brand"
-			href="/src/main/resources/templates/index.html">HRM</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbar-content">
-			<ul class="navbar-nav mr-auto">
-				<!-- Nhân viên -->
-				<li class="nav-item nav-title"><a class="nav-link"
-					href="/src/main/resources/templates/employee/employee.html"
-					style="color: black;"><b>Nhân viên</b></a></li>
-				<!-- Hợp đồng -->
-				<li class="nav-item dropdown nav-title"><a
-					class="nav-link dropdown-toggle" href="#" id="contract-bar"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false" style="color: black"> <b>Hợp đồng</b>
-				</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#">#</a> <a class="dropdown-item"
-							href="#">#</a>
-						<div class="dropdown-divider"></div>
-						<a class="dropdown-item" href="#">#</a>
-					</div></li>
-				<!-- Quyết định bổ nhiệm -->
-				<li class="nav-item dropdown nav-title"><a
-					class="nav-link dropdown-toggle" href="#" id="hr-decision"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false" style="color: black"> <b>Tuyển dụng</b>
-				</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item"
-							href="/src/main/resources/templates/recruitment/appoint.html">Quyết
-							định bổ nhiệm</a> <a class="dropdown-item"
-							href="/src/main/resources/templates/recruitment/lay-off.html">Quyết
-							định thôi việc</a>
-					</div></li>
-			</ul>
-			<!-- Contact us -->
-			<div class="form-inline my-2 my-lg-0 contact">
-				<!-- <p><i class="fas fa-map-marked fa-fw"></i> 10 Nguyen Trai, Ha Dong, Ha Noi</p> -->
-				<p>
-					<i class="fa fa-phone fa-fw"></i> Contact us: 0123 456 789
-				</p>
-			</div>
-		</div>
-	</nav>
+	<div th:replace="fragments/topnav :: navbar"></div>
 
 	<header class="header"> Quyết định bổ nhiệm </header>
 
@@ -137,7 +87,8 @@
 
 					<div class="row">
 						<b class="mb-3" for="select_staff">Chọn nhân viên</b> <select
-							id="select_staff" class="form-control" style="width: 80%;" th:field="*{staff.id}">
+							id="select_staff" class="form-control" style="width: 80%;"
+							th:field="*{staff.id}">
 							<th:block th:each="staff : ${staffs}">
 								<option th:value="${staff.id}"
 									th:text="${staff.id} + ': ' + ${staff.member.name}"></option>
@@ -182,44 +133,48 @@
 								type="text" class="profile-value" id="staff_phone"
 								th:value="${staffs[0].member.phone}" readonly>
 						</div>
-						<div class="row mt-3" >
-							<label class="labels">Email</label> <br>
-							<input type="text"
+						<div class="row mt-3">
+							<label class="labels">Email</label> <br> <input type="text"
 								class="profile-value" id="staff_email"
-								th:value="${staffs[0].member.email}"  readonly>
+								th:value="${staffs[0].member.email}" readonly>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-5 pl-5" >
+				<div class="col-md-5 pl-5">
 					<div class="row">
 						<div class="col-md-12">
 							<label class="labels" style="font-size: large;">CHỨC VỤ</label>
 						</div>
 						<div class="col-md-12 form-group">
 							<label for="department_id" class="labels">Phòng Ban</label> <br>
-							<select id="department_id" name="department_id" class="form-control">
-							<th:block th:each="department : ${departments}">
-								<option th:value="${department.id}" th:text="${department.department_name}"></option>
-							</th:block>
-								
+							<select id="department_id" name="department_id"
+								class="form-control">
+								<th:block th:each="department : ${departments}">
+									<option th:value="${department.id}"
+										th:text="${department.department_name}"></option>
+								</th:block>
+
 							</select>
 						</div>
 						<div class="col-md-12 form-group">
-							<label for="title_id" class="labels">Vị trí</label> <br>
-							<select id="title_id" class="form-control" th:field="*{title.id}">
-							<th:block th:each="title : ${titles}">
-								<option th:value="${title.id}" th:text="${title.title_name}"></option>
-							</th:block>
-								
+							<label for="title_id" class="labels">Vị trí</label> <br> <select
+								id="title_id" class="form-control" th:field="*{title.id}">
+								<th:block th:each="title : ${titles}">
+									<option th:value="${title.id}" th:text="${title.title_name}"></option>
+								</th:block>
+
 							</select>
 						</div>
 						<div class="col-md-12 form-group">
-							<label for="appointed_date" class="labels">Ngày bổ nhiệm</label> <br> <input
-								type="date" class="form-control" id="appointed_date" required="required" th:field="*{appointed_date}">
+							<label for="appointed_date" class="labels">Ngày bổ nhiệm</label>
+							<br> <input type="date" class="form-control"
+								id="appointed_date" required="required"
+								th:field="*{appointed_date}">
 						</div>
 						<div class="col-md-12 form-group">
 							<label for="description" class="labels">Mô tả</label> <br> <input
-								type="text" class="form-control" id="description" th:field="*{description}">
+								type="text" class="form-control" id="description"
+								th:field="*{description}">
 						</div>
 						<div class="col-md-12" style="margin-top: 40px;">
 							<div style="display: flex; justify-content: flex-end;">
@@ -231,9 +186,9 @@
 			</div>
 		</div>
 	</form>
-	
+
 </body>
-	<script type="text/javascript">
+<script type="text/javascript">
 	$('#select_staff').on('change', function (e) {
 	    var optionSelected = $("option:selected", this);
 	    var staff_id = this.value;

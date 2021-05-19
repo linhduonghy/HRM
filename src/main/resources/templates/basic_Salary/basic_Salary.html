@@ -43,6 +43,7 @@ font-weight: bold;
 </head>
 
 <body>
+<div th:replace="fragments/topnav :: navbar"></div>
 	<div class="container p-2" style="padding-bottom: 100px !important">
 		<div class="row ">
 			<div class="col border-right border-dark">
@@ -53,7 +54,7 @@ font-weight: bold;
 					<thead
 						style="background-color: rgb(98, 232, 250); align-items: center;">
 						<tr>
-							<th>#</th>
+							
 							<th>Mã lương cơ bản</th>
 							<th>Mức lương cơ bản (VNĐ)</th>
 							<th>Ngày có hiệu lực</th>
@@ -64,10 +65,10 @@ font-weight: bold;
 						<th:block th:each="basicSalary : ${basicSalaries}">
 
 							<tr>
-								<th scope="row" th:text="${basicSalary.id}"></th>
-								<td th:text="${basicSalary.name}"></td>
-								<td class="text-right" th:text="${basicSalary.basic_salary}"></td>
-								<td class="text-right" th:text="${basicSalary.createDate}"></td>
+								
+								<td th:text="${basicSalary.basic_salary_name}"></td>
+								<td class="text-right" th:text="${basicSalary.basic_salary_value}"></td>
+								<td class="text-right" th:text="${basicSalary.createdDate}"></td>
 							</tr>
 						</th:block>
 
@@ -90,20 +91,16 @@ font-weight: bold;
 						<div class="row mt-3">
 							<div class="col-md-12">
 								<label class="labels">Mã mức lương cơ bản</label> <input
-									type="text" class="form-control" th:field="*{name}">
+									type="text" class="form-control" th:field="*{basic_salary_name}">
 							</div>
 							<div class="col-md-12">
 								<label class="labels">Mức lương cơ bản</label> <input
-									type="text" class="form-control" th:field="*{basic_salary}">
+									type="text" class="form-control" th:field="*{basic_salary_value}">
 							</div>
 							<div class="col-md-12">
 								<label class="labels">Ngày có hiệu lực</label> <input
-									type="date" class="form-control" th:field="*{createDate}" required="required">
+									type="date" class="form-control" th:field="*{createdDate}" >
 							</div>
-
-
-
-
 						</div>
 
 					</div>

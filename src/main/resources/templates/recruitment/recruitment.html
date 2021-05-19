@@ -27,6 +27,7 @@
 </head>
 
 <body>
+	<div th:replace="fragments/topnav :: navbar"></div>
 	<div class="container">
 		<div class="row mb-3" style="padding-top: 50px;">
 			<div class="col-4">
@@ -64,26 +65,33 @@
 					style="padding: 20px;">
 					<thead>
 						<th>#</th>
-						<th>Trạng thái</th>
-						<th>Mã đợt tuyển dụng</th>
 						<th>Tên đợt tuyển dụng</th>
-						<th style="width: 200px;">Mô tả</th>
+						<th>Mã đợt tuyển dụng</th>
+						<th>Mô tả</th>
 						<th>Ngày bắt đầu</th>
 						<th>Ngày kết thúc</th>
+						<th>Trạng thái</th>
+						<th>#</th>
 						<th>#</th>
 					</thead>
 					<th:block th:each="term,iterStat : ${terms}">
 						<tr>
-							<td th:text="${iterStat.index}">1</td>
-							<td th:text="${term.status}">Đang thực hiện</td>
-							<td th:text="${term.id}">012021</td>
+							<td th:text="${iterStat.index + 1}">1</td>
 							<td th:text="${term.name}">Đợt 1 năm 2021</td>
+							<td th:text="${term.id}">012021</td>
 							<td th:text="${term.description}">Tuyển 12 nhân viên:Tuyển 5
 								thằng ab, 4 thằng bc, 3 thằng db</td>
 							<td th:text="${term.start_date}">17/05/2021</td>
 							<td th:text="${term.end_date}">17/06/2021</td>
+							<td th:text="${term.status}">Đang thực hiện</td>
 							<td><a class="btn btn-success"
-								th:href="@{/recruitment/term/{id}(id=${term.id})}">Duyệt</a></td>
+								th:href="@{/recruitment/term/{id}(id=${term.id})}">Thông tin</a>
+
+							</td>
+							<td th:if="${#strings.equals(term.status, 'Đang tuyển dụng')}">
+								<a class="btn btn-success"
+								th:href="@{/recruitment/term/close/{id}(id=${term.id})}">Đóng</a>
+							</td>
 						</tr>
 					</th:block>
 				</table>

@@ -15,6 +15,7 @@
         
         </head>
 <body>
+<div th:replace="fragments/topnav :: navbar"></div>
 <div class="container rounded bg-white mt-5 mb-5">
     <form th:action="@{../basic/insert}" method="POST" th:object="${bs}">
     

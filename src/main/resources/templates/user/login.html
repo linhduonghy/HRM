@@ -54,13 +54,21 @@
 	font-weight: bold;
 }
 </style>
+<th:block th:if="${session.user}">
+
+		<script type="text/javascript" th:inline="javascript">
+	
+		$(window).on('load', function() {
+			location.replace("/")
+		});
+	</script>
 </head>
 <body>
 	<div class="pt-2 text-center">
 		<h2>Hệ thống quản lý nhân lực</h2>
 	</div>
 	<div class="login-form">
-		<form th:action="@{/login/check}" method="POST" th:object="${member}">
+		<form th:action="@{/login}" method="POST" th:object="${member}">
 			<h3 class="text-center">Thành viên đăng nhập</h3>
 			<div class="form-group">
 				<label>Tài khoản</label> <input th:field=*{username} type="text"

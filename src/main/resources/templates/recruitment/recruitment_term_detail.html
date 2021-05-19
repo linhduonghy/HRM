@@ -41,6 +41,8 @@
 </head>
 
 <body>
+<div th:replace="fragments/topnav :: navbar"></div>
+
 	<div class="container" style="padding-top: 50px;">
 		<div class="row">
 			<div class="col border-right">
@@ -104,18 +106,16 @@
 				</div>
 			</div>
 			<div class="col p-3">
-				<p>
-					Danh sách vị trí tuyển dụng <a class="btn"
-						th:href="@{/recruitment/insert-recruitment-position}"><i
-						class="fa fa-plus"></i></a>
-				</p>
+				<h4>
+					Danh sách vị trí tuyển dụng
+				</h4>
 				<table class="table ">
 					<thead>
 						<tr>
-							<!-- <th>Phòng Ban</th> -->
 							<th>Vị trí</th>
 							<th>Số lượng</th>
 							<th>Đã duyệt</th>
+							<th>Chưa duyệt</th>
 							<th>#</th>
 						</tr>
 					</thead>
@@ -126,6 +126,7 @@
 							<td th:text="${position.title.title_name}">Tổ trưởng</td>
 							<td th:text="${position.number_of_recruitment}">1</td>
 							<td th:text="${number_acc[stat.index]}"></td>
+							<td th:text="${number_pro[stat.index]}"></td>
 							<td><a
 								th:href="@{/recruitment/term/{term_id}/position/{position_id}(term_id=${term.id}, position_id=${position.id})}"><button
 										class="btn btn-success">Duyệt</button></td>

@@ -65,7 +65,7 @@ public class EmployeeController {
 			HttpSession session,HttpServletRequest request) {
 
 		Staff newStaff = rest.getForObject("http://localhost:8081/staff/{id}", Staff.class, staff.getId());
-		staff.getMember().setDepartmant(newStaff.getMember().getDepartmant());
+		staff.getMember().setDepartment(newStaff.getMember().getDepartment());
 		staff.getMember().setSalary(staff.getMember().getSalary());
 		
         rest.put("http://localhost:8081/staff/{id}", staff, staff.getId());

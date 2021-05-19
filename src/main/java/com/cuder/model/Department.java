@@ -29,18 +29,5 @@ public class Department implements Serializable {
 	@ToString.Exclude
 	private List<Member> members;
 
-	public Member addMember(Member member) {
-		getMembers().add(member);
-		member.setDepartmant(this);
-
-		return member;
-	}
-
-	public Member removeMember(Member member) {
-		getMembers().remove(member);
-		member.setDepartmant(null);
-
-		return member;
-	}
 
 }
