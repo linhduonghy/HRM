@@ -63,7 +63,10 @@ public class StatisController {
 
 				Calendar cal = Calendar.getInstance();
 				cal.setTime(contracts[i].getContract_signing_date());
-				if ((contracts[i].getContractType().getId() == 1) && (cal.get(Calendar.YEAR) == a[j][0])) {
+				int start = cal.get(Calendar.YEAR);
+				cal.setTime(contracts[i].getContract_end_date());
+				int end  = cal.get(Calendar.YEAR);
+				if ((contracts[i].getContractType().getId() == 1) &&  a[j][0] >= start && a[j][0] <= end ) {
 					a[j][1]++;
 				}
 			}
@@ -105,7 +108,10 @@ public class StatisController {
 
 				Calendar cal = Calendar.getInstance();
 				cal.setTime(contracts[i].getContract_signing_date());
-				if ((contracts[i].getContractType().getId() == 1) && (cal.get(Calendar.YEAR) == a[j][0])) {
+				int start = cal.get(Calendar.YEAR);
+				cal.setTime(contracts[i].getContract_end_date());
+				int end  = cal.get(Calendar.YEAR);
+				if ((contracts[i].getContractType().getId() == 1) &&  a[j][0] >= start && a[j][0] <= end ) {
 					a[j][1]++;
 				}
 			}
