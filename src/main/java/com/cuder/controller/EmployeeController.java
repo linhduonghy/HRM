@@ -39,8 +39,10 @@ public class EmployeeController {
 
 		for (int i = 0; i < staffs.length; i++) {
 			List<Appointment> appoint = staffs[i].getAppointments();
+//			System.err.println(appoint);
 			titles.add(appoint.get(appoint.size() - 1).getTitle());
 		}
+//		System.err.println(titles);
 		model.addAttribute("titles", titles);
 
 		return "employee/employee.html";

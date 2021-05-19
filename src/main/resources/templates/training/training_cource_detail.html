@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+
+<title>Term recruitment Detail</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous" />
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<style>
+.labels {
+	font-size: 13px;
+}
+
+.rc-control {
+	border: none;
+	font-size: 13px;
+}
+
+.rc-control:focus {
+	outline: none !important;
+	border: none;
+	font-size: 13px;
+}
+</style>
+</head>
+
+<body>
+	<div class="container" style="padding-top: 50px;">
+		<div class="row">
+			<div class="col-5 border-right">
+				<h3>
+					Thông tin khóa đào tạo: <span th:text="${cource.training_cource_name}"></span>
+					<button class="btn">
+						<i class=" fa fa-edit"></i>
+					</button>
+				</h3>
+
+				<div class="row form-group">
+					<div class="col">
+						<label class="labels">Tên khóa đào tạo:</label>
+					</div>
+					<div class="col">
+						<input type="text" class="rc-control" readonly
+							value="Đợt 1 năm 2021" th:value="${cource.training_cource_name}">
+					</div>
+				</div>
+				
+				<div class="row form-group">
+					<div class="col">
+						<label class="labels">Nội dung:</label>
+
+					</div>
+					<div class="col">
+						<input class="rc-control"  readonly
+							th:value="${cource.content}"> 
+					</div>
+				</div>
+				
+				<div class="row form-group">
+					<div class="col">
+						<label class="labels">Thời gian đào tạo:</label>
+					</div>
+					<div class="col">
+						<input class="rc-control"  readonly
+							th:value="${cource.duration}">
+					</div>
+				</div>
+				<div class="row form-group">
+					<div class="col">
+						<label class="labels">Số lượng thành viên:</label>
+					</div>
+					<div class="col">
+						<input class="rc-control"  readonly
+							th:value="${cource.number_of_attendance}">
+					</div>
+				</div>
+				
+			</div>
+			<div class="col-7 p-3">
+				<h3>
+					Danh sách thành viên đào tạo
+				</h3>
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Mã thành viên</th>
+							<th>Tên thành viên</th>
+							<th>Ngày bắt đầu đào tạo</th>
+							<th>Trạng thái</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr  th:each="memberTC : ${cource.memberTraningCources}">
+							<td th:text="memberTC.member.id"></td>
+							<td th:text="memberTC.member.name"></td>
+							<td th:text="memberTC.training_start_date"></td>
+							<td>_</td>
+						</tr>
+						
+						
+					</tbody>
+				</table>
+
+			</div>
+
+		</div>
+	</div>
+</body>
+
+</html>

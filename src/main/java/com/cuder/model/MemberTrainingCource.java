@@ -17,7 +17,7 @@ public class MemberTrainingCource implements Serializable {
 	private int id;
 
 	private Date training_start_date;
-
+	
 	// bi-directional many-to-one association to TrainingCourse
 	private TrainingCource trainingCource;
 
