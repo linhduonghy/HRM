@@ -46,7 +46,7 @@ public class ContractController {
 		
 		List<Contract> contracts = new ArrayList<Contract>();
 		for (int i = 0; i < con.length; i++) {
-			List<Contract> contracts = staffs[i].getContracts();
+//			List<Contract> contracts = staffs[i].getContracts();
 			staffContracts.add(contracts.get(contracts.size() - 1));
 		}
 		model.addAttribute("contracts", staffContracts);
