@@ -2,83 +2,82 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Insert title here</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/src/main/resources/style.css" />
+<meta charset="UTF-8">
+<title>Employee</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous" />
+<script
+	src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+
+<style>
+html, body, #container {
+	width: 100%;
+	height: 500px;
+	margin: 0;
+	padding: 0;
+}
+</style>
+<script th:inline="javascript">
+	anychart.onDocumentReady(function() {
+		
+		var a = [[${a}]];
+		console.log(a);
+		
+		 
+		var data = {
+			header : [ "Năm", "Số nhân viên" ],
+			rows : [ [ a[0][0], a[0][1] ],
+					[ a[1][0],a[1][1] ],
+					[ a[2][0],a[2][1] ],
+					[a[2][0],a[2][1]]
+					 ]
+		};
+
+		// create the chart
+		var chart = anychart.column();
+		chart.yScale().minimum(0);
+		
+
+		// add data
+		chart.data(data);
+
+		// set the chart title
+		chart.title("Số lượng nhân viên");
+		
+
+		// draw
+		chart.container("container");
+		chart.draw();
+	});
+</script>
 </head>
 
 <body>
+	<div class="row">
+		<div class="col"></div>
+		<div class="col">
+			<div class="pt-5 pr-5" id="container"></div>
+		</div>
 
-    <button class="btn btn-success" onclick="document.getElementById('edit').style.display='block'">Chỉnh
-        sửa</a></button>
+	</div>
 
 
-    <!-- Modal chỉnh sửa -->
-    <div id="edit" class="modall modall-content animate">
-        <div class="imgcontainer">
-            <span onclick="document.getElementById('edit').style.display='none'" class="close"
-                title="Close">&times;</span>
-            <img src="/src/main/resources/images/linh_xoan.png" alt="Avatar" class="avatar">
-        </div>
-
-        <div class="row table-detail">
-            <div class="col" style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
-                <table class="table">
-                    <tr class="info-detail">
-                        <td>ID Card</td>
-                        <td><input type="text" name='idcard' value="#"></td>
-                    </tr>
-                    <tr class="info-detail">
-                        <td>Họ tên</td>
-                        <td><input type="text" name='name' value="#"></td>
-                    </tr>
-                    <tr class="info-detail">
-                        <td>Ngày sinh</td>
-                        <td><input type="text" name='dob' value="#"></td>
-                    </tr>
-                    <tr class="info-detail">
-                        <td>Giới tính</td>
-                        <td><input type="text" name='sex' value="#"></td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="col" style="border-radius: 5px; border: 1px solid tan; margin-right: 5px;">
-                <table class="table">
-                    <tr class="info-detail">
-                        <td>Địa chỉ</td>
-                        <td><input type="text" name='address' value="#"></td>
-                    </tr>
-                    <tr class="info-detail">
-                        <td>Số điện thoại</td>
-                        <td><input type="text" name='phone' value="#"></td>
-                    </tr>
-                    <tr class="info-detail">
-                        <td>Email</td>
-                        <td><input type="text" name='email' value="#"></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        <div class="container" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('edit').style.display='none'"
-                class="btn btn-danger cancelbtn">Cancel</button>
-
-            <form action="#" method="POST">
-                <button type="button" class="btn btn-success"
-                    style="margin-right: 5px; margin-top: 5px; float: right;">Submit</button>
-            </form>
-        </div>
-    </div>
 
 </body>
 
