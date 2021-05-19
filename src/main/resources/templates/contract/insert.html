@@ -70,7 +70,7 @@ body {
 								<label for="staff_dob">Ngày sinh</label>
 							</div>
 							<div class="col-9">
-								<input id="staff_dob" type="text" class="form-control" th:value="${staffs[0].member.dob}">
+								<input id="staff_dob" type="date" class="form-control" th:value="${staffs[0].member.dob}" readonly="readonly">
 							</div>
 						</div>
 						<div class="row form-group">
@@ -78,7 +78,7 @@ body {
 								<label for="staff_address">Địa chỉ</label>
 							</div>
 							<div class="col-9">
-								<input id="staff_address" type="text" class="form-control" th:value="${staffs[0].member.address}">
+								<input id="staff_address" type="text" class="form-control" th:value="${staffs[0].member.address}" readonly="readonly">
 							</div>
 						</div>
 						<div class="row form-group">
@@ -86,7 +86,7 @@ body {
 								<label for="staff_phone">Số điện thoại</label>
 							</div>
 							<div class="col-9">
-								<input id="staff_phone" type="text" class="form-control" th:value="${staffs[0].member.phone}">
+								<input id="staff_phone" type="text" class="form-control" th:value="${staffs[0].member.phone}" readonly="readonly">
 							</div>
 						</div>
 						

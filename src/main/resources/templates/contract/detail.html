@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+
+<title>Chi tiết hợp đồng</title>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous" />
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+<style>
+body {
+	background-color: #f3f3f3;
+}
+
+.insert-contract {
+	padding: 10px 50px;
+}
+
+.contract-info {
+	padding: 10px 10px;
+	background-color: #fff;
+}
+
+.contract-info-title {
+	margin: 20px 0;
+	background-color: #fff;
+}
+label{
+font-size: 20px;
+}
+.date-info{
+	font-size: 20px;
+	border: none;
+	
+}
+.date-info:focus{
+	
+	outline: none;
+	
+}
+
+</style>
+</head>
+
+
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="contract-info pt-3">
+					<h3 th:text="${'Thông tin '+contract.contractType.contract_type_name} +' ngày '+ ${contract.contract_signing_date}"></h3>
+				</div>
+				<div>
+
+					<div class="contract-info">
+						<div class="contract-info-title">
+							<b>Thông tin về nhân viên</b>
+						</div>
+						<div class="row form-group">
+							<div class="col-5">
+								<label for="_staff"> Nhân viên </label>
+							</div>
+							<div class="col-7">
+								<label th:text=${contract.staff.member.name}></label>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-5">
+								<label for="staff_dob">Ngày sinh</label>
+							</div>
+							<div class="col-7">
+							<input type="date" class="date-info"  th:value=${contract.staff.member.dob} readonly="readonly">
+								
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-5">
+								<label for="staff_address">Địa chỉ</label>
+							</div>
+							<div class="col">
+								<label th:text=${contract.staff.member.address}></label>
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-5">
+								<label for="staff_phone">Số điện thoại</label>
+							</div>
+							<div class="col">
+								<label th:text=${contract.staff.member.phone}></label>
+							</div>
+						</div>
+
+					</div>
+					<div class="contract-info mt-3">
+						<div class="contract-info-title">
+							<b>Thông tin chi tiết về hợp đồng</b>
+						</div>
+						<div class="row form-group">
+							<div class="col-5">
+								<label class="id">Mã hợp đồng</label>
+							</div>
+							<div class="col">
+								<label th:text=${contract.id}></label>
+							</div>
+						</div>
+
+						<div class="row form-group">
+							<div class="col-5">
+								<label id="contractType.id"> Loại Hợp đồng </label>
+							</div>
+							<div class="col">
+								<label th:text="${contract.contractType.contract_type_name}"></label>
+							</div>
+						</div>
+
+						<div class="row form-group border-bottom">
+							<div class="col-5">
+								<label id="note">Ghi chú</label>
+							</div>
+							<div class="col">
+								<label th:text=${contract.note}></label>
+
+							</div>
+						</div>
+
+						<div class="row form-group mt-5">
+							<div class="col-5">
+								<label id="contract_signing_date"> Ngày ký hợp đồng </label>
+							</div>
+							<div class="col">
+							<input type="date" class="date-info"  th:value=${contract.contract_signing_date} readonly="readonly">
+
+							</div>
+						</div>
+						<div class="row form-group">
+							<div class="col-5">
+								<label for="contract_end_date"> Ngày chấm dứt hợp đồng </label>
+							</div>
+							<div class="col">
+							<input type="date" class="date-info"  th:value=${contract.contract_end_date} readonly="readonly">
+
+
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+			<div class="col-4 p-2 pt-5 contract-info">
+				<h4>Danh sách các hợp đồng của nhân viên</h4>
+				<th:block th:each="contract : ${contracts}">
+				<br><a th:href="@{/contract/{id}(id=${contract.id})}">
+					<i class="fas fa-file"></i>
+						<button class="btn btn-link"
+							th:text="${contract.contractType.contract_type_name} +' ngày '+ ${contract.contract_signing_date}">
+								
+							
+						</button>
+					</a>
+					</td>
+
+				</th:block>
+
+			</div>
+
+		</div>
+	</div>
+</body>
+
+
+</html>
