@@ -68,9 +68,12 @@ public class MemberController {
 
 		}
 		session.setAttribute("user", logMember);
+<<<<<<< HEAD
 		if (logMember.getStaff() != null) {
 			return "redirect:/profile/";
 		}
+=======
+>>>>>>> 1c156d57131368df592010b8d968512b5a197dc7
 		return "redirect:/";
 	}
 	@GetMapping("/logout")

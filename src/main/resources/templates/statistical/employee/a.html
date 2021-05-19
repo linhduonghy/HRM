@@ -23,12 +23,8 @@
 	crossorigin="anonymous" />
 <script
 	src="https://cdn.anychart.com/releases/8.0.0/js/anychart-base.min.js"></script>
-<script
-	src="https://cdn.anychart.com/releases/8.10.0/js/anychart-base.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
-<script
-	src="https://cdn.anychart.com/releases/8.10.0/js/anychart-exports.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
-<script
-	src="https://cdn.anychart.com/releases/8.10.0/js/anychart-ui.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+
+
 <link rel="stylesheet" th:href="@{/css/style.css}">
 
 <style>
@@ -77,7 +73,13 @@ html, body, #container {
 </head>
 
 <body>
+<<<<<<< HEAD
 <div th:replace="fragments/topnav :: navbar"></div>
+=======
+	<div th:replace="fragments/topnav :: navbar"></div>
+
+
+>>>>>>> 1c156d57131368df592010b8d968512b5a197dc7
 	<div class="row pl-5">
 		<div class="col">
 			<div class="container pt-5">
@@ -89,11 +91,11 @@ html, body, #container {
 							aria-haspopup="true" aria-expanded="false">Xem theo năm</button>
 						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 							<a class="dropdown-item"
-								th:href="@{/statis/employee/{year}(year=2019)}">2019</a> 
-								<a class="dropdown-item"
-								th:href="@{/statis/employee/{year}(year=2020)}">2020</a>
-								<a class="dropdown-item"
-								th:href="@{/statis/employee/{year}(year=2021)}">2021</a>  
+								th:href="@{/statis/employee/{year}(year=2019)}">2019</a> <a
+								class="dropdown-item"
+								th:href="@{/statis/employee/{year}(year=2020)}">2020</a> <a
+								class="dropdown-item"
+								th:href="@{/statis/employee/{year}(year=2021)}">2021</a>
 						</div>
 					</div>
 
@@ -130,6 +132,7 @@ html, body, #container {
 
 
 		</div>
+
 		<div class="col">
 			<div class="pt-5 pr-5" id="container"></div>
 		</div>

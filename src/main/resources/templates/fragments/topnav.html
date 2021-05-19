@@ -19,6 +19,7 @@
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbar-content">
+<<<<<<< HEAD
 
 			<div  th:if="${session.user.staff == null}">
 				<ul class="navbar-nav mr-auto">
@@ -70,11 +71,69 @@
 				</ul>
 			</div>
 			
+=======
+			<ul class="navbar-nav mr-auto">
+				<!-- Nhân viên -->
+				<li class="nav-item nav-title"><a class="nav-link"
+					th:href="@{/employee}" style="color: black;"><b>Nhân viên</b></a></li>
+
+				<li class="nav-item nav-title"><a class="nav-link"
+					th:href="@{/contract}" style="color: black;"><b>Hợp đồng</b></a></li>
+
+				<li class="nav-item nav-title"><a class="nav-link"
+					th:href="@{/recruitment}" style="color: black;"><b>Tuyển
+							dụng</b></a></li>
+
+
+				<!-- Đào tạo -->
+				<li class="nav-item nav-title"><a class="nav-link"
+					th:href="@{/training_cource}" style="color: black;"><b>Đào
+							tạo</b></a></li>
+
+
+				<!-- Lương -->
+				<li class="nav-item dropdown nav-title"><a
+					class="nav-link dropdown-toggle" href="#" id="hr-decision"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false" style="color: black;"> <b>Lương
+							thưởng</b>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" th:href="@{/salary}">Lương nhân viên</a>
+						<a class="dropdown-item" th:href="@{/salary/basic}">Lương cơ
+							bản</a> <a class="dropdown-item" th:href="@{/salary/allowance}">Lương
+							năng suất</a>
+					</div></li>
+
+				<!--Thống Kê-->
+				<li class="nav-item dropdown nav-title"><a
+					class="nav-link dropdown-toggle" href="#" id="hr-decision"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false" style="color: black;"> <b>Thống kê</b>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" th:href="@{/statis/employee}">Thống
+							kê nhân viên</a> <a class="dropdown-item"
+							th:href="@{/statis/department}">phân bổ nhân viên</a>
+
+					</div></li>
+
+			</ul>
+
+
+
+			<!-- Contact us -->
+			<div class="form-inline my-2 my-lg-0 contact">
+				<!-- <p><i class="fas fa-map-marked fa-fw"></i> 10 Nguyen Trai, Ha Dong, Ha Noi</p> -->
+				<!-- <p><i class="fa fa-phone fa-fw"></i> Contact us: 0123 456 789</p> -->
+			</div>
+>>>>>>> 1c156d57131368df592010b8d968512b5a197dc7
 
 			<!-- Login button -->
 			<div class="form-group" style="margin-right: 20px; margin-top: 20px;">
 				<div class="row">
 					<div class="col">
+<<<<<<< HEAD
 						
 							<th:block th:if="${session.user}">
 								<a class="btn btn-link text-white" th:href="@{profile}"
@@ -85,6 +144,17 @@
 								style="text-decoration: none; color: azure; float: right;">Đăng
 								xuất</a>
 						
+=======
+			<th:block th:if="${session.user}">
+							<a class="btn btn-link text-white"
+								th:href="@{profile}"
+								th:text=${session.user.name}></a>
+
+						</th:block> 
+						<br> <a th:href="@{/logout}"
+							style="text-decoration: none; color: azure; float: right;">Đăng
+							xuất</a>
+>>>>>>> 1c156d57131368df592010b8d968512b5a197dc7
 					</div>
 				</div>
 			</div>
