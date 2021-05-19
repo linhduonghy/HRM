@@ -14,80 +14,59 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Member implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private int id;
+    private int id;
 
-	private String address;
+    private String address;
 
-	private Date dob;
+    private Date dob;
 
-	private String email;
+    private String email;
 
-	private String idcard;
+    private String idcard;
 
-	private String name;
+    private String name;
 
-	private String password;
+    private String password;
 
-	private String phone;
+    private String phone;
 
-	private String sex;
+    private String sex;
 
-	private String username;
-	
+    private String username;
 
-	// bi-directional many-to-one association to Departmant
-	private Department departmant;
+    private String qualification;
 
-	// bi-directional one-to-many association to Degree
-	@ToString.Exclude
-	private List<Degree> degrees;
+    // bi-directional many-to-one association to Departmant
+    private Department departmant;
 
-	// bi-directional one-to-one association to Manager
-	@ToString.Exclude
-	private Manager manager;
+    // bi-directional one-to-one association to Manager
+    @ToString.Exclude
+    private Manager manager;
 
-	// bi-directional one-to-one association to Staff
-	@ToString.Exclude
-	private Staff staff;
+    // bi-directional one-to-one association to Staff
+    @ToString.Exclude
+    private Staff staff;
 
-	// bi-directional one-to-many association to MemberPermission
-	@ToString.Exclude
-	private List<MemberPermission> memberPermissions;
+    // bi-directional many-to-one association to Salary
+    private Salary salary;
 
-	// bi-directional many-to-one association to Salary
-	private Salary salary;
+    // bi-directional one-to-many association to TrainingCourse
+    @ToString.Exclude
+    private List<MemberTrainingCource> memberTraningCources;
 
-	// bi-directional one-to-many association to TrainingCourse
-	@ToString.Exclude
-	private List<MemberTrainingCource> memberTraningCources;
+    public MemberTrainingCource addMemberTrainingCources(MemberTrainingCource mtc) {
+        getMemberTraningCources().add(mtc);
+        mtc.setMember(this);
 
-	public MemberPermission addMemberPermission(MemberPermission memberPermission) {
-		getMemberPermissions().add(memberPermission);
-		memberPermission.setMember(this);
+        return mtc;
+    }
 
-		return memberPermission;
-	}
+    public MemberTrainingCource removeMemberTrainingCources(MemberTrainingCource mtc) {
+        getMemberTraningCources().remove(mtc);
+        mtc.setMember(null);
 
-	public MemberPermission removeMemberPermission(MemberPermission memberPermission) {
-		getMemberPermissions().remove(memberPermission);
-		memberPermission.setMember(null);
-
-		return memberPermission;
-	}
-
-	public MemberTrainingCource addMemberTrainingCources(MemberTrainingCource mtc) {
-		getMemberTraningCources().add(mtc);
-		mtc.setMember(this);
-
-		return mtc;
-	}
-
-	public MemberTrainingCource removeMemberTrainingCources(MemberTrainingCource mtc) {
-		getMemberTraningCources().remove(mtc);
-		mtc.setMember(null);
-
-		return mtc;
-	}
+        return mtc;
+    }
 }
