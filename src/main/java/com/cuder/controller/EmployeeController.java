@@ -32,7 +32,7 @@ public class EmployeeController {
 	@GetMapping("")
 	public String showlistStaff(Model model) {
 		// add model staff
-		Staff[] staffs = rest.getForObject("http://localhost:8081/staff", Staff[].class);
+		Staff[] staffs = rest.getForObject("http://42.118.109.231:8081/staff", Staff[].class);
 		model.addAttribute("staffs", staffs);
 
 		List<Title> titles = new ArrayList<Title>();
@@ -51,7 +51,7 @@ public class EmployeeController {
 	@GetMapping("/profile/{id}")
 	public String showFrofile(Model model, @PathVariable("id") String id) {
 		// add model staff
-		Staff staff = rest.getForObject("http://localhost:8081/staff/{id}", Staff.class, id);
+		Staff staff = rest.getForObject("http://42.118.109.231:8081/staff/{id}", Staff.class, id);
 		List<Appointment> appoint = staff.getAppointments();
 		String title = appoint.get(appoint.size() - 1).getTitle().getTitle_name();
 		model.addAttribute("staff", staff);
@@ -64,11 +64,11 @@ public class EmployeeController {
 	public String editEmployee(@ModelAttribute("staff") Staff staff, @RequestParam Map<String, String> requestParams,
 			HttpSession session,HttpServletRequest request) {
 
-		Staff newStaff = rest.getForObject("http://localhost:8081/staff/{id}", Staff.class, staff.getId());
+		Staff newStaff = rest.getForObject("http://42.118.109.231:8081/staff/{id}", Staff.class, staff.getId());
 		staff.getMember().setDepartment(newStaff.getMember().getDepartment());
 		staff.getMember().setSalary(staff.getMember().getSalary());
 		
-        rest.put("http://localhost:8081/staff/{id}", staff, staff.getId());
+        rest.put("http://42.118.109.231:8081/staff/{id}", staff, staff.getId());
 //
         System.err.println(staff);
 //		session.setAttribute("msg", "1");

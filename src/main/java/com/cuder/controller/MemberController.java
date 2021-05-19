@@ -32,7 +32,7 @@ import com.cuder.model.Title;
 public class MemberController {
 	RestTemplate rest = new RestTemplate();
 
-	private String apiUrl = "http://localhost:8081/";
+	private String apiUrl = "http://42.118.109.231:8081/";
 	// get list staff
 	@GetMapping("/login")
 	public String showloginForm(Model model, HttpSession session) {
@@ -52,7 +52,7 @@ public class MemberController {
 	public String showFrofile(Model model, @ModelAttribute("member") Member member, HttpSession session) {
 		//
 
-		Member logMember = rest.getForObject("http://localhost:8081/member/usrn/{usrn}", Member.class,
+		Member logMember = rest.getForObject("http://42.118.109.231:8081/member/usrn/{usrn}", Member.class,
 				member.getUsername());
 
 		if (logMember == null) {

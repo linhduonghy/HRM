@@ -28,15 +28,15 @@ public class SalaryController {
 
 	RestTemplate template = new RestTemplate();
 
-	private String apiUrl = "http://localhost:8081/";
+	private String apiUrl = "http://42.118.109.231:8081/";
 
 	@GetMapping
 	public String showSalaryForm(Model model) {
-		List<Salary> salaries = Arrays.asList(template.getForObject("http://localhost:8081/salary", Salary[].class));
+		List<Salary> salaries = Arrays.asList(template.getForObject("http://42.118.109.231:8081/salary", Salary[].class));
 		model.addAttribute("salaries", salaries);
 
 		List<Department> departments = Arrays
-				.asList(template.getForObject("http://localhost:8081/department", Department[].class));
+				.asList(template.getForObject("http://42.118.109.231:8081/department", Department[].class));
 		model.addAttribute("departments", departments);
 
 		BasicSalary[] basicSalaries = template.getForObject(apiUrl + "/basicSalary", BasicSalary[].class);
@@ -75,7 +75,7 @@ public class SalaryController {
 
 	@PostMapping("/detail")
 	public String detailSalary(@ModelAttribute Salary salary) {
-		template.put("http://localhost:8081/salary/{id}", salary, salary.getMember().getId());
+		template.put("http://42.118.109.231:8081/salary/{id}", salary, salary.getMember().getId());
 		return "salary/staff-salary.html";
 	}
 
@@ -83,7 +83,7 @@ public class SalaryController {
 	public String showBasicSalary(Model model, HttpSession session) {
 
 		// get all Basic Salary
-		List<BasicSalary> basicSalaries = template.getForObject("http://localhost:8081/basicSalary", List.class);
+		List<BasicSalary> basicSalaries = template.getForObject("http://42.118.109.231:8081/basicSalary", List.class);
 		model.addAttribute("basicSalaries", basicSalaries);
 		model.addAttribute("bs", new BasicSalary());
 		if (session.getAttribute("msg") != null) {
@@ -103,7 +103,7 @@ public class SalaryController {
 //		Date date =new Date();
 //		bs.setCreateDate(new java.sql.Date(date.getTime()));
 
-		bs = template.postForObject("http://localhost:8081/basicSalary", bs, BasicSalary.class);
+		bs = template.postForObject("http://42.118.109.231:8081/basicSalary", bs, BasicSalary.class);
 		session.setAttribute("msg", "1");
 		System.out.println(bs);
 		return "redirect:../basic/";
@@ -115,7 +115,7 @@ public class SalaryController {
 	public String showAllowance(Model model, HttpSession session) {
 
 		// get all Basic Salary
-		List<Allowance> allowances = template.getForObject("http://localhost:8081/allowance", List.class);
+		List<Allowance> allowances = template.getForObject("http://42.118.109.231:8081/allowance", List.class);
 		model.addAttribute("allowances", allowances);
 		if (session.getAttribute("msg") != null) {
 			model.addAttribute("msg", session.getAttribute("msg"));
@@ -133,7 +133,7 @@ public class SalaryController {
 //		Date date =new Date();
 //		bs.setCreateDate(new java.sql.Date(date.getTime()));
 
-		allo = template.postForObject("http://localhost:8081/allowance", allo, Allowance.class);
+		allo = template.postForObject("http://42.118.109.231:8081/allowance", allo, Allowance.class);
 
 		System.out.println(allo);
 		return "redirect:../allowance/";
@@ -141,17 +141,17 @@ public class SalaryController {
 
 	@GetMapping("/allowance/delete/{id}")
 	public String delete(@PathVariable("id") String id, HttpSession session) {
-		template.delete("http://localhost:8081/allowance/{id}", id);
+		template.delete("http://42.118.109.231:8081/allowance/{id}", id);
 		session.setAttribute("msg", "1");
 		return "redirect:../";
 	}
 
 	@GetMapping("/allowance/edit/{id}")
 	public String editAllowance(@PathVariable("id") String id, Model model) {
-		List<Allowance> allowances = template.getForObject("http://localhost:8081/allowance", List.class);
+		List<Allowance> allowances = template.getForObject("http://42.118.109.231:8081/allowance", List.class);
 		model.addAttribute("allowances", allowances);
 
-		model.addAttribute("allo", template.getForObject("http://localhost:8081/allowance/{id}", Allowance.class, id));
+		model.addAttribute("allo", template.getForObject("http://42.118.109.231:8081/allowance/{id}", Allowance.class, id));
 		return "/allowance/edit.html";
 	}
 
@@ -161,7 +161,7 @@ public class SalaryController {
 
 		System.out.println(allo);
 
-		template.put("http://localhost:8081/allowance/{id}", Allowance.class, allo.getAllowance_code());
+		template.put("http://42.118.109.231:8081/allowance/{id}", Allowance.class, allo.getAllowance_code());
 
 		System.out.println(allo);
 		session.setAttribute("msg", "1");

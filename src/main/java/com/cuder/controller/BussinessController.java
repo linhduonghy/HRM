@@ -21,7 +21,7 @@ import com.cuder.model.Title;
 @RequestMapping(value = "/bussiness")
 public class BussinessController {
 
-	private String apiUrl = "http://localhost:8081";
+	private String apiUrl = "http://42.118.109.231:8081/";
 	RestTemplate rest = new RestTemplate();
 
 	@GetMapping("/appoint")
@@ -74,7 +74,7 @@ public class BussinessController {
 	@GetMapping("/lay-off")
 	public String showLayOffForm(Model model) {
 		// add model staff
-		List<Staff> staffs = rest.getForObject("http://localhost:8081/staff", List.class);
+		List<Staff> staffs = rest.getForObject("http://42.118.109.231:8081/staff", List.class);
 		model.addAttribute("staffs", staffs);
 
 		return "redirect:/lay-off";

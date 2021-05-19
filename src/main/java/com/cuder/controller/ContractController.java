@@ -36,12 +36,12 @@ public class ContractController {
 	public String showlistStaff(Model model) {
 		// add model staff
 		
-		List<Contract> contracts = template.getForObject("http://localhost:8081/contract", List.class);
+		List<Contract> contracts = template.getForObject("http://42.118.109.231:8081/contract", List.class);
 		Collections.reverse(contracts);
 		
 		model.addAttribute("contracts",contracts);
 		
-//		Staff[] staffs = template.getForObject("http://localhost:8081/staff", Staff[].class);
+//		Staff[] staffs = template.getForObject("http://42.118.109.231:8081/staff", Staff[].class);
 //		model.addAttribute("staffs", staffs);
 //
 //		List<Title> titles = new ArrayList<Title>();
@@ -60,11 +60,11 @@ public class ContractController {
 	public String showContractForm(Model model) {
 		
 		// add model staffs
-		List<Staff> staffs = template.getForObject("http://localhost:8081/staff", List.class);
+		List<Staff> staffs = template.getForObject("http://42.118.109.231:8081/staff", List.class);
 		model.addAttribute("staffs", staffs);
 		
 		// add model contractTypes
-		List<ContractType> contractTypes = template.getForObject("http://localhost:8081/contractType", List.class);
+		List<ContractType> contractTypes = template.getForObject("http://42.118.109.231:8081/contractType", List.class);
 		model.addAttribute("contractTypes", contractTypes);
 		
 		// add new contract to form
@@ -83,7 +83,7 @@ public class ContractController {
 		
 		contract.setManager(m.getManager());
 		
-		contract = template.postForObject("http://localhost:8081/contract", contract, Contract.class);
+		contract = template.postForObject("http://42.118.109.231:8081/contract", contract, Contract.class);
 		
 		System.out.println(contract);
 		return "redirect:/contract";
@@ -93,10 +93,10 @@ public class ContractController {
 	public String showDetail(@PathVariable("id") String id,Model model) {
 		
 		// add model staffs
-		Contract contract = template.getForObject("http://localhost:8081/contract/{id}",Contract.class, id);
+		Contract contract = template.getForObject("http://42.118.109.231:8081/contract/{id}",Contract.class, id);
 		model.addAttribute("contract", contract);
 		
-		Staff staff = template.getForObject("http://localhost:8081/staff/{id}",Staff.class, contract.getStaff().getId());
+		Staff staff = template.getForObject("http://42.118.109.231:8081/staff/{id}",Staff.class, contract.getStaff().getId());
 		
 		// add model contractTypes
 		List<Contract> contracts = staff.getContracts();

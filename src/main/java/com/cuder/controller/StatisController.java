@@ -36,7 +36,7 @@ public class StatisController {
 	public String showBarChart(Model model, HttpSession session) {
 
 		// get all Basic Salary
-//		List<BasicSalary> basicSalaries = template.getForObject("http://localhost:8081/basicSalary", List.class);
+//		List<BasicSalary> basicSalaries = template.getForObject("http://42.118.109.231:8081/basicSalary", List.class);
 //		model.addAttribute("basicSalaries", basicSalaries);
 //		model.addAttribute("bs", new BasicSalary());
 //		if(session.getAttribute("msg")!=null) {
@@ -51,7 +51,7 @@ public class StatisController {
 		System.err.println(when);
 
 		int a[][] = { { 2019, 0 }, { 2020, 0 }, { 2021, 0 } };
-		Contract[] contracts = template.getForObject("http://localhost:8081/contract", Contract[].class);
+		Contract[] contracts = template.getForObject("http://42.118.109.231:8081/contract", Contract[].class);
 		for (int i = 0; i < contracts.length; i++) {
 
 			if (contracts[i].getContract_end_date().after(when) && contracts[i].getContract_signing_date().before(when)
@@ -83,7 +83,7 @@ public class StatisController {
 	public String showBarChart(Model model, HttpSession session, @PathVariable("year") String year) {
 
 		// get all Basic Salary
-//		List<BasicSalary> basicSalaries = template.getForObject("http://localhost:8081/basicSalary", List.class);
+//		List<BasicSalary> basicSalaries = template.getForObject("http://42.118.109.231:8081/basicSalary", List.class);
 //		model.addAttribute("basicSalaries", basicSalaries);
 //		model.addAttribute("bs", new BasicSalary());
 //		if(session.getAttribute("msg")!=null) {
@@ -100,7 +100,7 @@ public class StatisController {
 		
 
 		int a[][] = { { 2019, 0 }, { 2020, 0 }, { 2021, 0 } };
-		Contract[] contracts = template.getForObject("http://localhost:8081/contract", Contract[].class);
+		Contract[] contracts = template.getForObject("http://42.118.109.231:8081/contract", Contract[].class);
 		for (int i = 0; i < contracts.length; i++) {
 
 			if ((contracts[i].getContract_signing_date().before(start2)|| contracts[i].getContract_end_date().after(end2))
@@ -132,7 +132,7 @@ public class StatisController {
 	@GetMapping("department")
 	public String showDepartment(Model model, HttpSession session) {
 
-		Department[] departments = template.getForObject("http://localhost:8081/department", Department[].class);
+		Department[] departments = template.getForObject("http://42.118.109.231:8081/department", Department[].class);
 
 		int n = departments.length;
 		String[] dp = new String[n];
@@ -150,7 +150,7 @@ public class StatisController {
 		String s = "2021-12-31";
 		Date when = java.sql.Date.valueOf(s);
 		System.err.println(when);
-		Contract[] contracts = template.getForObject("http://localhost:8081/contract", Contract[].class);
+		Contract[] contracts = template.getForObject("http://42.118.109.231:8081/contract", Contract[].class);
 
 		for (int i = 0; i < contracts.length; i++) {
 
@@ -186,7 +186,7 @@ public class StatisController {
 //		
 //		
 //		int a[][] = { { 2019, 0 }, { 2020, 0 }, { 2021, 0 } };
-//		Contract[] contracts = template.getForObject("http://localhost:8081/contract", Contract[].class);
+//		Contract[] contracts = template.getForObject("http://42.118.109.231:8081/contract", Contract[].class);
 //		for (int i = 0; i < contracts.length; i++) {
 //
 //			if (contracts[i].getContract_end_date().after(when) && contracts[i].getContract_signing_date().before(when) && contracts[i].getContractType().getId()==1) {

@@ -19,7 +19,7 @@ import com.cuder.model.TrainingCource;
 @RequestMapping("/training_cource")
 public class TrainingController {
 
-	private String apiUrl = "http://localhost:8081/";
+	private String apiUrl = "http://42.118.109.231:8081/";
 
 	RestTemplate rest = new RestTemplate();
 
