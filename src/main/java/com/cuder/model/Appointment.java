@@ -19,7 +19,7 @@ public class Appointment implements Serializable {
 
 	private Date appointed_date;
 
-	private String decription;
+	private String description;
 
 	//bi-directional many-to-one association to Manager
 	private Manager manager;

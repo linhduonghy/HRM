@@ -41,8 +41,11 @@ public class ContractController {
 			titles.add(appoint.get(appoint.size() - 1).getTitle());
 		}
 		model.addAttribute("titles", titles);
-
-		for (int i = 0; i < staffs.length; i++) {
+		
+		Contract[] con = template.getForObject("http://localhost:8081/contract", Contract[].class);
+		
+		List<Contract> contracts = new ArrayList<Contract>();
+		for (int i = 0; i < con.length; i++) {
 			List<Contract> contracts = staffs[i].getContracts();
 			staffContracts.add(contracts.get(contracts.size() - 1));
 		}
