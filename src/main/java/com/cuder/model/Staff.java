@@ -15,7 +15,7 @@ import java.util.List;
 public class Staff implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private int id;
+	private String id;
 
 	// bi-directional one-to-many association to Appointment
 	@ToString.Exclude

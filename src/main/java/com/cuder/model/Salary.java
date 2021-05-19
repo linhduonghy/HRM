@@ -1,7 +1,7 @@
 package com.cuder.model;
 
 import java.io.Serializable;
-
+import java.sql.Date;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,18 +16,14 @@ public class Salary implements Serializable {
 
 	private int id;
 
-	private String jobType;
-
 	private float salary;
 
+	private Date createdDate;
 	// bi-directional one-to-one association to Allowance
 	private Allowance allowance;
 
 	// bi-directional one-to-one association to BasicSalary
 	private BasicSalary basicSalary;
-
-	// bi-directional one-to-one association to Bonus
-	private Bonus bonus;
 
 	// bi-directional many-to-one association to Member
 	@ToString.Exclude

@@ -13,11 +13,10 @@ import lombok.NoArgsConstructor;
 public class Contract implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private int id;
-
-	private String description;
+	private String id;
 
 	private String note;
+	
 	private Date contract_end_date;
 
 	private Date contract_signing_date;

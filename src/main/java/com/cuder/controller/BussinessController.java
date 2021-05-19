@@ -55,7 +55,7 @@ public class BussinessController {
 			@RequestParam("department_id") Integer department_id) {
 		
 		Manager m = new Manager();
-		m.setId(1);
+		m.setId("QL1");
 		appointment.setManager(m);
 		
 		Department d = rest.getForObject(apiUrl+"/department/{id}", Department.class, department_id);
@@ -67,7 +67,7 @@ public class BussinessController {
 		
 		rest.put(apiUrl+"/staff/{id}", s, s.getId());
 		
-		return "bussiness/appoint.html";
+		return "redirect:/bussiness/appoint";
 	}
 
 	// Lay-off

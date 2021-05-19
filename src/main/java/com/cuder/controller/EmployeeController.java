@@ -49,7 +49,7 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/profile/{id}")
-	public String showFrofile(Model model, @PathVariable("id") int id) {
+	public String showFrofile(Model model, @PathVariable("id") String id) {
 		// add model staff
 		Staff staff = rest.getForObject("http://localhost:8081/staff/{id}", Staff.class, id);
 		List<Appointment> appoint = staff.getAppointments();

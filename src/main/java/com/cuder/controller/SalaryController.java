@@ -49,13 +49,8 @@ public class SalaryController {
 		
 		List<Department> departments = Arrays.asList(template.getForObject("http://localhost:8081/department", Department[].class));
 		model.addAttribute("departments", departments);
-<<<<<<< HEAD
 		
 		return "/salary/detail_salary.html";
-=======
-			
-		return "salary/detail-salary.html";
->>>>>>> f95c31391750d48adf21474a86fced9f53fb9737
 	}					
 	
 	@PostMapping("/detail")
@@ -94,10 +89,6 @@ public class SalaryController {
 		model.addAttribute("allo", new Allowance());
 		return "/allowance/allowance.html";
 	}
-<<<<<<< HEAD
-=======
-	// ThÃªm
->>>>>>> f95c31391750d48adf21474a86fced9f53fb9737
 
 	@PostMapping("/allowance/insert")
 	public String addAllownace(@ModelAttribute Allowance allo, @RequestParam Map<String, String> requestParams) {
@@ -122,7 +113,7 @@ public class SalaryController {
 	
 	
 	@GetMapping("/allowance/edit/{id}")
-	public String editAllowance(@PathVariable("id") int id, Model model ) {
+	public String editAllowance(@PathVariable("id") Integer id, Model model ) {
 		List<Allowance> allowances = template.getForObject("http://localhost:8081/allowance", List.class);
 		model.addAttribute("allowances", allowances);
 		
@@ -135,7 +126,7 @@ public class SalaryController {
 
 		System.out.println(allo);
 
-		template.put("http://localhost:8081/allowance/{id}",Allowance.class,allo.getId());
+		template.put("http://localhost:8081/allowance/{id}",Allowance.class,allo.getAllowance_code());
 
 		System.out.println(allo);
 		session.setAttribute("msg","1");		

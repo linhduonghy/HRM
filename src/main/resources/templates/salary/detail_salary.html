@@ -78,8 +78,14 @@
 				<div class="border-bottom" style="margin-top: 10px; margin-left: 30px;">
 					<table class="table">
 						<tr>
-							<td><label for="salary1">Tên hệ số lương năng suất</label></td>
-							<td><input type="text" id="cname-salary"></td>
+							<td><label for="allowance_id">Hệ số lương năng suất</label></td>
+							<td>
+								<select id="allowance_id">
+									<th:block th:each="allowance : ${allowances}">
+										<option th:value="${allowance.allowance_code}" th:text="${allowance.allowance_code}"></option>
+									</th:block>
+								</select>
+							</td>
 						</tr>
 						<tr>
 							<td><label for="salary3">Mức lương năng suất</label></td>
@@ -93,8 +99,14 @@
 				<div class="border-bottom" style="margin-top: 10px; margin-left: 30px;">
 					<table class="table">
 						<tr>
-							<td><label for="salary4">Tên lương cơ bản</label></td>
-							<td><input type="text" id="name-basic-salary"></td>
+							<td><label for="basic_salary_id">Tên lương cơ bản</label></td>
+							<td>
+								<select id="basic_salary_id">
+									<th:block th:each="basicSalary : ${basicSalaries}">
+										<option th:value="${basicSalary.basic_salary_name}" th:text="${basicSalary.basic_salary_value}"></option>
+									</th:block>
+								</select>
+							</td>
 						</tr>
 						<tr>
 						<tr>

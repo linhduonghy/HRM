@@ -1,6 +1,7 @@
 package com.cuder.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,11 +14,13 @@ import lombok.ToString;
 public class Allowance implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private int id;
-	private float levelOfAllowance;
-	private String typeAllowance;
+	private String allowance_code;
 
-	// bi-directional one-to-one association to Salary
+	private String allowance_name;
+	
+	private float allowance_value;
+
+	// bi-directional one-to-many association to Salary
 	@ToString.Exclude
-	private Salary salary;
+	private List<Salary> salaries;
 }

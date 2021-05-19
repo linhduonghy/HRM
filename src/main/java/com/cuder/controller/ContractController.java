@@ -78,7 +78,7 @@ public class ContractController {
 
 //		set manager 
 		Manager m = new Manager();
-		m.setId(1);
+		m.setId("QL1");
 		contract.setManager(m);
 		
 		contract = template.postForObject("http://localhost:8081/contract", contract, Contract.class);
@@ -88,7 +88,7 @@ public class ContractController {
 		
 	}
 	@GetMapping("/{id}")
-	public String showDetail(@PathVariable("id") int id,Model model) {
+	public String showDetail(@PathVariable("id") String id,Model model) {
 		
 		// add model staffs
 		Contract contract = template.getForObject("http://localhost:8081/contract/{id}",Contract.class, id);
