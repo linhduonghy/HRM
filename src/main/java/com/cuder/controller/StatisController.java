@@ -1,5 +1,6 @@
 package com.cuder.controller;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -42,9 +43,21 @@ public class StatisController {
 //			session.removeAttribute("msg");
 //			}
 //		
-		int a[][] = { { 2019, 0 }, { 2020, 0 }, { 2021, 0 },{ 2022, 0 } };
+		List<Staff> staffs = new ArrayList<Staff>();
+		
+		Date utilDate = new Date();
+		Date when =  new java.sql.Date(utilDate.getTime());
+		System.err.println(when);
+		
+		
+		int a[][] = { { 2019, 0 }, { 2020, 0 }, { 2021, 0 } };
 		Contract[] contracts = template.getForObject("http://localhost:8081/contract", Contract[].class);
 		for (int i = 0; i < contracts.length; i++) {
+
+			if (contracts[i].getContract_end_date().after(when) && contracts[i].getContract_signing_date().before(when) && contracts[i].getContractType().getId()==1) {
+				staffs.add(contracts[i].getStaff());
+				
+			}
 			for (int j = 0; j < a.length; j++) {
 				
 				Calendar cal = Calendar.getInstance();
@@ -56,9 +69,56 @@ public class StatisController {
 			}
 
 		}
-
+		
 		model.addAttribute("a", a);
-		return "/statistical/a.html";
+		model.addAttribute("staffs", staffs);
+		return "/statistical/employee/a.html";
+	}
+	
+	@GetMapping("employee/{year}")
+	public String showBarChart(Model model, HttpSession session,@PathVariable("year") String year) {
+
+		// get all Basic Salary
+//		List<BasicSalary> basicSalaries = template.getForObject("http://localhost:8081/basicSalary", List.class);
+//		model.addAttribute("basicSalaries", basicSalaries);
+//		model.addAttribute("bs", new BasicSalary());
+//		if(session.getAttribute("msg")!=null) {
+//			model.addAttribute("msg",session.getAttribute("msg"));
+//			session.removeAttribute("msg");
+//			}
+//		
+		List<Staff> staffs = new ArrayList<Staff>();
+		
+		
+		String s = year+"-12-31";
+		Date when =  java.sql.Date.valueOf(s);
+		System.err.println(when);
+		
+		int a[][] = { { 2019, 0 }, { 2020, 0 }, { 2021, 0 } };
+		Contract[] contracts = template.getForObject("http://localhost:8081/contract", Contract[].class);
+		for (int i = 0; i < contracts.length; i++) {
+			
+			if ( contracts[i].getContract_signing_date().before(when) && contracts[i].getContractType().getId()==1) {
+				staffs.add(contracts[i].getStaff());
+				
+			}
+			for (int j = 0; j < a.length; j++) {
+				
+				Calendar cal = Calendar.getInstance();
+				cal.setTime(contracts[i].getContract_signing_date());
+				if ((contracts[i].getContractType().getId() == 1)
+						&& (cal.get(Calendar.YEAR) == a[j][0])) {
+					a[j][1]++;
+				}
+			}
+
+		}
+		
+		model.addAttribute("a", a);
+		model.addAttribute("staffs", staffs);
+		model.addAttribute("year",year);
+
+		return "/statistical/employee/year.html";
 	}
 
 }
