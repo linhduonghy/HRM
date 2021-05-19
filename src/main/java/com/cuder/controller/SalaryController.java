@@ -1,6 +1,6 @@
 package com.cuder.controller;
 
-import java.util.Date;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -18,10 +18,8 @@ import org.springframework.web.client.RestTemplate;
 
 import com.cuder.model.Allowance;
 import com.cuder.model.BasicSalary;
-import com.cuder.model.Contract;
-import com.cuder.model.ContractType;
-import com.cuder.model.Manager;
-import com.cuder.model.Staff;
+import com.cuder.model.Department;
+import com.cuder.model.Salary;
 
 @Controller
 @RequestMapping(value = "/salary")
@@ -44,6 +42,22 @@ public class SalaryController {
 		return "/basic_Salary/basic_Salary.html";
 	}
 
+	@GetMapping
+	public String showSalaryForm(Model model) {
+		List<Salary> salaries = Arrays.asList(template.getForObject("http://localhost:8081/salary", Salary[].class));
+		model.addAttribute("salaries", salaries);
+		
+		List<Department> departments = Arrays.asList(template.getForObject("http://localhost:8081/department", Department[].class));
+		model.addAttribute("departments", departments);
+		
+		return "/salary/detail_salary.html";
+	}					
+	
+	@PostMapping("/detail")
+	public String detailSalary(@ModelAttribute Salary salary) {
+		template.put("http://localhost:8081/salary/{id}", salary, salary.getMember().getId());
+		return "salary/staff-salary.html";
+	}	
 	
 
 	@PostMapping("/basic/insert")
@@ -75,7 +89,6 @@ public class SalaryController {
 		model.addAttribute("allo", new Allowance());
 		return "/allowance/allowance.html";
 	}
-	// Thêm
 
 	@PostMapping("/allowance/insert")
 	public String addAllownace(@ModelAttribute Allowance allo, @RequestParam Map<String, String> requestParams) {

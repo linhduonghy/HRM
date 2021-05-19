@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 
-<title>Insert Recruitment Position</title>
+<title>Insert Contract</title>
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 <link rel="stylesheet"
@@ -18,74 +18,142 @@
 	src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" th:href="@{/css/style.css}">
+
 <style>
 body {
 	background-color: #f3f3f3;
+}
+
+.insert-contract {
+	padding: 10px 50px;
+}
+
+.contract-info {
+	padding: 10px 10px;
+	background-color: #fff;
+}
+
+.contract-info-title {
+	margin: 20px 0;
+	background-color: #fff;
 }
 </style>
 </head>
 
 <body>
 	<div class="container">
-		<div class="container-bg-white">
-			<h3>THÊM VỊ TRÍ TUYỂN DỤNG</h3>
+		<div class="insert-contract">
+			<div class="contract-info">
+				<h3>QUẢN LÝ KHÓA ĐÀO TẠO: THÊM THANH VIÊN</h3>
+			</div>
 			<div>
-				<form th:action="@{/recruitment/insert-recruitment-position}"
-					method="POST" th:object="${recruitmentPosition}">
-					<div>
-						<h5 style="margin: 20px 0 30px 0;">Thông tin vị trí tuyển
-							dụng</h5>
-
+				<form th:action="@{/training_cource/insert_member}" method="POST" th:object="${memberTC}">
+					<div class="contract-info">
+						<div class="contract-info-title">
+							<b>Thông tin về thành viên</b>
+						</div>
 						<div class="row form-group">
 							<div class="col-3">
-								<label for="term_id"> Đợt tuyển dụng </label>
+								<label for="member_id"> Thành viên </label>
 							</div>
 							<div class="col-9">
-								<select id="term_id" th:field="*{recruitmentTerm.id}"
-									class="form-control">
-									<th:block th:each="term : ${terms}">
-										<option th:value="${term.id}" th:text="${term.name}">Đợt
-											1 - 2021</option>
+								<select id="member_id" th:field="*{member.id}" class="form-control" >
+									<th:block th:each="member : ${members}">
+										<option th:value="${member.id}" th:text="${member.name}">001-Dương
+											Văn Linh</option>
 									</th:block>
 								</select>
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-3">
-								<label for="title_id"> Số lượng tuyển dụng </label>
+								<label for="member_dob">Ngày sinh</label>
 							</div>
 							<div class="col-9">
-								<select id="title_id" th:field="*{title.id}"
-									class="form-control">
-									<th:block th:each="t : ${titles}">
-										<option th:value="${t.id}" th:text="${t.title_name}">FullStack
-											Dev</option>
-									</th:block>
-								</select>
+								<input id="member_dob" type="text" class="form-control" th:value="${members[0].dob}">
 							</div>
 						</div>
 						<div class="row form-group">
 							<div class="col-3">
-								<label for="number_"> Vị trí tuyển dụng </label>
+								<label for="member_address">Địa chỉ</label>
 							</div>
 							<div class="col-9">
-								<input type="text" id="number_"
-									th:field="*{number_of_recruitment}" class="form-control"
-									placeholder="Số lượng tuyển dụng">
+								<input id="member_address" type="text" class="form-control" th:value="${members[0].address}">
 							</div>
 						</div>
+						<div class="row form-group">
+							<div class="col-3">
+								<label for="member_phone">Số điện thoại</label>
+							</div>
+							<div class="col-9">
+								<input id="member_phone" type="text" class="form-control" th:value="${members[0].phone}">
+							</div>
+						</div>
+						
 					</div>
+					<div class="contract-info mt-3">
+						<div class="contract-info-title">
+							<b>Thông tin chi tiết về khóa đào tạo</b>
+						</div>
 
-					<div class="container-bg-white"
-						style="display: flex; justify-content: flex-end;">
-						<button type="submit" class="btn btn-info">Xác nhận</button>
+						<div class="row form-group">
+							<div class="col-3">
+								<label id="cource_id"> Khóa đào tạo </label>
+							</div>
+							<div class="col-9">
+								<select  th:field="*{trainingCource.id}" id="cource_id"
+									class="form-control">
+									<th:block th:each="trainingCource : ${trainingCources}">
+										<option th:value="${trainingCource.id}" th:text="${trainingCource.training_cource_name}">ABC
+										</option>
+									</th:block>
+								</select>
+							</div>
+						</div>
+						<div class="row form-group mt-5">
+							<div class="col-3">
+								<label id="training_start_date"> Ngày bắt đầu đào tạo </label>
+							</div>
+							<div class="col-9">
+								<input th:field="*{training_start_date}" id="training_start_date" type="date" class="form-control">
+							</div>
+						</div>
+
 					</div>
-
+					<div class="contract-info" style="display: flex; justify-content: flex-end;">
+						<button type="submit" class="btn btn-info"
+						style="margin-right: 20px;">Xác nhận</button>
+					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 </body>
 
+<script type="text/javascript">
+$( document ).ready(function() {
+	$('#member_id').on('change', function (e) {
+	    var optionSelected = $("option:selected", this);
+	    var member_id = this.value;
+	    getMemberInfo(member_id);
+	});
+	
+	const getMemberInfo = (member_id) => {
+		console.log(member_id);
+		$.ajax({
+	        url: `http://localhost:8081/member/${member_id}`,
+	        type: 'GET',
+	        dataType: 'json',
+	        success: function(res) {
+	            console.log(res);
+	            $('#member_dob').val(res.dob);
+	            $('#member_address').val(res.address);
+	            $('#member_phone').val(res.phone);
+	        }
+	    });
+	}
+});
+	
+	
+</script>
 </html>

@@ -106,11 +106,11 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr  th:each="memberTC : ${cource.memberTraningCources}">
-							<td th:text="memberTC.member.id"></td>
-							<td th:text="memberTC.member.name"></td>
-							<td th:text="memberTC.training_start_date"></td>
-							<td>_</td>
+						<tr  th:each="memberTC,stat : ${cource.memberTraningCources}">
+							<td th:text="${memberTC.member.id}"></td>
+							<td th:text="${memberTC.member.name}"></td>
+							<td th:text="${memberTC.training_start_date}"></td>
+							<td th:text="${statuses[stat.index]}"></td>
 						</tr>
 						
 						

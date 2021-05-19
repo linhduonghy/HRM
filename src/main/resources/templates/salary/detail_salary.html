@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Chi tiết bảng lương nhân viên</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+		integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
+	<link rel="stylesheet" th:href="@{/css/style.css}" />
+
+</head>
+<style>
+	.total-salary {
+		border: none;
+		font-size: 24px;
+		font-weight: bold;
+		margin-left: 30px;
+		padding-top: 10px;
+	}
+</style>
+
+<body>
+	<header class="header"> Chi tiết bảng lương nhân viên </header>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col">
+				<div>
+					<div class="form-row align-items-center">
+						<div class="col-auto my-1">
+							<label class="mr-sm-2" for="_department">Phòng ban</label>
+
+							<select id="_department" class="custom-select mr-sm-2">
+								<option value="0" style="display: none;">Chọn phòng ban</option>
+								<th:block th:each="department : ${departments}">
+									<option th:value="${department.id}" th:text="${department.department_name}">
+									</option>
+								</th:block>
+							</select>
+						</div>
+					</div>
+
+					<div>
+						<table id="staff-table" class="table table-striped" style="cursor: pointer;">
+							<thead>
+								<th>Mã phòng ban</th>
+								<th>Mã nhân viên</th>
+								<th>Tên nhân viên</th>
+								<th>SĐT</th>
+							</thead>
+							<tbody id="tbody">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div id="info-salary" class="col form-group">
+				<div>
+					<div>
+						<label for="_datecreate">Ngày lập</label> <input class="form-control" type="date"
+							id="date-create" name="date-create" readonly="readonly">
+					</div>
+					<div>
+						<label for="_type">Loại công việc</label> <input class="form-control" type="text" id="jobtype"
+							name="jobtype" readonly="readonly">
+					</div>
+				</div>
+
+				<h4 style="margin-top: 10px;">Thông tin chi tiết về lương năng
+					suất</h4>
+				<div class="border-bottom" style="margin-top: 10px; margin-left: 30px;">
+					<table class="table">
+						<tr>
+							<td><label for="salary1">Tên hệ số lương năng suất</label></td>
+							<td><input type="text" id="cname-salary"></td>
+						</tr>
+						<tr>
+							<td><label for="salary3">Mức lương năng suất</label></td>
+							<td><input type="text" id="level-csalary"></td>
+						</tr>
+					</table>
+				</div>
+
+				<h4 style="margin-top: 10px;">Thông tin chi tiết về lương cơ
+					bản</h4>
+				<div class="border-bottom" style="margin-top: 10px; margin-left: 30px;">
+					<table class="table">
+						<tr>
+							<td><label for="salary4">Tên lương cơ bản</label></td>
+							<td><input type="text" id="name-basic-salary"></td>
+						</tr>
+						<tr>
+						<tr>
+							<td><label for="salary5">Lương cơ bản</label></td>
+							<td><input type="text" id="basic-salary"></td>
+						</tr>
+					</table>
+				</div>
+
+				<h4 style="margin-top: 10px;">Thông tin chi tiết về lương thưởng</h4>
+				<div class="border-bottom" style="margin-top: 10px; margin-left: 30px;">
+					<table class="table">
+						<tr>
+							<td><label for="salary6">Loại thưởng</label></td>
+							<td><input type="text" id="typebonus"></td>
+						</tr>
+						<tr>
+						<tr>
+							<td><label for="salary7">Tiền thưởng</label></td>
+							<td><input type="text" id="bonuses"></td>
+						</tr>
+					</table>
+				</div>
+
+				<div>
+					<button class="btn btn-info" onclick="document.getElementById('total').style.display='block'"
+						style="float: left; margin-top:10px;">Tính lương</button>
+					
+					<div id="total" style="display: none; margin-left:50px;">
+						<label>Tổng lương</label><p id="total-salary"></p>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#_department').on('change', function (e) {
+				var optionSelected = $("option:selected", this);
+				var valueSelected = this.value;
+				getDepartmentInfo(valueSelected);
+			});
+
+			const getDepartmentInfo = (department_id) => {
+				console.log(department_id);
+				$.ajax({
+					url: `http://localhost:8081/department/${department_id}`,
+					type: 'GET',
+					dataType: 'json',
+					success: function (res) {
+						console.log(res);
+						$('#tbody').html('');
+						for (member of res.members) {
+							$('#tbody').append(`<tr id="idrow"><td>${member.departmant.id}</td> <td>${member.id}</td> <td>${member.name}</td> <td>${member.phone}</td><td><button id="info-detail" type="button" onclick=getSalaryInfo(${member.id}) class="btn btn-info"><span><i class="fa fa-list"></i></span></button></td> </tr>`)
+						}
+					}
+				});
+			}
+		});
+	</script>
+
+	<script type="text/javascript">
+		const getSalaryInfo = (id) => {
+			console.log(id);
+			$.ajax({
+				url: `http://localhost:8081/member/${id}`,
+				type: 'GET',
+				dataType: 'json',
+				success: function (res) {
+					console.log(res);
+					$('#date-create').val(res.salary.basicSalary.createDate)
+					$('#jobtype').val(res.salary.jobType)
+					$('#cname-salary').val(res.salary.allowance.typeAllowance)
+					$('#level-csalary').val(res.salary.allowance.levelOfAllowance)
+					$('#name-basic-salary').val(res.salary.basicSalary.name)
+					$('#basic-salary').val(res.salary.basicSalary.basic_salary)
+					$('#typebonus').val(res.salary.bonus.bonusType)
+					$('#bonuses').val(res.salary.bonus.bonuses)
+				}
+			});
+		}
+		
+		function sumSalary(levelAllowance, bonus, basic_salary) {
+			levelAllowance = parseFloat(document.getElementById("level-csalary").value);
+			bonus = parseFloat(document.getElementById("bonuses").value);
+			basic_salary = parseFloat(document.getElementById("basic-salary").value);
+			console.log(levelAllowance);
+			var sum = levelAllowance * basic_salary + bonus;
+			console.log(sum);
+			document.getElementById("total").innerHTML = sum;
+		}
+	</script>
+</body>
+
+</html>
