@@ -15,6 +15,16 @@
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+<th:block th:if="${msg}">
+
+	<script type="text/javascript">
+		$(window).on('load', function() {
+			$('#myModal').modal('show');
+		});
+	</script>
+
+</th:block>
+
 
 <style>
 .login-form {
@@ -50,16 +60,17 @@
 		<h2>Hệ thống quản lý nhân lực</h2>
 	</div>
 	<div class="login-form">
-		<form th:action="@{/login/check}" method="POST"
-			th:object="${member}">
+		<form th:action="@{/login/check}" method="POST" th:object="${member}">
 			<h3 class="text-center">Thành viên đăng nhập</h3>
 			<div class="form-group">
-				<label>Tài khoản</label> <input th:field=*{username} type="text" class="form-control"
-					placeholder="Nhập tên đăng nhập" required="required">
+				<label>Tài khoản</label> <input th:field=*{username} type="text"
+					class="form-control" placeholder="Nhập tên đăng nhập"
+					required="required">
 			</div>
 			<div class="form-group">
 				<label>Mật khẩu</label> <input type="password" class="form-control"
-					placeholder="Nhập mật khẩu"  th:field=*{password}  required="required">
+					placeholder="Nhập mật khẩu" th:field=*{password}
+					required="required">
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary btn-block">Log
@@ -70,5 +81,36 @@
 				<a href="#" class="float-right">Forgot Password?</a>
 			</div>
 		</form>
+
+
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Lỗi</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<th:block th:if="${msg} == 'user' ">
+							<p>Chưa có tài khoản này, kiểm tra lại hoặc liên hệ với quản trị viên</p>
+						</th:block>
+
+						<th:block th:if="${msg} == 'password' ">
+							<p>Sai mật khẩu</p>
+						</th:block>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save
+							changes</button>
+					</div>
+				</div>
+			</div>
+		</div>
 </body>
 </html>
