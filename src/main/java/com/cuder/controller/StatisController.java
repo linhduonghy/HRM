@@ -59,15 +59,19 @@ public class StatisController {
 				staffs.add(contracts[i].getStaff());
 
 			}
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(contracts[i].getContract_signing_date());
+			int start = cal.get(Calendar.YEAR);
+			cal.setTime(contracts[i].getContract_end_date());
+			int end = cal.get(Calendar.YEAR);
 			for (int j = 0; j < a.length; j++) {
 
-				Calendar cal = Calendar.getInstance();
-				cal.setTime(contracts[i].getContract_signing_date());
-				if ((contracts[i].getContractType().getId() == 1) && (cal.get(Calendar.YEAR) == a[j][0])) {
+				if ((contracts[i].getContractType().getId() == 1) && a[j][0] >= start && a[j][0] <= end) {
+
 					a[j][1]++;
 				}
-			}
 
+			}
 		}
 
 		model.addAttribute("a", a);
@@ -89,29 +93,35 @@ public class StatisController {
 //		
 		List<Staff> staffs = new ArrayList<Staff>();
 
-		String s = year + "-12-31";
-		Date when = java.sql.Date.valueOf(s);
-		System.err.println(when);
+		String s1 = year + "-12-31";
+		String s2 = year + "-01-01";
+		Date end2 = java.sql.Date.valueOf(s1);
+		Date start2 = java.sql.Date.valueOf(s2);
+		
 
 		int a[][] = { { 2019, 0 }, { 2020, 0 }, { 2021, 0 } };
 		Contract[] contracts = template.getForObject("http://localhost:8081/contract", Contract[].class);
 		for (int i = 0; i < contracts.length; i++) {
 
-			if (contracts[i].getContract_signing_date().before(when) && contracts[i].getContractType().getId() == 1) {
+			if ((contracts[i].getContract_signing_date().before(start2)|| contracts[i].getContract_end_date().after(end2))
+					&& contracts[i].getContractType().getId() == 1) {
 				staffs.add(contracts[i].getStaff());
 
 			}
+			Calendar cal = Calendar.getInstance();
+			cal.setTime(contracts[i].getContract_signing_date());
+			int start = cal.get(Calendar.YEAR);
+			cal.setTime(contracts[i].getContract_end_date());
+			int end = cal.get(Calendar.YEAR);
 			for (int j = 0; j < a.length; j++) {
 
-				Calendar cal = Calendar.getInstance();
-				cal.setTime(contracts[i].getContract_signing_date());
-				if ((contracts[i].getContractType().getId() == 1) && (cal.get(Calendar.YEAR) == a[j][0])) {
+				if ((contracts[i].getContractType().getId() == 1) && a[j][0] >= start && a[j][0] <= end) {
+
 					a[j][1]++;
 				}
+
 			}
-
 		}
-
 		model.addAttribute("a", a);
 		model.addAttribute("staffs", staffs);
 		model.addAttribute("year", year);
@@ -122,7 +132,7 @@ public class StatisController {
 	@GetMapping("department")
 	public String showDepartment(Model model, HttpSession session) {
 
-		Department[] departments = template.getForObject("http://localhost:8081/department", Department[] .class);
+		Department[] departments = template.getForObject("http://localhost:8081/department", Department[].class);
 
 		int n = departments.length;
 		String[] dp = new String[n];
@@ -137,7 +147,7 @@ public class StatisController {
 
 //		Date utilDate = new Date();
 //		Date when = new java.sql.Date(utilDate.getTime());
-		String s =  "2021-12-31";
+		String s = "2021-12-31";
 		Date when = java.sql.Date.valueOf(s);
 		System.err.println(when);
 		Contract[] contracts = template.getForObject("http://localhost:8081/contract", Contract[].class);
@@ -152,9 +162,9 @@ public class StatisController {
 
 		for (int i = 0; i < staffs.size(); i++) {
 			for (int j = 0; j < n; j++) {
-				
+
 				if (staffs.get(i).getMember().getDepartment().getDepartment_name().equals(dp[j])) {
-					
+
 					number[j]++;
 				}
 			}
@@ -162,8 +172,7 @@ public class StatisController {
 
 		model.addAttribute("dp", dp);
 		model.addAttribute("number", number);
-		
-		
+
 ////		if(session.getAttribute("msg")!=null) {
 ////			model.addAttribute("msg",session.getAttribute("msg"));
 ////			session.removeAttribute("msg");

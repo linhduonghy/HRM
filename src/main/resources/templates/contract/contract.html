@@ -23,7 +23,7 @@
 
 <body>
 	<div th:replace="fragments/topnav :: navbar"></div>
-	
+
 	<div class="container">
 
 		<h2 class="p-2">
@@ -32,14 +32,6 @@
 					hợp đồng</button>
 			</a>
 		</h2>
-		<!-- Searchbar -->
-		<div class="container searchbar pb-3">
-			<form action="#" method="GET" class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search"
-					placeholder="Nhập tên nhân viên" aria-label="search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm
-					kiếm</button>
-			</form>
 		</div>
 
 		<div class="container">
@@ -55,30 +47,29 @@
 					<th>Xem Hợp đồng</th>
 				</thead>
 				<tbody>
-						<th:block th:each="contract : ${contracts}">
-							<tr th:if = "${contract != null}">
-								<th scope="row" th:text="${contract.id}"></th>
-								<td th:text="${contract.staff.id}"></td>
-								<td th:text="${contract.staff.member.name}"></td>
-								<td class="text-right"
-									th:text="${contract.staff.member.departmant.department_name}"></td>
-								<td th:text="${contract.contractType.contract_type_name}">
-								</td>
-								<td th:text="${contract.contract_signing_date}"></td>
-								<td class="text-center"><a
-									th:href="@{/contract/{id}(id=${contract.id})}"><button
-											class="btn">
-											<i class="fas fa-file"></i>
-										</button></a></td>
-							</tr>
-						</th:block>
-				
+					<th:block th:each="contract : ${contracts}">
+						<tr th:if="${contract != null}">
+							<th scope="row" th:text="${contract.id}"></th>
+							<td th:text="${contract.staff.id}"></td>
+							<td th:text="${contract.staff.member.name}"></td>
+							<td class="text-right"
+								th:text="${contract.staff.member.department.department_name}"></td>
+							<td th:text="${contract.contractType.contract_type_name}"></td>
+							<td th:text="${contract.contract_signing_date}"></td>
+							<td class="text-center"><a
+								th:href="@{/contract/{id}(id=${contract.id})}"><button
+										class="btn">
+										<i class="fas fa-file"></i>
+									</button></a></td>
+						</tr>
+					</th:block>
+
 
 				</tbody>
 			</table>
 
-
 		</div>
+	</div>
 </body>
 
 </html>
