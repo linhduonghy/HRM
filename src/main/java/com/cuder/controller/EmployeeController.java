@@ -30,7 +30,7 @@ public class EmployeeController {
 
 	// get list staff
 	@GetMapping("")
-	public String showAppointForm(Model model) {
+	public String showlistStaff(Model model) {
 		// add model staff
 		Staff[] staffs = rest.getForObject("http://localhost:8081/staff", Staff[].class);
 		model.addAttribute("staffs", staffs);
