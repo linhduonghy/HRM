@@ -14,53 +14,76 @@ import org.springframework.web.client.RestTemplate;
 
 import com.cuder.model.Appointment;
 import com.cuder.model.Department;
+import com.cuder.model.Manager;
 import com.cuder.model.Staff;
+import com.cuder.model.Title;
 
 @Controller
 @RequestMapping(value = "/bussiness")
 public class BussinessController {
+
+	private String apiUrl = "http://localhost:8081";
 	RestTemplate rest = new RestTemplate();
-	
-	// get list staff
+
 	@GetMapping("/appoint")
 	public String showAppointForm(Model model) {
-		// add model staff
-		List<Staff> staffs = rest.getForObject("http://localhost:8081/staff", List.class);
-		model.addAttribute("staffs", staffs);		
+		Appointment[] appointments = rest.getForObject(apiUrl + "/appointment", Appointment[].class);
+		model.addAttribute("appointments", appointments);
+//		System.err.println(appointments);
 		return "bussiness/appoint.html";
 	}
-	
+
 	// add new appointment
-	@GetMapping("/appoint-staff/{id}")
-	public String showAppointStaffForm(@PathVariable int id, Model model) {
-		Staff staff = rest.getForObject("http://localhost:8081/staff/{id}", Staff.class, id);
-		model.addAttribute("staff", staff);
+	@GetMapping("/appoint-staff")
+	public String showAppointStaffForm(Model model) {
+
+		Staff[] staffs = rest.getForObject(apiUrl + "/staff", Staff[].class);
+		model.addAttribute("staffs", staffs);
+
+		Title[] titles = rest.getForObject(apiUrl + "/title", Title[].class);
+		model.addAttribute("titles", titles);
+
+		Department[] departments = rest.getForObject(apiUrl + "/department", Department[].class);
+		model.addAttribute("departments", departments);
+
+		model.addAttribute("appointment", new Appointment());
+
 		return "bussiness/appoint-staff.html";
 	}
-	
+
 	@PostMapping("/appoint-staff")
-	public String appointStaff(@ModelAttribute("staff") Staff staff, Model model) {
-		rest.put("http://localhost:8081/appointment/{id}", staff, staff.getId());
+	public String appointStaff(@ModelAttribute("appointment") Appointment appointment,
+			@RequestParam("department_id") Integer department_id) {
+		
+		Manager m = new Manager();
+		m.setId(1);
+		appointment.setManager(m);
+		
+		Department d = rest.getForObject(apiUrl+"/department/{id}", Department.class, department_id);
+		Staff s = rest.getForObject(apiUrl+"/staff/{id}", Staff.class, appointment.getStaff().getId());
+		s.getMember().setDepartmant(d);
+		
+		appointment = rest.postForObject(apiUrl+"/appointment", appointment, Appointment.class);
+		System.out.println(appointment);
+		
+		rest.put(apiUrl+"/staff/{id}", s, s.getId());
+		
 		return "bussiness/appoint.html";
 	}
-	
-	
-	
-	
+
 	// Lay-off
 	@GetMapping("/lay-off")
 	public String showLayOffForm(Model model) {
 		// add model staff
 		List<Staff> staffs = rest.getForObject("http://localhost:8081/staff", List.class);
 		model.addAttribute("staffs", staffs);
-		
+
 		return "redirect:/lay-off";
 	}
-	
+
 	@PostMapping("/lay-off")
 	public String layOffStaff(@ModelAttribute Staff staff, @RequestParam String reason) {
 
-		
 		return "redirect:/lay-off";
 	}
 }

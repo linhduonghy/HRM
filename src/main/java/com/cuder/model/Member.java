@@ -35,13 +35,11 @@ public class Member implements Serializable {
 	private String sex;
 
 	private String username;
+	
+	private String qualification;
 
 	// bi-directional many-to-one association to Departmant
 	private Department departmant;
-
-	// bi-directional one-to-many association to Degree
-	@ToString.Exclude
-	private List<Degree> degrees;
 
 	// bi-directional one-to-one association to Manager
 	@ToString.Exclude
@@ -51,30 +49,12 @@ public class Member implements Serializable {
 	@ToString.Exclude
 	private Staff staff;
 
-	// bi-directional one-to-many association to MemberPermission
-	@ToString.Exclude
-	private List<MemberPermission> memberPermissions;
-
 	// bi-directional many-to-one association to Salary
 	private Salary salary;
 
 	// bi-directional one-to-many association to TrainingCourse
 	@ToString.Exclude
 	private List<MemberTrainingCource> memberTraningCources;
-
-	public MemberPermission addMemberPermission(MemberPermission memberPermission) {
-		getMemberPermissions().add(memberPermission);
-		memberPermission.setMember(this);
-
-		return memberPermission;
-	}
-
-	public MemberPermission removeMemberPermission(MemberPermission memberPermission) {
-		getMemberPermissions().remove(memberPermission);
-		memberPermission.setMember(null);
-
-		return memberPermission;
-	}
 
 	public MemberTrainingCource addMemberTrainingCources(MemberTrainingCource mtc) {
 		getMemberTraningCources().add(mtc);

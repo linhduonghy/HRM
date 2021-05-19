@@ -2,111 +2,126 @@
 <html>
 
 <head>
-    <meta charset="UTF-8" />
-    <title>Quyết định bổ nhiệm</title>
+<meta charset="UTF-8" />
+<title>Quyết định bổ nhiệm</title>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous" />
-    <link rel="stylesheet" href="/src/main/resources/style.css" />
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/styles/metro/notify-metro.css" />
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+	integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+	crossorigin="anonymous" />
+<link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
-        <a class="navbar-brand brand" href="/src/main/resources/templates/index.html">HRM</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+	<nav class="navbar navbar-expand-lg navbar-light bg-info">
+		<a class="navbar-brand brand"
+			href="/src/main/resources/templates/index.html">HRM</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-        <div class="collapse navbar-collapse" id="navbar-content">
-            <ul class="navbar-nav mr-auto">
-                <!-- Nhân viên -->
-                <li class="nav-item nav-title">
-                    <a class="nav-link" href="/src/main/resources/templates/employee/employee.html"
-                        style="color: black;"><b>Nhân viên</b></a>
-                </li>
-                <!-- Hợp đồng -->
-                <li class="nav-item dropdown nav-title">
-                    <a class="nav-link dropdown-toggle" href="#" id="contract-bar" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" style="color: black">
-                        <b>Hợp đồng</b>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">#</a>
-                        <a class="dropdown-item" href="#">#</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">#</a>
-                    </div>
-                </li>
-                <!-- Quyết định bổ nhiệm -->
-                <li class="nav-item dropdown nav-title">
-                    <a class="nav-link dropdown-toggle" href="#" id="hr-decision" role="button" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false" style="color: black">
-                        <b>Tuyển dụng</b>
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/src/main/resources/templates/recruitment/appoint.html">Quyết
-                            định bổ nhiệm</a>
-                        <a class="dropdown-item" href="/src/main/resources/templates/recruitment/lay-off.html">Quyết
-                            định thôi việc</a>
-                    </div>
-                </li>
-            </ul>
-            <!-- Contact us -->
-            <div class="form-inline my-2 my-lg-0 contact">
-                <!-- <p><i class="fas fa-map-marked fa-fw"></i> 10 Nguyen Trai, Ha Dong, Ha Noi</p> -->
-                <p><i class="fa fa-phone fa-fw"></i> Contact us: 0123 456 789</p>
-            </div>
-        </div>
-    </nav>
+		<div class="collapse navbar-collapse" id="navbar-content">
+			<ul class="navbar-nav mr-auto">
+				<!-- Nhân viên -->
+				<li class="nav-item nav-title"><a class="nav-link"
+					href="/src/main/resources/templates/employee/employee.html"
+					style="color: black;"><b>Nhân viên</b></a></li>
+				<!-- Hợp đồng -->
+				<li class="nav-item dropdown nav-title"><a
+					class="nav-link dropdown-toggle" href="#" id="contract-bar"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false" style="color: black"> <b>Hợp đồng</b>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">#</a> <a class="dropdown-item"
+							href="#">#</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">#</a>
+					</div></li>
+				<!-- Quyết định bổ nhiệm -->
+				<li class="nav-item dropdown nav-title"><a
+					class="nav-link dropdown-toggle" href="#" id="hr-decision"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false" style="color: black"> <b>Tuyển dụng</b>
+				</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item"
+							href="/src/main/resources/templates/recruitment/appoint.html">Quyết
+							định bổ nhiệm</a> <a class="dropdown-item"
+							href="/src/main/resources/templates/recruitment/lay-off.html">Quyết
+							định thôi việc</a>
+					</div></li>
+			</ul>
+			<!-- Contact us -->
+			<div class="form-inline my-2 my-lg-0 contact">
+				<!-- <p><i class="fas fa-map-marked fa-fw"></i> 10 Nguyen Trai, Ha Dong, Ha Noi</p> -->
+				<p>
+					<i class="fa fa-phone fa-fw"></i> Contact us: 0123 456 789
+				</p>
+			</div>
+		</div>
+	</nav>
 
-    <header class="header">
-        Quyết định bổ nhiệm
-    </header>
-    <div class="container">
-        <div class="col">
-            <!-- searchbar -->
-            <div class="container searchbar">
-                <form action="#" method="GET" class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Nhập tên nhân viên"
-                        aria-label="search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
-                </form>
-            </div>
+	<header class="header"> Quyết định bổ nhiệm </header>
+	<div class="container">
+		<div class="col">
+			<!-- searchbar -->
+			<div class="row searchbar">
+				<div class="col-9">
 
-            <!-- Danh sách nhân viên -->
-            <div>
-                <table class="table table-hover table-info" style="max-height: 800px;">
-                    <thead class="head-table">
-                        <th>Mã NV</th>
-                        <th>Tên</th>
-                        <th>Địa chỉ</th>
-                        <th>SĐT</th>
-                        <th>#</th>
-                    </thead>
-                    <tbody>
-                        <tr th:each="staff : ${staffs}">
-                            <td th:text="${staff.id}"></td>
-                            <td th:text="${staff.member.name}"></td>
-                            <td th:text="${staff.member.address}"></td>
-                            <td th:text="${staff.member.phone}"></td>
-                            <td>
-                                <button class="btn btn-success">
-                                <a th:href="@{/bussiness/appoint-staff/{id}(id=${staff.id})}" style="text-decoration: none; color: white;">
-                                Bổ nhiệm</a></button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+					<form action="#" method="GET" class="form-inline my-2 my-lg-0">
+						<input class="form-control mr-sm-2" type="search"
+							placeholder="Nhập tên nhân viên" aria-label="search">
+						<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm
+							kiếm</button>
+					</form>
+				</div>
+				<div class="col-3">
+					<a class="btn btn-success" th:href="@{/bussiness/appoint-staff}">Bổ nhiệm nhân viên</a>
+				</div>
+			</div>
+
+			<!-- Danh sách nhân viên -->
+			<div>
+				<table class="table table-hover table-info"
+					style="max-height: 800px;">
+					<thead class="head-table">
+						<th>#</th>
+						<th>Mã NV</th>
+						<th>Tên</th>
+						<th>Vị trí bổ nhiệm</th>
+						<th>Ngày bổ nhiệm</th>
+
+					</thead>
+					<tbody>
+						<tr th:each="appointment,stat : ${appointments}">
+							<th th:text="${stat.index}">#</th>
+							<td th:text="${appointment.staff.id}"></td>
+							<td th:text="${appointment.staff.member.name}"></td>
+							<td th:text="${appointment.title.title_name}"></td>
+							<td th:text="${appointment.appointed_date}"></td>
+
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
 
 </body>
 
